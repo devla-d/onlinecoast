@@ -1,6 +1,24 @@
 const Footer = () => {
   return (
     <>
+      {/* cta*/}
+      <section
+        className=" call-to-action   setBg   justify-content-center alignCenter"
+        data-bg="/home/bottom.jpg"
+      >
+        <div className="ctaContent">
+          <div className="inner-title" data-aos="fade-right">
+            <h2>Experience a New Digital World.</h2>
+            <p>Mobile banking application with new &amp; exciting features.</p>
+          </div>
+          <div data-aos="fade-left">
+            <a href="#" className="btn btn-primary">
+              Get started
+            </a>
+          </div>
+        </div>
+      </section>
+      {/* cta*/}
       <footer id="homeFooter">
         <div className="row">
           <div className="col-lg-4">

@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import { toggleMobileNav } from "../utils";
 const Nav = () => {
   return (
@@ -15,7 +16,7 @@ const Nav = () => {
           </ul>
           <ul className="navSec unstyled">
             <li>
-              <a href="#">about</a>
+              <NavLink to="/about">about</NavLink>
             </li>
             <li>
               <a href="#">business banking</a>
@@ -55,7 +56,7 @@ const Nav = () => {
         </div>
         <ul className="mobileNav unstyled" id="mobileNav">
           <li data-aos="fade-left" data-aos-delay="100">
-            <a href="#">about</a>
+            <NavLink to="/about">about</NavLink>
           </li>
           <li data-aos="fade-left" data-aos-delay="200">
             <a href="#">business banking</a>

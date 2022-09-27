@@ -472,3 +472,18 @@ $secondary: #e20f38;
     }
   }
 }
+
+// hero section
+.heroSection {
+  width: 100%;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 1.875rem;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  padding: 40px 50px;
+}

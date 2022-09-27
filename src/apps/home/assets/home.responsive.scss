@@ -141,3 +141,12 @@
 
 @media (min-width: 960px) {
 }
+
+@media screen and (min-width: 768px) {
+  .heroSection {
+    background-size: 250%;
+    background-position: center 100px;
+    background-attachment: fixed;
+    font-size: 0.875rem;
+  }
+}

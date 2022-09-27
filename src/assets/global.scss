@@ -17,10 +17,40 @@ body {
 }
 body {
   overflow-x: hidden !important;
+  background: url("/home/bg_main.png");
+  background-position: 50% 0;
+  background-repeat: no-repeat;
+  background-size: cover;
   /* custom scrollbar */
   &::-webkit-scrollbar {
     display: none !important;
   }
+}
+.breadcrumb li {
+  color: $primary;
+  text-transform: capitalize;
+}
+.breadcrumb-item a {
+  font-weight: 500;
+  font-size: 18px;
+  position: relative;
+  z-index: 2;
+  color: $primary;
+}
+.breadcrumb-item.active {
+  font-weight: 500;
+  color: #fff !important;
+  font-size: 18px;
+  position: relative;
+  z-index: 2;
+}
+.breadcrumb-item + .breadcrumb-item::before {
+  content: "\f101" !important;
+  font-family: "Font Awesome 6 Free";
+  font-weight: 600;
+  color: #fff !important;
+  font-size: 18px;
+  left: 0;
 }
 /* custom scrollbar */
 ::-webkit-scrollbar {

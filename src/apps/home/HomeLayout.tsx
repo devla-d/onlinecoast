@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
-import { setBg, sizeFont } from "../../utils";
+import { setBg, sizeFont } from "../../utils/helper";
 import AOS from "aos";
 import "./assets/home.scss";
 import "./assets/home.responsive.scss";
