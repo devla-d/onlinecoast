@@ -1,6 +1,8 @@
+import useUtils from "../../../hooks/useUtils";
 import Hero from "../components/Hero";
 
 const About = () => {
+  useUtils("More about us");
   return (
     <>
       {/* hero section  */}

@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { toggleMobileNav } from "../utils";
 const Nav = () => {
   return (
@@ -15,22 +15,22 @@ const Nav = () => {
             </li>
           </ul>
           <ul className="navSec unstyled">
-            <li>
+            <li data-aos="fade-left" data-aos-delay="100">
               <NavLink to="/about">about</NavLink>
             </li>
-            <li>
+            <li data-aos="fade-left" data-aos-delay="200">
               <a href="#">business banking</a>
             </li>
-            <li>
+            <li data-aos="fade-left" data-aos-delay="300">
               <a href="#">personal banking</a>
             </li>
-            <li>
+            <li data-aos="fade-left" data-aos-delay="400">
               <a href="#">structured solution</a>
             </li>
-            <li>
+            <li data-aos="fade-left" data-aos-delay="500">
               <a href="#">knowledge center</a>
             </li>
-            <li>
+            <li data-aos="fade-left" data-aos-delay="600">
               <a href="#">specialist banking</a>
             </li>
           </ul>
@@ -38,9 +38,9 @@ const Nav = () => {
         <div id="topHeaderTwo">
           <ul className="unstyled">
             <li className="logo">
-              <a href="#">
+              <Link to="/">
                 <img src="/home/logo.png" alt="Logo" />
-              </a>
+              </Link>
             </li>
             <li className="mobNav">
               <button type="button" onClick={() => toggleMobileNav()}>

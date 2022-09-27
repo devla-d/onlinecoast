@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
-import { setBg, sizeFont } from "../../utils/helper";
 import AOS from "aos";
 import "./assets/home.scss";
 import "./assets/home.responsive.scss";
@@ -9,8 +8,6 @@ import Footer from "./components/Footer";
 
 const HomeLayout = () => {
   useEffect(() => {
-    sizeFont();
-    setBg();
     AOS.init({
       offset: 0,
       duration: 1200,
