@@ -31,12 +31,12 @@ const Nav = () => {
               <NavLink to="personal-banking">personal banking</NavLink>
             </li>
             <li data-aos="fade-left" data-aos-delay="400">
-              <a href="#">structured solution</a>
+              <NavLink to="/structured-solution">structured solution</NavLink>
             </li>
-            <li data-aos="fade-left" data-aos-delay="500">
+            {/* <li data-aos="fade-left" data-aos-delay="500">
               <a href="#">knowledge center</a>
-            </li>
-            <li data-aos="fade-left" data-aos-delay="600">
+            </li> */}
+            <li data-aos="fade-left" data-aos-delay="500">
               <a href="#">specialist banking</a>
             </li>
           </ul>
@@ -71,11 +71,11 @@ const Nav = () => {
             <NavLink to="personal-banking">personal banking</NavLink>
           </li>
           <li data-aos="fade-left" data-aos-delay="400">
-            <a href="#">structured solution</a>
+            <NavLink to="/structured-solution">structured solution</NavLink>
           </li>
-          <li data-aos="fade-left" data-aos-delay="500">
+          {/* <li data-aos="fade-left" data-aos-delay="500">
             <a href="#">knowledge center</a>
-          </li>
+          </li> */}
           <li data-aos="fade-left" data-aos-delay="500">
             <a href="#">specialist banking</a>
           </li>
