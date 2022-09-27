@@ -1,10 +1,10 @@
 import React from "react";
 import { HeroInterface } from "../../../utils";
 
-const Hero: React.FC<HeroInterface> = ({ title, currentPage }) => {
+const Hero: React.FC<HeroInterface> = ({ title, currentPage, image }) => {
   return (
     <>
-      <div className="heroSection setBg" data-bg="/home/abouthero.jpg">
+      <div className="heroSection setBg" data-bg={image}>
         <div className="hero-content">
           <div className="breadcrumb-area">
             <h2 className="title text-left">{title}</h2>

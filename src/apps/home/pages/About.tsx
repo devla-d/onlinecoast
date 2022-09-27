@@ -6,7 +6,7 @@ const About = () => {
   return (
     <>
       {/* hero section  */}
-      <Hero title="About us" currentPage="about" />
+      <Hero title="About us" currentPage="about" image="/home/abouthero.jpg" />
       {/* hero section ends  */}
 
       {/* section */}

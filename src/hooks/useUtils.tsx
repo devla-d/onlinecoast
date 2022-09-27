@@ -6,11 +6,8 @@ const useUtils = (pageTitle: string) => {
     sizeFont();
     setBg();
     document.title = pageTitle;
-    console.log("mounting");
 
-    return () => {
-      console.log("unmounting");
-    };
+    return () => {};
   }, [pageTitle]);
   return true;
 };

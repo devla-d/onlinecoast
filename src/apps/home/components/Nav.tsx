@@ -1,6 +1,12 @@
+import { useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { toggleMobileNav } from "../utils";
+import { closeLinks, toggleMobileNav } from "../utils";
 const Nav = () => {
+  useEffect(() => {
+    closeLinks();
+    return () => {};
+  }, []);
+
   return (
     <>
       {/* Header */}
@@ -19,10 +25,10 @@ const Nav = () => {
               <NavLink to="/about">about</NavLink>
             </li>
             <li data-aos="fade-left" data-aos-delay="200">
-              <a href="#">business banking</a>
+              <NavLink to="/business-banking">business banking</NavLink>
             </li>
             <li data-aos="fade-left" data-aos-delay="300">
-              <a href="#">personal banking</a>
+              <NavLink to="personal-banking">personal banking</NavLink>
             </li>
             <li data-aos="fade-left" data-aos-delay="400">
               <a href="#">structured solution</a>
@@ -59,10 +65,10 @@ const Nav = () => {
             <NavLink to="/about">about</NavLink>
           </li>
           <li data-aos="fade-left" data-aos-delay="200">
-            <a href="#">business banking</a>
+            <NavLink to="/business-banking">business banking</NavLink>
           </li>
           <li data-aos="fade-left" data-aos-delay="300">
-            <a href="#">personal banking</a>
+            <NavLink to="personal-banking">personal banking</NavLink>
           </li>
           <li data-aos="fade-left" data-aos-delay="400">
             <a href="#">structured solution</a>

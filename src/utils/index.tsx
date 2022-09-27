@@ -11,4 +11,5 @@ export interface HeroInterface {
   currentPage: string;
   /***  link to page */
   link?: string;
+  image: string;
 }
