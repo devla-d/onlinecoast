@@ -16,7 +16,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 body {
-  overflow-x: hidden;
+  overflow-x: hidden !important;
   /* custom scrollbar */
   &::-webkit-scrollbar {
     display: none !important;
@@ -49,7 +49,9 @@ body {
   -moz-background-size: cover;
   -webkit-background-size: cover;
 }
-
+.text-primary {
+  color: $primary !important;
+}
 a {
   color: $primary !important;
   text-decoration: none !important;

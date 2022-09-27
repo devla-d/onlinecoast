@@ -96,6 +96,47 @@
   .featureBox {
     margin-top: 30px;
   }
+
+  .sectionFour {
+    height: 600px;
+    .secivBox {
+      padding: 10px;
+    }
+  }
+  .sectionV {
+    margin-top: -37px !important;
+  }
+  #homeFooter {
+    height: 100%;
+    .newsLester {
+      margin: 20px 0;
+    }
+  }
+  .call-to-action {
+    height: 300px;
+    background-position: center;
+    .ctaContent {
+      text-align: center;
+      .inner-title {
+        h2 {
+          font-size: 36px;
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}
+@media (min-width: 380px) {
+  .form-subscribe {
+    .submit {
+      right: 25px;
+    }
+  }
+}
+@media (max-width: 380px) {
+  .sectionFour {
+    height: 620px;
+  }
 }
 
 @media (min-width: 960px) {

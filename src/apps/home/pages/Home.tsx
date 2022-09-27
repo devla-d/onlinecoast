@@ -1,82 +1,6 @@
-import { toggleMobileNav } from "../utils";
-
 const Home = () => {
   return (
     <>
-      {/* Header */}
-      <header id="homeHeader">
-        <div id="topHeader">
-          <ul className="supportSec unstyled">
-            <li className="contactUs ">
-              <a href="#">contact us</a>
-            </li>
-            <li className="faqs">
-              <a href="#">faqs</a>
-            </li>
-          </ul>
-          <ul className="navSec unstyled">
-            <li>
-              <a href="#">about</a>
-            </li>
-            <li>
-              <a href="#">business banking</a>
-            </li>
-            <li>
-              <a href="#">personal banking</a>
-            </li>
-            <li>
-              <a href="#">structured solution</a>
-            </li>
-            <li>
-              <a href="#">knowledge center</a>
-            </li>
-            <li>
-              <a href="#">specialist banking</a>
-            </li>
-          </ul>
-        </div>
-        <div id="topHeaderTwo">
-          <ul className="unstyled">
-            <li className="logo">
-              <a href="#">
-                <img src="/home/logo.png" alt="Logo" />
-              </a>
-            </li>
-            <li className="mobNav">
-              <button type="button" onClick={() => toggleMobileNav()}>
-                <i className="fa-solid fa-bars" id="toggleIcon"></i>
-              </button>
-            </li>
-            <li className="auth">
-              <a href="" className="  ">
-                <i className="fa-solid fa-user"></i> Sign in{" "}
-              </a>
-            </li>
-          </ul>
-        </div>
-        <ul className="mobileNav unstyled" id="mobileNav">
-          <li data-aos="fade-left" data-aos-delay="100">
-            <a href="#">about</a>
-          </li>
-          <li data-aos="fade-left" data-aos-delay="200">
-            <a href="#">business banking</a>
-          </li>
-          <li data-aos="fade-left" data-aos-delay="300">
-            <a href="#">personal banking</a>
-          </li>
-          <li data-aos="fade-left" data-aos-delay="400">
-            <a href="#">structured solution</a>
-          </li>
-          <li data-aos="fade-left" data-aos-delay="500">
-            <a href="#">knowledge center</a>
-          </li>
-          <li data-aos="fade-left" data-aos-delay="500">
-            <a href="#">specialist banking</a>
-          </li>
-        </ul>
-      </header>
-      {/* Header ends */}
-
       {/* Banner */}
       <div
         id="bannerCarousel"
@@ -84,7 +8,7 @@ const Home = () => {
         data-bs-ride="carousel"
       >
         <div className="carousel-inner">
-          <div className="carousel-item active item-1 bg-parallax ">
+          <div className="carousel-item active item-1  ">
             <div className="carouselContent">
               <div>
                 <h5 data-aos="fade-up" className="welcomeTxt-1 ">
@@ -98,7 +22,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="carousel-item item-2 bg-parallax ">
+          <div className="carousel-item item-2  ">
             <div className="carouselContent">
               <div>
                 <h5 data-aos="fade-down" className="welcomeTxt-2">
@@ -343,15 +267,87 @@ const Home = () => {
 
       {/* section4 */}
       <section
-        className="in-section sectionFour setBg row justify-content-center alignCenter"
+        className="in-section sectionFour   setBg row justify-content-center alignCenter"
         data-bg="/home/banner4.jpg"
+        data-aos="zoom-in"
       >
-        <div className="col-lg-4">
-          <div className="secivBox"></div>
+        <div className="col-lg-4 col-10">
+          <div className="secivBox">
+            <i className="fa-solid fa-globe"></i>
+            <h4>Supported countries</h4>
+            <p>54</p>
+          </div>
+        </div>
+        <div className="col-lg-4 col-10">
+          <div className="secivBox">
+            <i className="fa-solid fa-globe"></i>
+            <h4>RUNNING DAYS</h4>
+            <p>20028</p>
+          </div>
+        </div>
+
+        <div className="col-lg-4 col-10">
+          <div className="secivBox">
+            <i className="fa-solid fa-globe"></i>
+            <h4>Users</h4>
+            <p>54</p>
+          </div>
         </div>
       </section>
-      {/* section4 */}
-      <section className="in-section"></section>
+      {/* section4  ends*/}
+      {/* section five */}
+      <section
+        className="in-section sectionV setBg row justify-content-center alignCenter"
+        data-bg="/home/in-profit-decor.svg"
+      >
+        <div className="col-lg-10 ">
+          <div className="text-center" data-aos="fade-up">
+            <h2 className="title mt-4 mb-1">
+              LOWER <span>RATE</span>, FOR A <span>LONGER</span> PERIOD
+            </h2>
+            <i className="fas fa-chevron-down text-primary"></i>
+          </div>
+          <div
+            data-aos="fade-up"
+            className="row justify-content-center alignCenter mt-5"
+          >
+            <div className="col-lg-6">
+              <h4 className="mb-4">
+                0% Intro APR* On Purchases And Balance Transfers For 20 Billing
+                Cycles.
+              </h4>
+              <p>
+                A 0% APR credit card with an introductory offer on purchases,
+                balance transfers or both can help you temporarily avoid
+                interest charges and potentially save hundreds of dollars. On
+                this page, you can compare the best 0% APR credit cards
+                available from our partners and get expert advice on how to
+                manage debt responsibly. Reach us to learn more about how it
+                works.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* section five ends  */}
+      {/* cta*/}
+      <section
+        className=" call-to-action   setBg   justify-content-center alignCenter"
+        data-bg="/home/bottom.jpg"
+      >
+        <div className="ctaContent">
+          <div className="inner-title" data-aos="fade-right">
+            <h2>Experience a New Digital World.</h2>
+            <p>Mobile banking application with new &amp; exciting features.</p>
+          </div>
+          <div data-aos="fade-left">
+            <a href="#" className="btn btn-primary">
+              Get started
+            </a>
+          </div>
+        </div>
+      </section>
+      {/* cta*/}
     </>
   );
 };

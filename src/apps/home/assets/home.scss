@@ -1,5 +1,6 @@
 $primary: #00808c;
 $primary-dark: #1e545f;
+$secondary: #e20f38;
 
 #homeHeader {
   background: #fff;
@@ -326,4 +327,148 @@ $primary-dark: #1e545f;
   background-position: 50% -38.2922px;
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
+
+  .secivBox {
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+    i {
+      color: $secondary;
+      font-size: 35px;
+      margin-bottom: 16px;
+    }
+    h4 {
+      text-transform: uppercase;
+      color: #f1f1f1;
+      font-weight: 700;
+      font-size: 22px;
+    }
+    p {
+      color: $secondary;
+      font-size: 35px;
+      font-weight: 600;
+    }
+  }
+}
+
+.sectionV {
+  width: 100%;
+  background-size: 960px 710px;
+  background-position: 20% 30%;
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+
+  background-repeat: no-repeat;
+  .title {
+    span {
+      color: $primary !important;
+    }
+  }
+}
+
+#homeFooter {
+  background: #f7f7f7;
+  padding: 49px;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  .footerContent {
+    h2 {
+      font-size: 26px;
+    }
+    p {
+      font-size: 15px;
+      font-weight: 400;
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      li {
+        a {
+        }
+      }
+    }
+  }
+  .newsLester {
+    h2 {
+      font-size: 26px;
+      margin-bottom: 27px;
+    }
+    .form-subscribe {
+      position: relative;
+      z-index: 1;
+      .form-control {
+        width: 81%;
+      }
+      .submit {
+        background: $primary none repeat scroll 0 0;
+        display: block;
+        float: right;
+        height: 40px;
+        top: 2px;
+        right: 45px;
+        line-height: 40px;
+        position: absolute;
+        text-align: center;
+        width: 40px;
+        color: #fff !important;
+      }
+    }
+  }
+}
+
+.in-padding-large {
+  padding: 40px;
+}
+
+.in-padding-remove-horizontal {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.in-margin-medium-top {
+  margin-top: 40px !important;
+}
+
+.form-control {
+  border-radius: 0 !important;
+}
+
+.call-to-action {
+  width: 100%;
+  height: 200px;
+  background-repeat: no-repeat;
+  background-position: 50% -38.2922px;
+  background-size: cover;
+  position: relative;
+  &::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+
+    background-color: rgba(34, 34, 34, 0.9);
+    z-index: 1;
+  }
+  .ctaContent {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 11;
+    .inner-title {
+      h2 {
+        color: #ffffff;
+      }
+      p {
+        color: #b8b4b1;
+      }
+    }
+  }
 }

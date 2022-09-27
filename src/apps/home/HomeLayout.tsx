@@ -4,6 +4,8 @@ import { setBg, sizeFont } from "../../utils";
 import AOS from "aos";
 import "./assets/home.scss";
 import "./assets/home.responsive.scss";
+import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 
 const HomeLayout = () => {
   useEffect(() => {
@@ -20,7 +22,9 @@ const HomeLayout = () => {
 
   return (
     <>
+      <Nav />
       <Outlet />
+      <Footer />
     </>
   );
 };
