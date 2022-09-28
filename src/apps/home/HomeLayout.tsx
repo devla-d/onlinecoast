@@ -4,7 +4,8 @@ import AOS from "aos";
 import "./assets/home.scss";
 import "./assets/home.responsive.scss";
 import Nav from "./components/Nav";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
+import Footer2 from "./components/Footer2";
 
 const HomeLayout = () => {
   useEffect(() => {
@@ -21,7 +22,8 @@ const HomeLayout = () => {
     <>
       <Nav />
       <Outlet />
-      <Footer />
+
+      <Footer2 />
     </>
   );
 };
