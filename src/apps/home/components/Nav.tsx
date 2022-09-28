@@ -14,10 +14,10 @@ const Nav = () => {
         <div id="topHeader">
           <ul className="supportSec unstyled">
             <li className="contactUs ">
-              <a href="#">contact us</a>
+              <Link to="/contact">contact us</Link>
             </li>
             <li className="faqs">
-              <a href="#">faqs</a>
+              <NavLink to="/faqs">faqs</NavLink>
             </li>
           </ul>
           <ul className="navSec unstyled">
@@ -34,7 +34,7 @@ const Nav = () => {
               <NavLink to="/structured-solution">structured solution</NavLink>
             </li>
             {/* <li data-aos="fade-left" data-aos-delay="500">
-              <a href="#">knowledge center</a>
+              <a href="#">knowledge center </a>
             </li> */}
             <li data-aos="fade-left" data-aos-delay="500">
               <NavLink to="/specialist-banking">specialist banking</NavLink>

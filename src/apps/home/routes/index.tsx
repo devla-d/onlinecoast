@@ -2,6 +2,8 @@ import { RouteInterface } from "../../../utils";
 import { getRandomNumber } from "../../../utils/helper";
 import About from "../pages/About";
 import Business from "../pages/Business";
+import Contact from "../pages/Contact";
+import Faqs from "../pages/Faqs";
 import Home from "../pages/Home";
 import Personal from "../pages/Personal";
 import Specialist from "../pages/Specialist";
@@ -38,6 +40,16 @@ const HomeRoutes: RouteInterface[] = [
     id: getRandomNumber(),
     element: <Specialist />,
     path: "/specialist-banking",
+  },
+  {
+    id: getRandomNumber(),
+    element: <Faqs />,
+    path: "/faqs",
+  },
+  {
+    id: getRandomNumber(),
+    element: <Contact />,
+    path: "/contact",
   },
 ];
 export default HomeRoutes;

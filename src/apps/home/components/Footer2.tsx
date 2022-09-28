@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 const Footer2 = () => {
   return (
     <>
@@ -7,35 +9,35 @@ const Footer2 = () => {
           <div className="container ">
             <nav className="footer-menu ">
               <ul>
-                <li className="active ">
-                  <a href="/">
+                <li className="">
+                  <NavLink to="/">
                     <i className="mm-icon mm1--icon "></i>Home
-                  </a>
+                  </NavLink>
                 </li>
                 <li>
-                  <a href="/about/">
+                  <NavLink to="/about">
                     <i className="mm-icon mm1--icon "></i>About us
-                  </a>
+                  </NavLink>
                 </li>
                 <li>
-                  <a href="/partners/ ">
-                    <i className="mm-icon mm1--icon "></i>For partners
-                  </a>
+                  <NavLink to="/business-banking">
+                    <i className="mm-icon mm1--icon "></i>business banking
+                  </NavLink>
                 </li>
                 <li>
-                  <a href="/faqs/ ">
-                    <i className="mm-icon mm1--icon "></i>FAQ
-                  </a>
+                  <NavLink to="personal-banking">
+                    <i className="mm-icon mm1--icon "></i>personal banking
+                  </NavLink>
                 </li>
                 <li>
-                  <a href="/privacy/">
-                    <i className="mm-icon mm1--icon "></i>Privacy
-                  </a>
+                  <NavLink to="/structured-solution">
+                    <i className="mm-icon mm1--icon "></i>structured solution
+                  </NavLink>
                 </li>
                 <li>
-                  <a href="/support/ ">
-                    <i className="mm-icon mm1--icon "></i>Support
-                  </a>
+                  <NavLink to="/specialist-banking">
+                    <i className="mm-icon mm1--icon "></i>specialist bankin
+                  </NavLink>
                 </li>
               </ul>
             </nav>
@@ -106,7 +108,7 @@ const Footer2 = () => {
                 </div>
                 <div className="col-md-4 order-md-1 ">
                   <div className="copyright ">
-                    Copyright earntruemoney.net
+                    Copyright onlineseacoast
                     <br />
                     All rights reserved © 2019
                   </div>
