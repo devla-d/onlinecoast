@@ -37,7 +37,7 @@ const Nav = () => {
               <a href="#">knowledge center</a>
             </li> */}
             <li data-aos="fade-left" data-aos-delay="500">
-              <a href="#">specialist banking</a>
+              <NavLink to="/specialist-banking">specialist banking</NavLink>
             </li>
           </ul>
         </div>
@@ -77,7 +77,7 @@ const Nav = () => {
             <a href="#">knowledge center</a>
           </li> */}
           <li data-aos="fade-left" data-aos-delay="500">
-            <a href="#">specialist banking</a>
+            <NavLink to="/specialist-banking">specialist banking</NavLink>
           </li>
         </ul>
       </header>

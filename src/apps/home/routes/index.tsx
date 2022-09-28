@@ -4,6 +4,7 @@ import About from "../pages/About";
 import Business from "../pages/Business";
 import Home from "../pages/Home";
 import Personal from "../pages/Personal";
+import Specialist from "../pages/Specialist";
 import StructuredSolution from "../pages/StructuredSolution";
 
 const HomeRoutes: RouteInterface[] = [
@@ -32,6 +33,11 @@ const HomeRoutes: RouteInterface[] = [
     id: getRandomNumber(),
     element: <StructuredSolution />,
     path: "/structured-solution",
+  },
+  {
+    id: getRandomNumber(),
+    element: <Specialist />,
+    path: "/specialist-banking",
   },
 ];
 export default HomeRoutes;
