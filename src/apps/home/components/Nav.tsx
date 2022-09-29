@@ -54,9 +54,9 @@ const Nav = () => {
               </button>
             </li>
             <li className="auth">
-              <a href="" className="  ">
+              <Link to="/sign-up" className="  ">
                 <i className="fa-solid fa-user"></i> Sign in{" "}
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
