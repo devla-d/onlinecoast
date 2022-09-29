@@ -2,15 +2,14 @@ import CustomInput from "@/components/CustomInput";
 import CustomSubmitBtn from "@/components/CustomSubmitBtn";
 import { useFormik } from "formik";
 import { Link } from "react-router-dom";
-import { Loginschema } from "../utils";
+import { ForgotPasswordSchema } from "../utils";
 
-const Login = () => {
+const ForgotPassword = () => {
   const { values, errors, touched, handleBlur, handleChange } = useFormik({
     initialValues: {
-      username: "",
-      password: "",
+      email: "",
     },
-    validationSchema: Loginschema,
+    validationSchema: ForgotPasswordSchema,
     onSubmit(values, formikHelpers) {},
   });
   return (
@@ -18,10 +17,10 @@ const Login = () => {
       <div className="auth-card">
         <div className="authCardHeader">
           <h2 className="font-weight-normal  ">
-            Login into
+            Reset
             <br />
             your
-            <span> account</span>
+            <span> Password</span>
           </h2>
           <h4>
             Don`t have an account? <Link to="/sign-up">click here</Link>
@@ -32,38 +31,26 @@ const Login = () => {
             <div className="mb-3">
               <CustomInput
                 placeholder="*****"
-                name="username"
+                name="email"
                 handleBlur={handleBlur}
                 handleChange={handleChange}
-                label="Username"
-                error={errors.username}
-                touched={touched.username}
-                type={"text"}
-                value={values.username}
+                label="Email"
+                error={errors.email}
+                touched={touched.email}
+                type={"email"}
+                value={values.email}
               />
             </div>
-            <div className="mb-3">
-              <CustomInput
-                placeholder="*****"
-                name="password"
-                handleBlur={handleBlur}
-                handleChange={handleChange}
-                label="Password"
-                error={errors.password}
-                touched={touched.password}
-                type={"password"}
-                value={values.password}
-              />
-            </div>
+
             <div className="smButton">
               <CustomSubmitBtn
                 color="primary"
-                text="Login"
+                text="Submit"
                 loading={true}
                 type="submit"
               />
               <h2>
-                <Link to="/forgot-password">Forgot password?</Link>
+                <Link to="/sign-in">Login?</Link>
               </h2>
             </div>
           </form>
@@ -73,4 +60,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default ForgotPassword;
