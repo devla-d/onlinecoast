@@ -14,6 +14,7 @@ export const RegisterSchema = (activeEmail: string[]) => {
     password: yup
       .string()
       .min(5)
+      .max(12)
       .matches(passwordRules, "Please create a stronger password")
       .required("Password Required"),
 
@@ -23,3 +24,8 @@ export const RegisterSchema = (activeEmail: string[]) => {
       .required("Confirm password is required"),
   });
 };
+
+export const Loginschema = yup.object().shape({
+  username: yup.string().required("Username is required"),
+  password: yup.string().min(5).max(12).required("Password is Required"),
+});

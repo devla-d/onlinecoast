@@ -49,6 +49,12 @@ $secondary: #e20f38;
         flex-wrap: wrap;
         align-items: center;
 
+        &.reg {
+          button {
+            width: 100%;
+          }
+        }
+
         button {
           width: 40%;
         }

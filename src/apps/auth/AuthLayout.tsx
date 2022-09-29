@@ -20,6 +20,9 @@ const AuthLayout = () => {
   return (
     <div className="auth-wrapper" style={{ minHeight: dimensionheight }}>
       <Outlet />
+      <div className="imGBox">
+        <img src="/home/logo.png" alt="Logo" />
+      </div>
     </div>
   );
 };

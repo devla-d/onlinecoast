@@ -1,54 +1,47 @@
 import CustomInput from "@/components/CustomInput";
 import CustomSubmitBtn from "@/components/CustomSubmitBtn";
-
 import { useFormik } from "formik";
 import { Link } from "react-router-dom";
-import { RegisterSchema } from "../utils";
+import { Loginschema } from "../utils";
 
-const Register = () => {
-  const regSchema = RegisterSchema(["samm@mail.com", "admin@mail.com"]);
-
+const Login = () => {
   const { values, errors, touched, handleBlur, handleChange } = useFormik({
     initialValues: {
-      email: "",
+      username: "",
       password: "",
-      confirm_password: "",
     },
-    validationSchema: regSchema,
-    onSubmit(values, formikHelpers) {
-      console.log(values);
-    },
+    validationSchema: Loginschema,
+    onSubmit(values, formikHelpers) {},
   });
-
   return (
     <>
       <div className="auth-card">
         <div className="authCardHeader">
           <h2 className="font-weight-normal  ">
-            Create new
+            Login into
             <br />
-            <span>account</span> with us
+            your
+            <span>account</span>
           </h2>
           <h4>
-            Already have an account? <Link to="/sign-in">click here</Link>
+            Don`t have an account? <Link to="/sign-up">click here</Link>
           </h4>
         </div>
         <div className="authCardBody">
           <form>
             <div className="mb-3">
               <CustomInput
-                placeholder="name@example.com"
-                name="email"
+                placeholder="*****"
+                name="username"
                 handleBlur={handleBlur}
                 handleChange={handleChange}
-                label="Email Address"
-                error={errors.email}
-                touched={touched.email}
-                type={"email"}
-                value={values.email}
+                label="Username"
+                error={errors.username}
+                touched={touched.username}
+                type={"text"}
+                value={values.username}
               />
             </div>
-
             <div className="mb-3">
               <CustomInput
                 placeholder="*****"
@@ -62,28 +55,16 @@ const Register = () => {
                 value={values.password}
               />
             </div>
-
-            <div className="mb-3">
-              <CustomInput
-                placeholder="****"
-                name="confirm_password"
-                handleBlur={handleBlur}
-                handleChange={handleChange}
-                label="Confirm Password"
-                error={errors.confirm_password}
-                touched={touched.confirm_password}
-                type={"password"}
-                value={values.confirm_password}
-              />
-            </div>
-
-            <div className="smButton reg">
+            <div className="smButton">
               <CustomSubmitBtn
                 color="primary"
-                text="Sign Up"
+                text="Login"
                 loading={true}
                 type="submit"
               />
+              <h2>
+                <a href="#">Forgot password?</a>
+              </h2>
             </div>
           </form>
         </div>
@@ -92,4 +73,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;
