@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export interface RouteInterface {
   id: number;
   element: JSX.Element;
@@ -49,3 +51,13 @@ export interface CustomSubmitBtnProps {
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => void;
 }
+
+const BASE_URL = "http://localhost:3000/";
+
+export const axiosPublic = axios.create({
+  baseURL: BASE_URL,
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: false,
+  },
+});

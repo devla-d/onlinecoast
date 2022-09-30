@@ -44,6 +44,13 @@ const CreateAccountDetails = () => {
     }
   };
 
+  useEffect(() => {
+    console.log("mounting");
+    return () => {
+      console.log("unmounting");
+    };
+  }, []);
+
   return (
     <CreateAccContext.Provider
       value={{

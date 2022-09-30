@@ -40,7 +40,6 @@ const CreateAccOne = () => {
       },
     });
 
-  console.log(values);
   return (
     <>
       <div className="auth-card setup">

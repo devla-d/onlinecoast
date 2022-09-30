@@ -1,11 +1,32 @@
+import { axiosPublic } from "@/utils";
+import axios, { AxiosError } from "axios";
 import { useContext, useEffect } from "react";
+import { toast } from "react-toastify";
 import { CreateAccContext } from "../pages/CreateAccountDetails";
 
 const SubmitAccount = () => {
   const { formData } = useContext(CreateAccContext)!;
+  var tr = 1;
+
   useEffect(() => {
-    console.log(formData);
-    return () => {};
+    console.log(tr++, "mounting");
+    let source = axios.CancelToken.source();
+    axiosPublic
+      .post("/create-account", formData, {
+        cancelToken: source.token,
+      })
+      .then(({ data }) => {
+        console.log(data);
+      })
+      .catch((e) => {
+        let err = e as AxiosError;
+        toast.error(err.message);
+        console.log(e);
+      });
+
+    return () => {
+      source.cancel("canceling token");
+    };
   }, []);
 
   return (

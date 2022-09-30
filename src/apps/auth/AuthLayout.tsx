@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./assets/auth.scss";
 import "./assets/auth.responsive.scss";
+import ToastDialog from "@/components/ToastDialog";
 const AuthLayout = () => {
   const [dimensionheight, setDimensions] = useState(window.innerHeight);
 
@@ -18,12 +19,15 @@ const AuthLayout = () => {
   }, []);
 
   return (
-    <div className="auth-wrapper" style={{ minHeight: dimensionheight }}>
-      <Outlet />
-      <div className="imGBox">
-        <img src="/home/logo.png" alt="Logo" />
+    <>
+      <div className="auth-wrapper" style={{ minHeight: dimensionheight }}>
+        <Outlet />
+        <div className="imGBox">
+          <img src="/home/logo.png" alt="Logo" />
+        </div>
       </div>
-    </div>
+      <ToastDialog />
+    </>
   );
 };
 
