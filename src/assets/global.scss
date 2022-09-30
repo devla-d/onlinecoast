@@ -191,7 +191,7 @@ a {
     transform: scale(0.1);
   }
   &:hover {
-    color: #fff;
+    color: #fff !important;
     &::after {
       background: $primary-dark;
       -webkit-transform: scale(1);

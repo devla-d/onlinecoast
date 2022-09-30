@@ -5,10 +5,16 @@ const CustomSubmitBtn = ({
   loading,
   text,
   type,
+  handleClick,
 }: CustomSubmitBtnProps) => {
   return (
     <>
-      <button type={type} className={`btn btn-${color}`} disabled={loading}>
+      <button
+        onClick={handleClick}
+        type={type}
+        className={`btn btn-${color}`}
+        disabled={loading}
+      >
         {loading ? (
           <i className="fa fa-spinner fa-spin fa-1x formLoader"></i>
         ) : null}

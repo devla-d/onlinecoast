@@ -1,11 +1,11 @@
-import { CustomInputProps } from "@/utils";
+import { CustomSelectProps } from "@/utils";
 
-const CustomSelect = (props: CustomInputProps) => {
+const CustomSelect = (props: CustomSelectProps) => {
   const {
     name,
 
     label,
-    handleChange,
+    handleSelectChange,
 
     value,
 
@@ -22,7 +22,7 @@ const CustomSelect = (props: CustomInputProps) => {
       <select
         className={"form-select " + (error && touched ? "is-invalid" : null)}
         aria-label="Default select example"
-        onChange={handleChange}
+        onChange={handleSelectChange}
         name="gender"
         defaultValue={value}
       >

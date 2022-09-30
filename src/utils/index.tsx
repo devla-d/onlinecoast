@@ -18,13 +18,26 @@ export interface CustomInputProps {
   name: string;
   type: string;
   label: string;
-  handleChange: (e: React.ChangeEvent<any>) => void;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleBlur: (e: React.FocusEvent<any, Element>) => void;
   value: string;
   placeholder?: string;
   error?: string | undefined;
   touched?: boolean;
   children?: JSX.Element | JSX.Element[];
+  handleSelectChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+}
+
+export interface CustomSelectProps {
+  name: string;
+  type: string;
+  label: string;
+  value: string;
+  placeholder?: string;
+  error?: string | undefined;
+  touched?: boolean;
+  children?: JSX.Element | JSX.Element[];
+  handleSelectChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
 export interface CustomSubmitBtnProps {
@@ -32,4 +45,7 @@ export interface CustomSubmitBtnProps {
   loading: boolean;
   text: string;
   type: "button" | "submit" | "reset";
+  handleClick?: (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => void;
 }
