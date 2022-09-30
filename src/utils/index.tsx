@@ -24,6 +24,7 @@ export interface CustomInputProps {
   placeholder?: string;
   error?: string | undefined;
   touched?: boolean;
+  children?: JSX.Element | JSX.Element[];
 }
 
 export interface CustomSubmitBtnProps {

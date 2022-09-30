@@ -14,7 +14,7 @@ const CustomInput = (props: CustomInputProps) => {
   } = props;
   return (
     <>
-      <label htmlFor="id_password" className="form-label">
+      <label htmlFor={`id_${name}`} className="form-label">
         {label}
       </label>
       <input

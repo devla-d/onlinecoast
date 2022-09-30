@@ -172,7 +172,7 @@ a {
   border: 2px solid $primary-dark;
   border-color: $primary-dark !important;
   border-radius: 0;
-  color: #fff !important;
+  color: $primary-dark !important;
   z-index: 1;
   transition: all 0.3s ease;
   position: relative;

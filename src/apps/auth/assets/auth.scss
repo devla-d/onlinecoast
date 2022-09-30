@@ -54,6 +54,12 @@ $secondary: #e20f38;
             width: 100%;
           }
         }
+        &.setup {
+          justify-content: space-between;
+          button {
+            width: 46%;
+          }
+        }
 
         button {
           width: 40%;
@@ -71,4 +77,8 @@ $secondary: #e20f38;
     text-align: center;
     margin-bottom: 10px;
   }
+}
+
+.form-select {
+  border-radius: 0 !important;
 }
