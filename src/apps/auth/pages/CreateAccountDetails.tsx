@@ -71,8 +71,6 @@ const CreateAccountDetails = () => {
         }
       })
       .catch((e) => {
-        let err = e as AxiosError;
-        toast.error(err.message);
         console.log(e);
       });
 

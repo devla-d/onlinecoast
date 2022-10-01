@@ -16,7 +16,6 @@ const Register = () => {
   useExdata();
   const existingEmails = useAppSelector((state) => state.user.existingEmails);
   const regSchema = RegisterSchema(existingEmails);
-  console.log(existingEmails);
 
   const sendUser = async (formData: INFormValues) => {
     setloading(true);
@@ -26,12 +25,13 @@ const Register = () => {
         password: formData.password,
       })
       .then(({ data }) => {
-        if (data.error || data.errors) {
+        if (data.errors) {
           if (Array.isArray(data.errors)) {
             data.errors.forEach((err) => {
               toast.error(err);
             });
           }
+        } else if (data.error) {
           toast.error(data.error);
         } else {
           toast.info(data.msg);

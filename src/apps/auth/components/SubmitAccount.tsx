@@ -1,13 +1,16 @@
 import { axiosPublic } from "@/utils";
 import axios, { AxiosError } from "axios";
 import { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { CreateAccContext } from "../pages/CreateAccountDetails";
 
 const SubmitAccount = () => {
+  const navigate = useNavigate();
   const { formData, verifyData } = useContext(CreateAccContext)!;
   const _verifyData = verifyData!.user!;
   const finalData = { ...formData, ..._verifyData };
+
   console.log(finalData);
   var tr = 1;
 
@@ -17,13 +20,22 @@ const SubmitAccount = () => {
     axiosPublic
       .post("/create-new-account", finalData, {
         cancelToken: source.token,
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
       })
       .then(({ data }) => {
-        console.log(data);
+        if (data.msg) {
+          toast.info("Account Created Please Loging");
+          navigate("/sign-in");
+        }
       })
       .catch((e) => {
         let err = e as AxiosError;
-        toast.error(err.message);
+        if (err.response?.data) {
+          let em = err.response.data as any;
+          toast.error(em.error);
+        }
         console.log(e);
       });
 
