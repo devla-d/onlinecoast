@@ -13,6 +13,7 @@ const CreateAccTwo = () => {
     handleNextStep,
     handlePrevStep,
   } = useContext(CreateAccContext)!;
+  console.log(formData);
 
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({

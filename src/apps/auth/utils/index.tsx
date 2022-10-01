@@ -41,7 +41,7 @@ export const ForgotPasswordSchema = yup.object().shape({
 export const CreateAccOneSchema = yup.object().shape({
   first_name: yup.string().required("First name is required"),
   last_name: yup.string().required("Last name is required"),
-  phone_number: yup.string().required("Phone numbers is required"),
+  // phone_number: yup.string().notRequired(),
   date_of_birth: yup.string().required("Date of birth is required"),
   gender: yup.string().required("Gender is required"),
   next_of_kin: yup.string().required("Next of kin is required"),

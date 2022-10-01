@@ -5,6 +5,9 @@ import { useFormik } from "formik";
 import { useContext } from "react";
 import { CreateAccContext } from "../pages/CreateAccountDetails";
 import { CreateAccOneSchema } from "../utils";
+import "react-phone-number-input/style.css";
+import PhoneInput from "react-phone-number-input";
+import { E164Number } from "libphonenumber-js/types";
 
 const CreateAccOne = () => {
   const {
@@ -13,32 +16,45 @@ const CreateAccOne = () => {
 
     handleNextStep,
   } = useContext(CreateAccContext)!;
-  const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
-    useFormik({
-      initialValues: {
-        first_name: formData.first_name,
-        last_name: formData.last_name,
-        phone_number: formData.phone_number,
-        date_of_birth: formData.date_of_birth,
-        gender: formData.gender,
-        next_of_kin: formData.next_of_kin,
-        street_name: formData.street_name,
-        city: formData.city,
-        state: formData.state,
-        country: formData.country,
-        zipcode: formData.zipcode,
+  const {
+    values,
+    errors,
+    touched,
+    handleBlur,
+    handleChange,
+    handleSubmit,
+    setFieldValue,
+  } = useFormik({
+    initialValues: {
+      first_name: formData.first_name,
+      last_name: formData.last_name,
+      phone_number: formData.phone_number,
+      date_of_birth: formData.date_of_birth,
+      gender: formData.gender,
+      next_of_kin: formData.next_of_kin,
+      street_name: formData.street_name,
+      city: formData.city,
+      state: formData.state,
+      country: formData.country,
+      zipcode: formData.zipcode,
 
-        security_pin: formData.security_pin,
-        account_type: formData.account_type,
-        profile_img: formData.profile_img,
-      },
-      validationSchema: CreateAccOneSchema,
+      security_pin: formData.security_pin,
+      account_type: formData.account_type,
+      profile_img: formData.profile_img,
+    },
+    validationSchema: CreateAccOneSchema,
 
-      onSubmit(values) {
-        // console.log(values);
-        handleNextStep(values);
-      },
-    });
+    onSubmit(values) {
+      handleNextStep(values);
+    },
+  });
+
+  const handlePhoneChange = (num: E164Number | undefined) => {
+    console.log(num);
+    if (num) {
+      setFieldValue("phone_number", num);
+    }
+  };
 
   return (
     <>
@@ -82,22 +98,20 @@ const CreateAccOne = () => {
                   />
                 </div>
               </div>
-              <div className="col-lg-6">
+              <div className="col-lg-12">
                 <div className="mb-3">
-                  <CustomInput
-                    placeholder="*****"
-                    name="phone_number"
-                    handleBlur={handleBlur}
-                    handleChange={handleChange}
-                    label="Phone Number"
-                    error={errors.phone_number}
-                    touched={touched.phone_number}
-                    type={"tel"}
+                  <PhoneInput
+                    defaultCountry={"US"}
+                    required={true}
+                    placeholder="Enter phone number"
                     value={values.phone_number}
+                    onChange={(num) => {
+                      handlePhoneChange(num);
+                    }}
                   />
                 </div>
               </div>
-              <div className="col-lg-6">
+              <div className="col-lg-12">
                 <div className="mb-3">
                   <CustomInput
                     placeholder="*****"
