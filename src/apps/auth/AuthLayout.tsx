@@ -25,8 +25,8 @@ const AuthLayout = () => {
         <div className="imGBox">
           <img src="/home/logo.png" alt="Logo" />
         </div>
+        <ToastDialog />
       </div>
-      <ToastDialog />
     </>
   );
 };

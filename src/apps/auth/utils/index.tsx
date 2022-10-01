@@ -93,4 +93,13 @@ export interface CreateAccManager {
   setloading: React.Dispatch<React.SetStateAction<boolean>>;
   handleNextStep: (newData: formDataI) => void;
   handlePrevStep: (newData: formDataI) => void;
+  verifyData: INSignUpVerify | undefined;
+}
+
+export interface INSignUpVerify {
+  error?: string;
+  user?: {
+    email: string;
+    password: string;
+  };
 }

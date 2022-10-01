@@ -23,7 +23,7 @@ const CustomSelect = (props: CustomSelectProps) => {
         className={"form-select " + (error && touched ? "is-invalid" : null)}
         aria-label="Default select example"
         onChange={handleSelectChange}
-        name="gender"
+        name={name}
         defaultValue={value}
       >
         <option value={""} disabled={true} hidden={true}>

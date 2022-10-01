@@ -39,7 +39,6 @@ const CreateAccThtree = () => {
         handleNextStep(values);
       },
     });
-  console.log(errors);
 
   const handleChangeFile = (event: React.ChangeEvent<HTMLInputElement>) => {
     var { target } = event;

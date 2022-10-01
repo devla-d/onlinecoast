@@ -52,7 +52,7 @@ export interface CustomSubmitBtnProps {
   ) => void;
 }
 
-const BASE_URL = "http://localhost:3000/";
+const BASE_URL = "http://localhost:3030/";
 
 export const axiosPublic = axios.create({
   baseURL: BASE_URL,

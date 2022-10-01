@@ -5,14 +5,17 @@ import { toast } from "react-toastify";
 import { CreateAccContext } from "../pages/CreateAccountDetails";
 
 const SubmitAccount = () => {
-  const { formData } = useContext(CreateAccContext)!;
+  const { formData, verifyData } = useContext(CreateAccContext)!;
+  const _verifyData = verifyData!.user!;
+  const finalData = { ...formData, ..._verifyData };
+  console.log(finalData);
   var tr = 1;
 
   useEffect(() => {
     console.log(tr++, "mounting");
     let source = axios.CancelToken.source();
     axiosPublic
-      .post("/create-account", formData, {
+      .post("/create-new-account", finalData, {
         cancelToken: source.token,
       })
       .then(({ data }) => {
