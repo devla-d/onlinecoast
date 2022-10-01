@@ -2,14 +2,18 @@ import CustomInput from "@/components/CustomInput";
 import CustomSelect from "@/components/CustomSelect";
 import CustomSubmitBtn from "@/components/CustomSubmitBtn";
 import { useFormik } from "formik";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CreateAccContext } from "../pages/CreateAccountDetails";
 import { CreateAccOneSchema } from "../utils";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import { E164Number } from "libphonenumber-js/types";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const CreateAccOne = () => {
+  const [startDate, setStartDate] = useState(new Date());
+
   const {
     formData,
     loading,
@@ -71,7 +75,7 @@ const CreateAccOne = () => {
               <div className="col-lg-6">
                 <div className="mb-3">
                   <CustomInput
-                    placeholder="*****"
+                    placeholder="first name"
                     name="first_name"
                     handleBlur={handleBlur}
                     handleChange={handleChange}
@@ -86,7 +90,7 @@ const CreateAccOne = () => {
               <div className="col-lg-6">
                 <div className="mb-3">
                   <CustomInput
-                    placeholder="*****"
+                    placeholder="Last name"
                     name="last_name"
                     handleBlur={handleBlur}
                     handleChange={handleChange}
@@ -113,16 +117,20 @@ const CreateAccOne = () => {
               </div>
               <div className="col-lg-12">
                 <div className="mb-3">
-                  <CustomInput
-                    placeholder="*****"
-                    name="date_of_birth"
-                    handleBlur={handleBlur}
-                    handleChange={handleChange}
-                    label="Date of Birth"
-                    error={errors.date_of_birth}
-                    touched={touched.date_of_birth}
-                    type={"text"}
-                    value={values.date_of_birth}
+                  <label htmlFor="" className="form-label">
+                    Date of Birth(D/M/Y)
+                  </label>
+                  <DatePicker
+                    selected={startDate}
+                    onChange={(date: Date) => {
+                      setFieldValue(
+                        "date_of_birth",
+                        `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`
+                      );
+                      setStartDate(date);
+                    }}
+                    className="form-control"
+                    required={true}
                   />
                 </div>
               </div>
@@ -144,7 +152,7 @@ const CreateAccOne = () => {
               <div className="col-lg-6">
                 <div className="mb-3">
                   <CustomInput
-                    placeholder="*****"
+                    placeholder="Next of Kin"
                     name="next_of_kin"
                     handleBlur={handleBlur}
                     handleChange={handleChange}
