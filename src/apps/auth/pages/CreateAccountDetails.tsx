@@ -37,12 +37,10 @@ const CreateAccountDetails = () => {
   const handleNextStep = (newData: formDataI) => {
     setformData((prev) => ({ ...prev, ...newData }));
 
-    console.log("handling next page");
     setActivesteps((prev) => prev + 1);
   };
 
   const handlePrevStep = (newData: formDataI) => {
-    console.log("prev", activeSteps);
     if (activeSteps === 0) {
       console.log(activeSteps);
     } else {
@@ -52,6 +50,10 @@ const CreateAccountDetails = () => {
   };
 
   useEffect(() => {
+    if (!searchParams.get("authToken")) {
+      toast.error("The  link was invalid");
+      navigate("/sign-up");
+    }
     let source = axios.CancelToken.source();
     axiosPublic
       .post<INSignUpVerify>(

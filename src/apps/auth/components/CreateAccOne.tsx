@@ -54,7 +54,6 @@ const CreateAccOne = () => {
   });
 
   const handlePhoneChange = (num: E164Number | undefined) => {
-    console.log(num);
     if (num) {
       setFieldValue("phone_number", num);
     }
