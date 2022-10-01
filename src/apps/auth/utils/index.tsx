@@ -103,3 +103,22 @@ export interface INSignUpVerify {
     password: string;
   };
 }
+
+export interface INFormValues {
+  email: string;
+  password: string;
+}
+
+export interface INRegisterResponse {
+  errors?: string | string[];
+  error?: string;
+  msg?: string;
+}
+
+export interface INIntialUserSlicer {
+  existingEmails: Array<string>;
+}
+
+export interface INExUserData {
+  existingEmails: Array<string>;
+}

@@ -1,24 +1,61 @@
 import CustomInput from "@/components/CustomInput";
 import CustomSubmitBtn from "@/components/CustomSubmitBtn";
+import useExdata from "@/hooks/useExdata";
+import { useAppDispatch, useAppSelector } from "@/hooks/useStore";
+import { axiosPublic } from "@/utils";
 
 import { useFormik } from "formik";
-import { Link } from "react-router-dom";
-import { RegisterSchema } from "../utils";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { INFormValues, INRegisterResponse, RegisterSchema } from "../utils";
 
 const Register = () => {
-  const regSchema = RegisterSchema(["samm@mail.com", "admin@mail.com"]);
+  const [loading, setloading] = useState(false);
+  const navigate = useNavigate();
+  useExdata();
+  const existingEmails = useAppSelector((state) => state.user.existingEmails);
+  const regSchema = RegisterSchema(existingEmails);
+  console.log(existingEmails);
 
-  const { values, errors, touched, handleBlur, handleChange } = useFormik({
-    initialValues: {
-      email: "",
-      password: "",
-      confirm_password: "",
-    },
-    validationSchema: regSchema,
-    onSubmit(values, formikHelpers) {
-      console.log(values);
-    },
-  });
+  const sendUser = async (formData: INFormValues) => {
+    setloading(true);
+    axiosPublic
+      .post<INRegisterResponse>("/sign-up/", {
+        email: formData.email,
+        password: formData.password,
+      })
+      .then(({ data }) => {
+        if (data.error || data.errors) {
+          if (Array.isArray(data.errors)) {
+            data.errors.forEach((err) => {
+              toast.error(err);
+            });
+          }
+          toast.error(data.error);
+        } else {
+          toast.info(data.msg);
+          navigate("/confirm-mail");
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+    setloading(false);
+  };
+
+  const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
+    useFormik({
+      initialValues: {
+        email: "",
+        password: "",
+        confirm_password: "",
+      },
+      validationSchema: regSchema,
+      onSubmit(values, formikHelpers) {
+        sendUser(values);
+      },
+    });
 
   return (
     <>
@@ -34,7 +71,7 @@ const Register = () => {
           </h4>
         </div>
         <div className="authCardBody">
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <CustomInput
                 placeholder="name@example.com"
@@ -81,7 +118,7 @@ const Register = () => {
               <CustomSubmitBtn
                 color="primary"
                 text="Sign Up"
-                loading={true}
+                loading={loading}
                 type="submit"
               />
             </div>
