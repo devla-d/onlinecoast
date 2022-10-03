@@ -3,6 +3,9 @@ import AuthLayout from "./apps/auth/AuthLayout";
 import AuthRoutes from "./apps/auth/routes";
 import HomeLayout from "./apps/home/HomeLayout";
 import HomeRoutes from "./apps/home/routes";
+import Protected from "./apps/users/components/Protected";
+import UserRoutes from "./apps/users/routes";
+import UserLayout from "./apps/users/UserLayout";
 
 const Routers = () => {
   return (
@@ -17,6 +20,13 @@ const Routers = () => {
           {AuthRoutes.map((elm) => (
             <Route element={elm.element} path={elm.path} key={elm.id} />
           ))}
+        </Route>
+        <Route element={<Protected />}>
+          <Route element={<UserLayout />}>
+            {UserRoutes.map((com) => (
+              <Route element={com.element} path={com.path} key={com.id} />
+            ))}
+          </Route>
         </Route>
       </Routes>
     </>

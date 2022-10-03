@@ -1,17 +1,54 @@
 import CustomInput from "@/components/CustomInput";
 import CustomSubmitBtn from "@/components/CustomSubmitBtn";
-import { useFormik } from "formik";
-import { Link } from "react-router-dom";
-import { ForgotPasswordSchema } from "../utils";
+import { axiosPublic } from "@/utils";
+import { AxiosError } from "axios";
+import { FormikValues, useFormik } from "formik";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { ForgotPasswordSchema, INForgotPassworResponse } from "../utils";
 
 const ForgotPassword = () => {
-  const { values, errors, touched, handleBlur, handleChange } = useFormik({
-    initialValues: {
-      email: "",
-    },
-    validationSchema: ForgotPasswordSchema,
-    onSubmit(values, formikHelpers) {},
-  });
+  const navigate = useNavigate();
+  const [loading, setloading] = useState(false);
+  const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
+    useFormik({
+      initialValues: {
+        email: "",
+      },
+      validationSchema: ForgotPasswordSchema,
+      onSubmit(values, formikHelpers) {
+        sendEmail(values);
+      },
+    });
+
+  const sendEmail = async (val: FormikValues) => {
+    setloading(true);
+    try {
+      const { data } = await axiosPublic.post<INForgotPassworResponse>(
+        "/forgot-password/",
+        val
+      );
+      if (data.errors) {
+        if (Array.isArray(data.errors)) {
+          data.errors.forEach((err) => {
+            toast.error(err);
+          });
+        } else {
+          toast.error(data.errors);
+        }
+        setloading(false);
+        return false;
+      }
+      navigate("/confirm-mail");
+    } catch (error) {
+      let err = error as AxiosError;
+
+      toast.error(err.message);
+      setloading(false);
+    }
+  };
+
   return (
     <>
       <div className="auth-card">
@@ -27,7 +64,7 @@ const ForgotPassword = () => {
           </h4>
         </div>
         <div className="authCardBody">
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <CustomInput
                 placeholder="*****"
@@ -46,7 +83,7 @@ const ForgotPassword = () => {
               <CustomSubmitBtn
                 color="primary"
                 text="Submit"
-                loading={true}
+                loading={loading}
                 type="submit"
               />
               <h2>

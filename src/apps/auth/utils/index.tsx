@@ -73,6 +73,20 @@ export const SecuritySchema = yup.object().shape({
     .required("Security pin is required"),
 });
 
+export const ResetPasswordSchema = yup.object().shape({
+  newpassword: yup
+    .string()
+    .min(5)
+    .max(12)
+    .matches(passwordRules, "Please create a stronger password")
+    .required("New Password Required"),
+
+  confirmnewpassword: yup
+    .string()
+    .oneOf([yup.ref("newpassword"), null], "Passwords must match")
+    .required("Confirm password is required"),
+});
+
 export interface formDataI {
   first_name: string;
   last_name: string;
@@ -177,4 +191,26 @@ export interface INLoginContext {
   >;
   currentStep: number;
   setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
+}
+
+export interface INForgotPassworResponse {
+  errors?: string[] | string;
+  msg?: string;
+}
+
+export interface INJWTPayload {
+  email: string;
+  id: number;
+  iat: string;
+  exp: string;
+}
+
+export interface INResetVerifyResponse {
+  user?: INJWTPayload;
+  errors?: string;
+}
+
+export interface INResetPasswordResponse {
+  msg?: string;
+  errors?: string[];
 }

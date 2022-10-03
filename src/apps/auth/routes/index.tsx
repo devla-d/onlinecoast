@@ -5,6 +5,7 @@ import CreateAccountDetails from "../pages/CreateAccountDetails";
 import ForgotPassword from "../pages/ForgotPassword";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import ResetPassword from "../pages/ResetPassword";
 
 const AuthRoutes: RouteInterface[] = [
   {
@@ -31,6 +32,11 @@ const AuthRoutes: RouteInterface[] = [
     id: getRandomNumber(),
     element: <ConfirmEmail />,
     path: "/confirm-mail",
+  },
+  {
+    id: getRandomNumber(),
+    element: <ResetPassword />,
+    path: "/reset-password",
   },
 ];
 

@@ -59,5 +59,6 @@ export const axiosPublic = axios.create({
   headers: {
     "Content-Type": "application/json",
     Authorization: false,
+    "x-app-key": "d619d4deb806",
   },
 });
