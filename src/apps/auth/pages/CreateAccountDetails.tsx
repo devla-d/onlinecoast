@@ -64,7 +64,6 @@ const CreateAccountDetails = () => {
         }
       )
       .then(({ data }) => {
-        console.log(data);
         if (data.error) {
           toast.error("The confirmation link was invalid");
           navigate("/sign-up");

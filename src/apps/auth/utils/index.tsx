@@ -65,6 +65,14 @@ export const CreateAccThreeSchema = yup.object().shape({
   // profile_img: yup.mixed().required("File is required"),
 });
 
+export const SecuritySchema = yup.object().shape({
+  security_code: yup
+    .string()
+    .min(4, "Security pin must be 4 characters long")
+    .max(4, "Security pin must be 4 characters long")
+    .required("Security pin is required"),
+});
+
 export interface formDataI {
   first_name: string;
   last_name: string;
@@ -115,10 +123,58 @@ export interface INRegisterResponse {
   msg?: string;
 }
 
+export interface INUSER {
+  id: number;
+  createdAt: string;
+  updatedAt: string;
+  email: string;
+  account_number: string;
+  balance: number;
+  first_name: string;
+  last_name: string;
+  phone_number: string;
+  date_of_birth: string;
+  gender: string;
+  next_of_kin: string;
+  street_name: string;
+  city: string;
+  state: string;
+  country: string;
+  zipcode: string;
+  security_pin: string;
+  account_type: string;
+  profile_img: string;
+  roles: string;
+  is_active: string;
+  password: string;
+}
+
 export interface INIntialUserSlicer {
   existingEmails: Array<string>;
+  user?: INUSER;
+  refreshToken: string;
+  accessToken: string;
 }
 
 export interface INExUserData {
   existingEmails: Array<string>;
+}
+
+export interface INLOGINRESPONSE {
+  user: INUSER;
+  msg: string;
+  accessToken: string;
+  refreshToken: string;
+  errors: string | Array<string>;
+}
+
+export interface INLoginContext {
+  loading: boolean;
+  setloading: React.Dispatch<React.SetStateAction<boolean>>;
+  storeDate: INLOGINRESPONSE | undefined;
+  setstoreDate: React.Dispatch<
+    React.SetStateAction<INLOGINRESPONSE | undefined>
+  >;
+  currentStep: number;
+  setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
 }
