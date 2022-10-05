@@ -2,6 +2,7 @@ import CustomInput from "@/components/CustomInput";
 import CustomSubmitBtn from "@/components/CustomSubmitBtn";
 import useExdata from "@/hooks/useExdata";
 import { useAppDispatch, useAppSelector } from "@/hooks/useStore";
+import useUtils from "@/hooks/useUtils";
 import { axiosPublic } from "@/utils";
 
 import { useFormik } from "formik";
@@ -11,6 +12,7 @@ import { toast } from "react-toastify";
 import { INFormValues, INRegisterResponse, RegisterSchema } from "../utils";
 
 const Register = () => {
+  useUtils("Create a new account");
   const [loading, setloading] = useState(false);
   const navigate = useNavigate();
   useExdata();

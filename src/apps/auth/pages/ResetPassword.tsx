@@ -1,5 +1,6 @@
 import CustomInput from "@/components/CustomInput";
 import CustomSubmitBtn from "@/components/CustomSubmitBtn";
+import useUtils from "@/hooks/useUtils";
 import { axiosPublic } from "@/utils";
 import axios, { AxiosError } from "axios";
 import { useFormik } from "formik";
@@ -14,6 +15,7 @@ import {
 } from "../utils";
 
 const ResetPassword = () => {
+  useUtils("Reset password");
   const navigate = useNavigate();
   const [loading, setloading] = useState(false);
   const [user, setUser] = useState<INJWTPayload>();

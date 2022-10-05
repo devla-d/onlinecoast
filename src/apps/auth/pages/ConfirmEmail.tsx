@@ -1,4 +1,7 @@
+import useUtils from "@/hooks/useUtils";
+
 const ConfirmEmail = () => {
+  useUtils("Confirm your email");
   return (
     <>
       <div className="auth-card">

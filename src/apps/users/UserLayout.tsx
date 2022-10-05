@@ -179,6 +179,12 @@ const UserLayout = () => {
             <li className="sub-header">
               <span>SELF SERVICE</span>
             </li>
+            <li>
+              <a href="#">
+                <i className="fa-solid fa-book"></i>
+                <span>standing order</span>
+              </a>
+            </li>{" "}
           </ul>
         </div>
         {/* side bar ends */}

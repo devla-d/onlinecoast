@@ -1,3 +1,4 @@
+import useUtils from "@/hooks/useUtils";
 import { createContext, useState } from "react";
 import LoginStep from "../components/LoginStep";
 import { INLoginContext, INLOGINRESPONSE } from "../utils";
@@ -7,6 +8,7 @@ export const LoginContext = createContext<INLoginContext | undefined>(
 );
 
 const Login = () => {
+  useUtils("Login into your account");
   const [loading, setloading] = useState(false);
   const [storeDate, setstoreDate] = useState<INLOGINRESPONSE>();
   const [currentStep, setCurrentStep] = useState(0);

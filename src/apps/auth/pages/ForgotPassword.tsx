@@ -1,5 +1,6 @@
 import CustomInput from "@/components/CustomInput";
 import CustomSubmitBtn from "@/components/CustomSubmitBtn";
+import useUtils from "@/hooks/useUtils";
 import { axiosPublic } from "@/utils";
 import { AxiosError } from "axios";
 import { FormikValues, useFormik } from "formik";
@@ -9,6 +10,7 @@ import { toast } from "react-toastify";
 import { ForgotPasswordSchema, INForgotPassworResponse } from "../utils";
 
 const ForgotPassword = () => {
+  useUtils("Forgot password");
   const navigate = useNavigate();
   const [loading, setloading] = useState(false);
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =

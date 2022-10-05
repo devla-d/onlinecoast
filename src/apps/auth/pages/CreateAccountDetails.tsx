@@ -1,3 +1,4 @@
+import useUtils from "@/hooks/useUtils";
 import { axiosPublic } from "@/utils";
 import axios, { AxiosError } from "axios";
 import { createContext, useEffect, useRef, useState } from "react";
@@ -11,6 +12,7 @@ export const CreateAccContext = createContext<CreateAccManager | undefined>(
 );
 
 const CreateAccountDetails = () => {
+  useUtils("Complete account setup");
   const navigate = useNavigate();
   const [verifyData, setverifyData] = useState<INSignUpVerify>();
   const [formData, setformData] = useState<formDataI>({
