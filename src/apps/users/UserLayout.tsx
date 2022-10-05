@@ -3,6 +3,7 @@ import "./assets/user.scss";
 import "./assets/user.responsive.scss";
 import { useEffect } from "react";
 import AOS from "aos";
+import { toggleSidebar } from "./utils";
 const UserLayout = () => {
   useEffect(() => {
     AOS.init({
@@ -42,7 +43,7 @@ const UserLayout = () => {
                 data-aos="fade-left"
                 data-aos-delay="300"
               >
-                <a href="#">
+                <a href="#" id="toogleSidebar" onClick={() => toggleSidebar()}>
                   <i className="fa-solid fa-bars"></i>
                 </a>
               </li>
@@ -170,25 +171,33 @@ const UserLayout = () => {
                 <span>international transfer</span>
               </a>
             </li>{" "}
-            <li>
-              <a href="#">
-                <i className="fa-solid fa-book"></i>
-                <span>standing order</span>
-              </a>
-            </li>{" "}
             <li className="sub-header">
               <span>SELF SERVICE</span>
             </li>
             <li>
               <a href="#">
-                <i className="fa-solid fa-book"></i>
-                <span>standing order</span>
+                <i className="fa-solid fa-credit-card"></i>
+                <span>card application</span>
               </a>
-            </li>{" "}
+            </li>
+            <li>
+              <a href="#">
+                <i className="fa-solid fa-lock"></i>
+                <span>change password</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i className="fa-solid fa-key"></i>
+                <span>Reset pin</span>
+              </a>
+            </li>
           </ul>
         </div>
         {/* side bar ends */}
-        <Outlet />
+        <div className="wrapper-inner-content">
+          <Outlet />
+        </div>
       </div>
     </div>
   );

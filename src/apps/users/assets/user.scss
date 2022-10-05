@@ -157,12 +157,38 @@ ul {
     system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
     sans-serif;
   min-height: 100vh;
+  .wrapper-inner-content {
+    width: 100%;
+
+    overflow-x: hidden;
+  }
 }
 #sideBar {
   min-height: calc(100vh - 86px);
   background-color: #fff;
   border-right: 1px solid #e3e3e3;
   width: 300px;
+  transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  &.toggled {
+    overflow: visible;
+
+    width: 78px !important;
+
+    ul {
+      li {
+        &.sub-header {
+          display: none;
+        }
+        a {
+          span {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
   ul {
     list-style: none;
     padding: 0;
@@ -219,8 +245,8 @@ ul {
           color: $primary;
           font-size: 21px;
           display: block;
-          padding: 1rem 1rem 1rem 0rem;
-          width: 70px;
+          padding: 10px;
+          width: 47px;
           text-align: center;
           -webkit-transition: all 0.2s ease;
           transition: all 0.2s ease;

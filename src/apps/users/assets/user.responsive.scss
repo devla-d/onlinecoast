@@ -11,6 +11,25 @@
   #userHeader nav .menu ul:not(.dropdown-menu) {
     margin-bottom: -10px;
   }
+  #sideBar {
+    width: 0;
+    overflow: hidden;
+    &.toggled {
+      width: 100vw !important;
+      ul {
+        li {
+          &.sub-header {
+            display: block;
+          }
+          a {
+            span {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 @media (min-width: 767px) {
