@@ -5,7 +5,7 @@ const useUtils = (pageTitle: string) => {
   useEffect(() => {
     sizeFont();
     setBg();
-    document.title = pageTitle;
+    document.title = `${pageTitle} | onlineseacoast`;
 
     return () => {};
   }, [pageTitle]);
