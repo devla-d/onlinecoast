@@ -1,8 +1,18 @@
 import useUtils from "@/hooks/useUtils";
 import BreadcrumNav from "../components/BreadcrumNav";
+import TxtCard from "../components/TxtCard";
+import { TransactionIn } from "../utils";
 
 const Dashboard = () => {
   useUtils("Account overview");
+  const transaction: TransactionIn = {
+    amount: 200,
+    id: 2,
+    mode: "debit",
+    date: new Date().toString(),
+    status: "pending",
+    ref: "xxxxxxxxxx",
+  };
 
   return (
     <>
@@ -74,6 +84,9 @@ const Dashboard = () => {
                 <a href="#">
                   more <i className="fa-solid fa-angle-right"></i>
                 </a>
+              </div>
+              <div className="recentTxtBody">
+                <TxtCard transaction={transaction} />
               </div>
             </div>
           </div>

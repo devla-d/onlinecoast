@@ -159,7 +159,7 @@ ul {
   transition: all 0.6s ease;
   font-family: "Avenir Next W01", "Proxima Nova W01", "Rubik", -apple-system,
     system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
-    sans-serif;
+    sans-serif !important;
   min-height: 100vh;
   .wrapper-inner-content {
     margin-top: 100px;
@@ -320,5 +320,71 @@ ul {
   .ibTitle {
     font-size: 20px;
     font-weight: 600;
+  }
+}
+
+.recentTxt {
+  margin-top: 25px;
+  .recentTxtHeade {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    h3 {
+      font-size: 20px;
+      font-weight: 600;
+      font-family: proxima-nova;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.in-trans-card {
+  border-top: 1px solid #e3e3e3;
+  border-bottom: 1px solid #e3e3e3;
+  height: 80px;
+  margin-bottom: 10px;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  box-shadow: 0 14px 25px #00000029;
+  .trans-icon {
+    width: 50px;
+    height: 50px;
+    background-color: gray;
+    border-radius: 50px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  .trans-name {
+    width: 50%;
+    h4 {
+      margin-bottom: 0;
+      text-transform: capitalize;
+    }
+    p {
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+  }
+  .trans-amount {
+    h4 {
+      margin-bottom: 5px;
+      font-size: 20px;
+    }
   }
 }

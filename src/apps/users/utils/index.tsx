@@ -1,3 +1,5 @@
+import { INUSER } from "@/apps/auth/utils";
+
 export const toggleSidebar = () => {
   var sidebar = document.getElementById("sideBar") as HTMLElement;
   var sidebarToggler = document.querySelector("a#toogleSidebar i") as Element;
@@ -16,4 +18,20 @@ export const toggleSidebar = () => {
 export interface BreadcrumNavIn {
   pagenavTitle: string;
   currentPage: string;
+}
+
+export interface TransactionIn {
+  id: number;
+  // user: INUSER;
+  amount: number;
+  date: string;
+
+  status: string;
+  mode: string;
+
+  ref: string;
+}
+
+export interface TxtCardIn {
+  transaction: TransactionIn;
 }
