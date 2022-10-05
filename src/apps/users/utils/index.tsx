@@ -12,3 +12,8 @@ export const toggleSidebar = () => {
     sidebar.classList.remove("toggled");
   }
 };
+
+export interface BreadcrumNavIn {
+  pagenavTitle: string;
+  currentPage: string;
+}
