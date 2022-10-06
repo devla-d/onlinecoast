@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { TxtCardIn } from "../utils";
 
 const TxtCard = ({ transaction }: TxtCardIn) => {
@@ -26,9 +27,9 @@ const TxtCard = ({ transaction }: TxtCardIn) => {
         <div className="trans-amount">{trxAmount}</div>
         <div className="trans-detail">
           <div>
-            <a href="#" className="">
+            <Link to={`/transactions-log/${transaction.id}`} className="">
               <i className="fas fa-angle-right"></i>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
