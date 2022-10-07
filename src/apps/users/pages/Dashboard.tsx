@@ -55,7 +55,10 @@ const Dashboard = () => {
                 </h5>
                 <p>Send an E-mail to your Accout manager</p>
                 <div className="alert-btn">
-                  <a className="btn btn-primary white-gold" href="#">
+                  <a
+                    className="btn btn-primary white-gold"
+                    href="mailto:samuelaniekan680@mail.com"
+                  >
                     <i className="os-icon os-icon-ui-92"></i>
                     <span>Open a Ticket</span>
                   </a>
