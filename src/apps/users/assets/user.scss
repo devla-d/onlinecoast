@@ -459,7 +459,6 @@ ul {
     form {
       .form-label {
         text-transform: capitalize;
-        text-transform: capitalize;
         font-family: " proxima-nova", sans-serif;
       }
       .form-control {
@@ -528,6 +527,63 @@ ul {
           p {
             margin-bottom: 5px;
           }
+        }
+      }
+    }
+  }
+}
+
+.creditCard {
+  border-radius: 12px;
+  -webkit-box-shadow: 0 4px 8px -1px rgb(29 32 47 / 22%);
+  box-shadow: 0 4px 8px -1px rgb(29 32 47 / 22%);
+  background-color: #f5a623;
+  color: #fff;
+  overflow: visible;
+
+  padding: 18px 18px 14px 20px;
+  .creditCardName {
+    h4 {
+      font-size: 20px;
+
+      text-transform: capitalize;
+      font-family: " proxima-nova", sans-serif;
+    }
+  }
+  .creditCardNumber {
+    padding: 20px 0;
+    ul {
+      padding-left: 0;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      li {
+        width: 25%;
+        // text-align: center;
+        text-transform: capitalize;
+        font-family: " proxima-nova", sans-serif;
+      }
+      // justify-content: space-between;
+    }
+  }
+  .creditCardFooter {
+    ul {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      li {
+        p {
+          font-size: 18px;
+          text-transform: capitalize;
+          margin-bottom: 10px;
+          font-family: " proxima-nova", sans-serif;
+        }
+        h4 {
+          text-align: center;
+          font-size: 15.8px;
+          font-family: " proxima-nova", sans-serif;
         }
       }
     }
