@@ -35,9 +35,11 @@ body {
 body {
   overflow-x: hidden !important;
   background: url("/home/bg_main.png");
+
   background-position: 50% 0;
   background-repeat: no-repeat;
   background-size: cover;
+  z-index: 1;
   /* custom scrollbar */
   &::-webkit-scrollbar {
     display: none !important;

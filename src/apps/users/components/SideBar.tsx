@@ -1,6 +1,24 @@
+import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { clossSideBar } from "../utils";
 
 const SideBar = () => {
+  useEffect(() => {
+    var links = document.querySelectorAll("#sideBar ul li a");
+
+    if (window.innerWidth < 767) {
+      links.forEach((link) => {
+        link.addEventListener("click", function (e) {
+          clossSideBar();
+        });
+      });
+    }
+
+    return () => {
+      links.forEach((e) => e.removeEventListener("click", function () {}));
+    };
+  }, []);
+
   return (
     <>
       <div id="sideBar">
@@ -55,26 +73,26 @@ const SideBar = () => {
             </NavLink>
           </li>
           <li>
-            <a href="#">
+            <NavLink to="/other-transfer">
               <i className="fa-solid fa-random"></i>
               <span>Transfer to other bank</span>
-            </a>
+            </NavLink>
           </li>{" "}
           <li>
-            <a href="#">
+            <NavLink to="/international-transfer">
               <i className="fa-solid fa-globe"></i>
               <span>international transfer</span>
-            </a>
+            </NavLink>
           </li>{" "}
           <li className="sub-header">
             <span>SELF SERVICE</span>
           </li>
-          <li>
+          {/* <li>
             <a href="#">
               <i className="fa-solid fa-credit-card"></i>
               <span>card application</span>
             </a>
-          </li>
+          </li> */}
           <li>
             <a href="#">
               <i className="fa-solid fa-lock"></i>

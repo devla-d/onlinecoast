@@ -8,6 +8,7 @@ import SideBar from "./components/SideBar";
 
 const UserLayout = () => {
   useEffect(() => {
+    document.body.classList.add("users");
     AOS.init({
       offset: 0,
       duration: 1200,

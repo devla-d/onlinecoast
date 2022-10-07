@@ -1,7 +1,7 @@
 import CustomSubmitBtn from "@/components/CustomSubmitBtn";
 import BreadcrumNav from "../components/BreadcrumNav";
 
-const TransferToOther = () => {
+const InternationalTransfer = () => {
   return (
     <>
       <div className="container">
@@ -22,7 +22,7 @@ const TransferToOther = () => {
 
           <div className="col-lg-8">
             <div className="transferCard">
-              <p>Transfer to other bank</p>
+              <p>International transfer</p>
               <form action="">
                 <div className="row">
                   <div className="col-lg-6 mb-3">
@@ -51,7 +51,7 @@ const TransferToOther = () => {
                   </div>
                   <div className="col-lg-6 mb-3">
                     <label htmlFor={`id_name`} className="form-label">
-                      Phone(if any)
+                      City (if any)
                     </label>
                     <input
                       type="text"
@@ -63,7 +63,7 @@ const TransferToOther = () => {
                   </div>
                   <div className="col-lg-6 mb-3">
                     <label htmlFor={`id_name`} className="form-label">
-                      Email (if any)
+                      Country (if any)
                     </label>
                     <input
                       type="text"
@@ -165,4 +165,4 @@ const TransferToOther = () => {
   );
 };
 
-export default TransferToOther;
+export default InternationalTransfer;
