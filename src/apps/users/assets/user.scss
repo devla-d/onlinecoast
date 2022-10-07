@@ -66,7 +66,9 @@ ul {
     border: 0;
   }
 }
-
+.align-item-center {
+  align-items: center !important;
+}
 .media {
   display: flex;
 
@@ -585,6 +587,102 @@ ul {
           font-size: 15.8px;
           font-family: " proxima-nova", sans-serif;
         }
+      }
+    }
+  }
+}
+.cardDetails {
+  border-radius: 6px;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 2px 4px rgb(126 142 177 / 12%);
+  box-shadow: 0px 2px 4px rgb(126 142 177 / 12%);
+  padding: 20px;
+  margin-bottom: 20px;
+  h3 {
+    text-transform: capitalize;
+    font-family: " proxima-nova", sans-serif;
+    margin-bottom: 20px;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    li {
+      &:not(:last-of-type) {
+        border-bottom: 1px solid #f3efef !important;
+      }
+      padding: 14px 0;
+
+      p {
+        color: #b2bac1;
+        text-transform: capitalize;
+        font-family: " proxima-nova", sans-serif;
+      }
+      h4 {
+        font-size: 20px;
+        text-transform: capitalize;
+        font-family: " proxima-nova", sans-serif;
+      }
+    }
+  }
+}
+
+.amountBox {
+  border-radius: 6px;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 2px 4px rgb(126 142 177 / 12%);
+  box-shadow: 0px 2px 4px rgb(126 142 177 / 12%);
+  padding: 20px;
+  margin-bottom: 10px;
+  h4 {
+    color: #b2bac1;
+    text-transform: capitalize;
+    font-size: 20px;
+  }
+  h2 {
+    text-transform: capitalize;
+    font-family: " proxima-nova", sans-serif;
+  }
+}
+
+.transferCard {
+  border-radius: 6px;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 2px 4px rgb(126 142 177 / 12%);
+  box-shadow: 0px 2px 4px rgb(126 142 177 / 12%);
+  padding: 20px;
+  margin-bottom: 20px;
+  > p {
+    &::after {
+      background-image: -webkit-gradient(
+        linear,
+        left top,
+        right top,
+        color-stop(10%, #65cfef),
+        to(#a5ef17)
+      );
+      background-image: -webkit-linear-gradient(left, #65cfef 10%, #a5ef17);
+      background-image: -o-linear-gradient(left, #65cfef 10%, #a5ef17 100%);
+      background-image: linear-gradient(90deg, #65cfef 10%, #a5ef17);
+      content: "";
+      display: block;
+      height: 0.25rem;
+      margin-top: 0.95rem;
+      max-width: 6.25rem;
+      width: 100%;
+    }
+  }
+  form {
+    div#amount_box {
+      position: relative;
+
+      input#id_amount {
+        padding-left: 22.2px;
+      }
+      .dollarSign {
+        position: absolute;
+        left: 9px;
+        top: 47px;
+        color: #00808c;
       }
     }
   }

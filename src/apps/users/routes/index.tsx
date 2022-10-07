@@ -5,6 +5,7 @@ import Cards from "../pages/Cards";
 import Dashboard from "../pages/Dashboard";
 import TransactionDetails from "../pages/TransactionDetails";
 import Transactions from "../pages/Transactions";
+import TransferToSame from "../pages/TransferToSame";
 
 const UserRoutes: RouteInterface[] = [
   {
@@ -31,6 +32,11 @@ const UserRoutes: RouteInterface[] = [
     id: getRandomNumber(),
     element: <Cards />,
     path: "/cards",
+  },
+  {
+    id: getRandomNumber(),
+    element: <TransferToSame />,
+    path: "/onlineseacoat-transfer",
   },
 ];
 

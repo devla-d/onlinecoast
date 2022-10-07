@@ -49,10 +49,10 @@ const SideBar = () => {
             </NavLink>
           </li>
           <li>
-            <a href="#">
+            <NavLink to="/onlineseacoat-transfer">
               <i className="fa-solid fa-exchange"></i>
               <span>Transfer to same bank</span>
-            </a>
+            </NavLink>
           </li>
           <li>
             <a href="#">

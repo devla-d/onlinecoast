@@ -4,7 +4,7 @@ const Cards = () => {
   return (
     <>
       <div className="container">
-        <div className="row  justify-content-center align-item-center">
+        <div className="row  justify-content-center ">
           {/* breadcrum     background-color: #f2f4f8; */}
           <BreadcrumNav pagenavTitle="Cards" currentPage="cards" />
           {/* breadcrum */}
@@ -39,7 +39,37 @@ const Cards = () => {
               </div>
             </div>
           </div>
-          <div className="col-lg-8"></div>
+          <div className="col-lg-6">
+            <div className="cardDetails">
+              <h3>Card details</h3>
+              <ul>
+                <li>
+                  <p>Card Type</p>
+                  <h4>Mastercard</h4>
+                </li>
+                <li>
+                  <p>Card name</p>
+                  <h4>jimmy aniekan</h4>
+                </li>
+                <li>
+                  <p>Card Number</p>
+                  <h4>41608400539583156</h4>
+                </li>
+                <li>
+                  <p>CARD CVV</p>
+                  <h4>345</h4>
+                </li>
+                <li>
+                  <p>BILLING ADDRESS</p>
+                  <h4>19, Olubunmi Rotimi, Lekki, Lagos</h4>
+                </li>
+                <li>
+                  <p>zipcode</p>
+                  <h4>23401</h4>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </>
