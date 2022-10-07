@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { toggleSidebar } from "../utils";
 
 const Header = () => {
@@ -11,7 +12,7 @@ const Header = () => {
           <div className="menu">
             <ul>
               <li data-aos="fade-left" data-aos-delay="100">
-                <a href="#">
+                <a href="mailto:samuelaniekan680@mail.com">
                   <i className="fa-solid fa-envelope" data-ballon></i>
                 </a>
               </li>

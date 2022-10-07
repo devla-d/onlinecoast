@@ -149,12 +149,14 @@ const TransferToOther = () => {
                   />
                 </div>
                 <div className=" mb-3">
-                  <CustomSubmitBtn
-                    color="primary"
-                    text="Submit"
-                    loading={true}
-                    type="submit"
-                  />
+                  <div className="d-grid gap-2">
+                    <CustomSubmitBtn
+                      color="primary"
+                      text="Submit"
+                      loading={true}
+                      type="submit"
+                    />
+                  </div>
                 </div>
               </form>
             </div>

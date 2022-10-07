@@ -2,8 +2,11 @@ import { RouteInterface } from "../../../utils";
 import { getRandomNumber } from "../../../utils/helper";
 import { AccountDetails } from "../pages/AccountDetails";
 import Cards from "../pages/Cards";
+import ChangePassword from "../pages/ChangePassword";
 import Dashboard from "../pages/Dashboard";
 import InternationalTransfer from "../pages/InternationalTransfer";
+import ResetPin from "../pages/ResetPin";
+
 import TransactionDetails from "../pages/TransactionDetails";
 import Transactions from "../pages/Transactions";
 import TransferToOther from "../pages/TransferToOther";
@@ -49,6 +52,16 @@ const UserRoutes: RouteInterface[] = [
     id: getRandomNumber(),
     element: <InternationalTransfer />,
     path: "/international-transfer",
+  },
+  {
+    id: getRandomNumber(),
+    element: <ResetPin />,
+    path: "/reset-pin",
+  },
+  {
+    id: getRandomNumber(),
+    element: <ChangePassword />,
+    path: "/change-password",
   },
 ];
 

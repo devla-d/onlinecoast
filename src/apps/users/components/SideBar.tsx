@@ -94,16 +94,16 @@ const SideBar = () => {
             </a>
           </li> */}
           <li>
-            <a href="#">
+            <NavLink to="/change-password">
               <i className="fa-solid fa-lock"></i>
               <span>change password</span>
-            </a>
+            </NavLink>
           </li>
           <li>
-            <a href="#">
+            <NavLink to="/reset-pin">
               <i className="fa-solid fa-key"></i>
               <span>Reset pin</span>
-            </a>
+            </NavLink>
           </li>
         </ul>
       </div>

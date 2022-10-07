@@ -687,3 +687,42 @@ ul {
     }
   }
 }
+
+.resetCard {
+  border-radius: 6px;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 2px 4px rgb(126 142 177 / 12%);
+  box-shadow: 0px 2px 4px rgb(126 142 177 / 12%);
+  padding: 20px;
+  margin-bottom: 20px;
+  .card-body {
+    h3 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      &::after {
+        background-image: -webkit-gradient(
+          linear,
+          left top,
+          right top,
+          color-stop(10%, #65cfef),
+          to(#a5ef17)
+        );
+        background-image: -webkit-linear-gradient(left, #65cfef 10%, #a5ef17);
+        background-image: -o-linear-gradient(left, #65cfef 10%, #a5ef17 100%);
+        background-image: linear-gradient(90deg, #65cfef 10%, #a5ef17);
+        content: "";
+        display: block;
+        height: 0.25rem;
+        margin-top: 0.95rem;
+        max-width: 6.25rem;
+        width: 100%;
+      }
+    }
+    form {
+      label {
+        text-transform: capitalize;
+        font-family: " proxima-nova", sans-serif;
+      }
+    }
+  }
+}
