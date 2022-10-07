@@ -1,7 +1,9 @@
 import CustomSubmitBtn from "@/components/CustomSubmitBtn";
+import useUtils from "@/hooks/useUtils";
 import BreadcrumNav from "../components/BreadcrumNav";
 
 const TransferToSame = () => {
+  useUtils("Transfer to onlineseacoat bank");
   return (
     <>
       <div className="container">

@@ -1,7 +1,9 @@
 import CustomSubmitBtn from "@/components/CustomSubmitBtn";
+import useUtils from "@/hooks/useUtils";
 import BreadcrumNav from "../components/BreadcrumNav";
 
 const InternationalTransfer = () => {
+  useUtils("International transfer");
   return (
     <>
       <div className="container">

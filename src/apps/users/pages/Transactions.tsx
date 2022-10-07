@@ -1,8 +1,10 @@
+import useUtils from "@/hooks/useUtils";
 import BreadcrumNav from "../components/BreadcrumNav";
 import TxtCard from "../components/TxtCard";
 import { TransactionIn } from "../utils";
 
 const Transactions = () => {
+  useUtils("Transaction logs");
   const transaction: TransactionIn = {
     amount: 200,
     id: 2,

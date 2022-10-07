@@ -1,7 +1,9 @@
 import CustomSubmitBtn from "@/components/CustomSubmitBtn";
+import useUtils from "@/hooks/useUtils";
 import BreadcrumNav from "../components/BreadcrumNav";
 
 const TransferToOther = () => {
+  useUtils("Transfer to other banks");
   return (
     <>
       <div className="container">

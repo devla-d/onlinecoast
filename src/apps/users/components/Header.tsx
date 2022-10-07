@@ -21,9 +21,9 @@ const Header = () => {
                 data-aos="fade-left"
                 data-aos-delay="200"
               >
-                <a href="#">
+                <Link to="/change-password">
                   <i className="fa-solid fa-cog" data-ballon></i>
-                </a>
+                </Link>
               </li>
               <li
                 className="hiddenWide"
@@ -68,10 +68,10 @@ const Header = () => {
                       </div>
                     </li>
                     <li>
-                      <a className="dropdown-item" href="#">
+                      <Link className="dropdown-item" to="/account-details">
                         <i className="fa-solid fa-user"></i>
                         Profile
-                      </a>
+                      </Link>
                     </li>
                     <li>
                       <a className="dropdown-item" href="#">

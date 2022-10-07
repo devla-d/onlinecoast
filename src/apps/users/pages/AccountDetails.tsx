@@ -1,6 +1,8 @@
+import useUtils from "@/hooks/useUtils";
 import BreadcrumNav from "../components/BreadcrumNav";
 
 export const AccountDetails = () => {
+  useUtils("Account details");
   return (
     <>
       <div className="container">

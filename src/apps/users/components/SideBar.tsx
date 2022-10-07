@@ -63,7 +63,7 @@ const SideBar = () => {
           <li>
             <NavLink to="/cards">
               <i className="fa-solid fa-credit-card"></i>
-              <span>cards</span>
+              <span>card</span>
             </NavLink>
           </li>
           <li>
