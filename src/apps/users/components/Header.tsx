@@ -1,7 +1,10 @@
+import { useAppSelector } from "@/hooks/useStore";
+import { BASE_URL } from "@/utils";
 import { Link } from "react-router-dom";
 import { toggleSidebar } from "../utils";
 
 const Header = () => {
+  const user = useAppSelector((state) => state.user.user)!;
   return (
     <>
       <header id="userHeader">
@@ -48,7 +51,7 @@ const Header = () => {
                     aria-expanded="false"
                   >
                     <img
-                      src="/home/avatar.jpeg"
+                      src={`${BASE_URL}${user.profile_img}`}
                       alt="Avatar"
                       className="avatar-lg rounded-circle"
                     />
@@ -57,7 +60,7 @@ const Header = () => {
                     <li>
                       <div className="media">
                         <img
-                          src="/home/avatar.jpeg"
+                          src={`${BASE_URL}${user.profile_img}`}
                           alt="Avatar"
                           className="avatar-lg rounded-circle mr-3"
                         />

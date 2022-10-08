@@ -1,8 +1,12 @@
+import { useAppSelector } from "@/hooks/useStore";
+import { BASE_URL } from "@/utils";
 import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { clossSideBar } from "../utils";
 
 const SideBar = () => {
+  const user = useAppSelector((state) => state.user.user)!;
+
   useEffect(() => {
     var links = document.querySelectorAll("#sideBar ul li a");
 
@@ -26,13 +30,13 @@ const SideBar = () => {
           <li className="avatar">
             <div className="media">
               <img
-                src="/home/avatar.jpeg"
+                src={`${BASE_URL}${user.profile_img}`}
                 alt="Avatar"
                 className="avatar-lg rounded-circle mr-3"
               />
               <div className="media-body text-truncate">
-                <h4>Samuel Aniekan</h4>
-                <p className="text-muted">92829283038040</p>
+                <h4>{user.first_name + " " + user.last_name}</h4>
+                <p className="text-muted">{user.account_number}</p>
               </div>
             </div>
           </li>

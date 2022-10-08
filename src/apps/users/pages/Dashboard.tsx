@@ -1,3 +1,4 @@
+import { useAppSelector } from "@/hooks/useStore";
 import useUtils from "@/hooks/useUtils";
 import BreadcrumNav from "../components/BreadcrumNav";
 import TxtCard from "../components/TxtCard";
@@ -5,6 +6,7 @@ import { TransactionIn } from "../utils";
 
 const Dashboard = () => {
   useUtils("Account overview");
+  const user = useAppSelector((state) => state.user.user)!;
   const transaction: TransactionIn = {
     amount: 200,
     id: 2,
@@ -28,14 +30,14 @@ const Dashboard = () => {
             <div className="accountOv">
               <div className="accountOVBox text-truncate hiddenMobile">
                 <h4 className="text-muted">account number</h4>
-                <h2 className="text-success">8229283293</h2>
+                <h2 className="text-success">{user.account_number}</h2>
               </div>
 
               <div className="accountOVBox balance text-truncate ">
                 <div>
                   <h4 className="text-muted">Balance</h4>
                   <h2>
-                    $<span className="text-warning">200</span>
+                    $<span className="text-warning">{user.balance}</span>
                   </h2>
                 </div>
                 <div className="sendIconBox">
@@ -47,7 +49,9 @@ const Dashboard = () => {
 
               <div className="accountOVBox text-truncate hiddenMobile">
                 <h4 className="text-muted">Account name</h4>
-                <h2 style={{ color: "#b71b1b" }}>samuel aniekan</h2>
+                <h2 style={{ color: "#b71b1b" }}>
+                  {user.first_name + " " + user.last_name}
+                </h2>
               </div>
               <div className="alert alert-warning borderless">
                 <h5 className="alert-heading">
