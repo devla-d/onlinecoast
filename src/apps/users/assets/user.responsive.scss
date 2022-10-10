@@ -76,6 +76,9 @@
       width: 100%;
     }
   }
+  .creditCard .creditCardNumber ul li {
+    letter-spacing: 7px;
+  }
 }
 
 @media (min-width: 767px) {
@@ -95,5 +98,8 @@
   }
   .pagenavTitle {
     font-size: 17px;
+  }
+  .creditCard .creditCardNumber ul li {
+    letter-spacing: 5px;
   }
 }

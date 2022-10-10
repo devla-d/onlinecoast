@@ -13,8 +13,8 @@ const Cards = () => {
     axiosPrivate
       .get<CardResponse>("/debit-cards/")
       .then(({ data }) => {
-        console.log(data);
         if (data.card) setCard(data.card);
+        else console.log("No card");
       })
       .catch((e) => {
         console.log(e);

@@ -560,12 +560,14 @@ ul {
       display: flex;
       align-items: center;
       li {
-        width: 25%;
-        // text-align: center;
+        width: 100%;
         text-transform: capitalize;
         font-family: " proxima-nova", sans-serif;
+        font-size: 21px;
+
+        letter-spacing: 8px;
+        text-align: center;
       }
-      // justify-content: space-between;
     }
   }
   .creditCardFooter {
