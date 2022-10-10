@@ -62,6 +62,18 @@ const userSlicer = createSlice({
       state.user = payload;
       sessionStorage.setItem("user", JSON.stringify(payload));
     },
+    resetUser: (state) => {
+      sessionStorage.removeItem("user");
+      sessionStorage.removeItem("refreshToken");
+      sessionStorage.removeItem("accessToken");
+
+      state = initialState;
+    },
+    updateAccess: (state, { payload }: PayloadAction<string>) => {
+      sessionStorage.removeItem("accessToken");
+      sessionStorage.setItem("accessToken", payload);
+      state.accessToken = payload;
+    },
   },
   extraReducers(builder) {
     builder.addCase(
@@ -76,5 +88,6 @@ const userSlicer = createSlice({
   },
 });
 
-export const { loginUser, updateUser } = userSlicer.actions;
+export const { loginUser, updateUser, resetUser, updateAccess } =
+  userSlicer.actions;
 export default userSlicer.reducer;

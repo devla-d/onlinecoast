@@ -1,5 +1,7 @@
+import useAxiosPrivate from "@/hooks/useAxiosPrivate";
 import { useAppSelector } from "@/hooks/useStore";
 import useUtils from "@/hooks/useUtils";
+import { useEffect } from "react";
 import BreadcrumNav from "../components/BreadcrumNav";
 import TxtCard from "../components/TxtCard";
 import { TransactionIn } from "../utils";
@@ -7,6 +9,7 @@ import { TransactionIn } from "../utils";
 const Dashboard = () => {
   useUtils("Account overview");
   const user = useAppSelector((state) => state.user.user)!;
+  const axiosPrivate = useAxiosPrivate();
   const transaction: TransactionIn = {
     amount: 200,
     id: 2,
@@ -15,6 +18,17 @@ const Dashboard = () => {
     status: "pending",
     ref: "xxxxxxxxxx",
   };
+  useEffect(() => {
+    axiosPrivate
+      .get("/dashboard/")
+      .then(({ data }) => {
+        console.log(data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+    return () => {};
+  }, []);
 
   return (
     <>
