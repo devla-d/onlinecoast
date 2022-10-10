@@ -2,6 +2,7 @@ import useAxiosPrivate from "@/hooks/useAxiosPrivate";
 import { useAppSelector } from "@/hooks/useStore";
 import useUtils from "@/hooks/useUtils";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import BreadcrumNav from "../components/BreadcrumNav";
 import TxtCard from "../components/TxtCard";
 import { TransactionIn, TransactionRespones } from "../utils";
@@ -97,9 +98,9 @@ const Dashboard = () => {
             <div className="recentTxt mb-4">
               <div className="recentTxtHeade">
                 <h3>Recent transaction</h3>
-                <a href="#">
+                <Link to="/transactions-log">
                   more <i className="fa-solid fa-angle-right"></i>
-                </a>
+                </Link>
               </div>
               <div className="recentTxtBody">
                 {transaction ? (

@@ -62,15 +62,6 @@ export const axiosPublic = axios.create({
     "x-app-key": "d619d4deb806",
   },
 });
-const token = sessionStorage.getItem("accessToken");
-export const axiosPrivate = axios.create({
-  baseURL: BASE_URL,
-  headers: {
-    "Content-Type": "application/json",
-    Authorization: token ? `Bearer ${token}` : false,
-    "x-app-key": "d619d4deb806",
-  },
-});
 
 export interface RefreshResponses {
   errors?: Array<string> | string;

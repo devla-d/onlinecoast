@@ -3,7 +3,7 @@ import CustomSubmitBtn from "@/components/CustomSubmitBtn";
 import { useAppDispatch } from "@/hooks/useStore";
 import { useFormik } from "formik";
 import { useContext } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { LoginContext } from "../pages/Login";
 import { loginUser } from "../slicer";
@@ -12,8 +12,13 @@ import { SecuritySchema } from "../utils";
 const LoginTwo = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const location = useLocation();
-  const ridirectUrl = location.state?.from?.pathname || "/dashboard";
+
+  let [searchParams] = useSearchParams();
+  const nexTpage = searchParams.get("next")
+    ? `${searchParams.get("next")}`
+    : null;
+
+  const ridirectUrl = nexTpage || "/dashboard";
 
   const { setloading, loading, storeDate } = useContext(LoginContext)!;
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
@@ -37,7 +42,7 @@ const LoginTwo = () => {
     }
     const FORMdata = storeDate!;
     dispatch(loginUser(FORMdata));
-    navigate(ridirectUrl, { replace: true });
+    navigate(ridirectUrl, { replace: false });
   };
 
   return (

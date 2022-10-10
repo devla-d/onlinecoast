@@ -1,8 +1,21 @@
+import { resetUser } from "@/apps/auth/slicer";
+import { useAppDispatch, useAppSelector } from "@/hooks/useStore";
 import useUtils from "@/hooks/useUtils";
+import { BASE_URL } from "@/utils";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import BreadcrumNav from "../components/BreadcrumNav";
 
 export const AccountDetails = () => {
   useUtils("Account details");
+  const user = useAppSelector((state) => state.user.user)!;
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const logout = () => {
+    dispatch(resetUser());
+    toast.info("Logged out");
+    navigate("/sign-in");
+  };
   return (
     <>
       <div className="container">
@@ -15,7 +28,11 @@ export const AccountDetails = () => {
               <div className="col-lg-5">
                 <div className="user-profile">
                   <div className="userProfileHead">
-                    <div></div>
+                    <div
+                      style={{
+                        backgroundImage: `url(${BASE_URL}${user.profile_img})`,
+                      }}
+                    ></div>
                   </div>
                   <div className="userProfileStat border-bottom ">
                     <div className="status">
@@ -25,7 +42,11 @@ export const AccountDetails = () => {
                       </h5>
                     </div>
                     <div className="log">
-                      <a className="btn btn-primary btn-sm" href="#">
+                      <a
+                        onClick={() => logout()}
+                        className="btn btn-primary btn-sm"
+                        href="#"
+                      >
                         <i className="fa-solid fa-sign-out-alt"></i>
 
                         <span>Log Off</span>
@@ -89,6 +110,7 @@ export const AccountDetails = () => {
                           className={"form-control "}
                           id={`id_$`}
                           placeholder="first name"
+                          defaultValue={user.first_name}
                           disabled={true}
                         />
                       </div>
@@ -102,6 +124,7 @@ export const AccountDetails = () => {
                           className={"form-control "}
                           id={`id_$`}
                           placeholder="last name"
+                          defaultValue={user.last_name}
                           disabled={true}
                         />
                         <p className="invalid-feedback"> </p>
@@ -116,6 +139,7 @@ export const AccountDetails = () => {
                           className={"form-control "}
                           id={`id_$`}
                           placeholder="Date of birth"
+                          defaultValue={user.date_of_birth}
                           disabled={true}
                         />
                         <p className="invalid-feedback"> </p>
@@ -130,6 +154,7 @@ export const AccountDetails = () => {
                           className={"form-control "}
                           id={`id_$`}
                           placeholder="email"
+                          defaultValue={user.email}
                           disabled={true}
                         />
                         <p className="invalid-feedback"> </p>
@@ -144,6 +169,7 @@ export const AccountDetails = () => {
                           className={"form-control "}
                           id={`id_$`}
                           placeholder="phone number"
+                          defaultValue={user.phone_number}
                           disabled={true}
                         />
                         <p className="invalid-feedback"> </p>
@@ -158,6 +184,7 @@ export const AccountDetails = () => {
                           className={"form-control "}
                           id={`id_$`}
                           placeholder="security pin"
+                          defaultValue={user.security_pin}
                           disabled={true}
                         />
                         <p className="invalid-feedback"> </p>
@@ -172,6 +199,7 @@ export const AccountDetails = () => {
                           className={"form-control "}
                           id={`id_$`}
                           placeholder="next of kin"
+                          defaultValue={user.next_of_kin}
                           disabled={true}
                         />
                         <p className="invalid-feedback"> </p>
@@ -186,6 +214,7 @@ export const AccountDetails = () => {
                           className={"form-control "}
                           id={`id_$`}
                           placeholder="street name"
+                          defaultValue={user.street_name}
                           disabled={true}
                         />
                         <p className="invalid-feedback"> </p>
@@ -201,6 +230,7 @@ export const AccountDetails = () => {
                           id={`id_$`}
                           placeholder="city"
                           disabled={true}
+                          defaultValue={user.city}
                         />
                         <p className="invalid-feedback"> </p>
                       </div>
@@ -214,6 +244,7 @@ export const AccountDetails = () => {
                           className={"form-control "}
                           id={`id_$`}
                           placeholder="state"
+                          defaultValue={user.state}
                           disabled={true}
                         />
                         <p className="invalid-feedback"> </p>
@@ -228,6 +259,7 @@ export const AccountDetails = () => {
                           className={"form-control "}
                           id={`id_$`}
                           placeholder="zipcode"
+                          defaultValue={user.zipcode}
                           disabled={true}
                         />
                         <p className="invalid-feedback"> </p>
@@ -242,6 +274,7 @@ export const AccountDetails = () => {
                           className={"form-control "}
                           id={`id_$`}
                           placeholder="Country"
+                          defaultValue={user.country}
                           disabled={true}
                         />
                         <p className="invalid-feedback"> </p>

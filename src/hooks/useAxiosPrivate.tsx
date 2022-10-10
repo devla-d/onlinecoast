@@ -1,10 +1,11 @@
-import { axiosPrivate } from "@/utils";
+import useAxios from "./useAxios";
 import { useEffect } from "react";
 import useRefreshToken from "./useRefreshToken";
 import { useAppSelector } from "./useStore";
 
 const useAxiosPrivate = () => {
   const user = useAppSelector((state) => state.user.user);
+  const axiosPrivate = useAxios();
 
   const refresh = useRefreshToken();
 
