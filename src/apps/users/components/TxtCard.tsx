@@ -22,7 +22,7 @@ const TxtCard = ({ transaction }: TxtCardIn) => {
         </div>
         <div className="trans-name text-truncate">
           <h4>{transaction.mode}</h4>
-          <p className="in-text-lead text-truncate">{transaction.date}</p>
+          <p className="in-text-lead text-truncate">{`${transaction.createdAt}`}</p>
         </div>
         <div className="trans-amount">{trxAmount}</div>
         <div className="trans-detail">

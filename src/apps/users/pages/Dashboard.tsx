@@ -1,28 +1,23 @@
 import useAxiosPrivate from "@/hooks/useAxiosPrivate";
 import { useAppSelector } from "@/hooks/useStore";
 import useUtils from "@/hooks/useUtils";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import BreadcrumNav from "../components/BreadcrumNav";
 import TxtCard from "../components/TxtCard";
-import { TransactionIn } from "../utils";
+import { TransactionIn, TransactionRespones } from "../utils";
 
 const Dashboard = () => {
   useUtils("Account overview");
   const user = useAppSelector((state) => state.user.user)!;
   const axiosPrivate = useAxiosPrivate();
-  const transaction: TransactionIn = {
-    amount: 200,
-    id: 2,
-    mode: "debit",
-    date: new Date().toString(),
-    status: "pending",
-    ref: "xxxxxxxxxx",
-  };
+  const [transaction, setTxt] = useState<TransactionIn[]>();
   useEffect(() => {
     axiosPrivate
-      .get("/dashboard/")
+      .get<TransactionRespones>("/dashboard/")
       .then(({ data }) => {
-        console.log(data);
+        if (data.transaction.length > 0) {
+          setTxt(data.transaction);
+        }
       })
       .catch((e) => {
         console.log(e);
@@ -99,7 +94,7 @@ const Dashboard = () => {
             </div>
           </div>
           <div className="col-lg-12">
-            <div className="recentTxt">
+            <div className="recentTxt mb-4">
               <div className="recentTxtHeade">
                 <h3>Recent transaction</h3>
                 <a href="#">
@@ -107,7 +102,14 @@ const Dashboard = () => {
                 </a>
               </div>
               <div className="recentTxtBody">
-                <TxtCard transaction={transaction} />
+                {transaction ? (
+                  transaction.map((tx) => <TxtCard transaction={tx} />)
+                ) : (
+                  <div className="text-center">
+                    <h6>No Recent Transactions</h6>
+                  </div>
+                )}
+                {/* <TxtCard transaction={transaction} /> */}
               </div>
             </div>
           </div>

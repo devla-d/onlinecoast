@@ -29,16 +29,43 @@ export interface BreadcrumNavIn {
 
 export interface TransactionIn {
   id: number;
-  // user: INUSER;
-  amount: number;
-  date: string;
+  user: INUSER;
 
-  status: string;
+  amount: number;
+
+  benneficiary_name: string;
+
+  benneficiary_accnumber: string;
+
+  bic_code: string;
+
+  bank_name: string;
+
+  purpose: string;
+
+  firstname: string;
+
+  lastname: string;
+
+  phone: string;
+
+  email: string;
+
+  city: string;
+
+  country: string;
   mode: string;
 
-  ref: string;
+  createdAt: Date;
+
+  updatedAt: Date;
 }
 
 export interface TxtCardIn {
   transaction: TransactionIn;
+}
+
+export interface TransactionRespones {
+  transaction: TransactionIn[];
+  msg: string;
 }

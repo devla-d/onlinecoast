@@ -1,6 +1,7 @@
 import { resetUser, updateAccess } from "@/apps/auth/slicer";
 import { axiosPublic, RefreshResponses } from "@/utils";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { useAppDispatch, useAppSelector } from "./useStore";
 
 const useRefreshToken = () => {
@@ -18,11 +19,8 @@ const useRefreshToken = () => {
 
     if (data.errors) {
       dispatch(resetUser());
+      toast.error("session expired please login");
       navigete("/sign-in", { replace: true });
-
-      //   setTimeout(() => {
-      //     window.location.reload();
-      //   });
     }
     if (!data.accesstoken) return;
     dispatch(updateAccess(data.accesstoken));
