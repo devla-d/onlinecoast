@@ -22,6 +22,24 @@ export const clossSideBar = () => {
   sidebarToggler.classList.add("fa-bars");
   sidebar.classList.remove("toggled");
 };
+
+export function cc_format(value: string) {
+  let len, i;
+  var v = value.replace(/\s+/g, "").replace(/[^0-9]/gi, "");
+  var matches = v.match(/\d{4,16}/g);
+  var match = (matches && matches[0]) || "";
+  var parts = [];
+
+  for (i = 0, len = match.length; i < len; i += 4) {
+    parts.push(match.substring(i, i + 4));
+  }
+
+  if (parts.length) {
+    return parts.join(" ");
+  } else {
+    return value;
+  }
+}
 export interface BreadcrumNavIn {
   pagenavTitle: string;
   currentPage: string;
@@ -67,5 +85,27 @@ export interface TxtCardIn {
 
 export interface TransactionRespones {
   transaction: TransactionIn[];
+  msg: string;
+}
+
+export interface Card {
+  user: INUSER;
+
+  card_number: string;
+
+  card_type: string;
+
+  card_name: string;
+
+  card_cvv: string;
+
+  billing_address: string;
+
+  zipcode: string;
+  expire: string;
+}
+
+export interface CardResponse {
+  card: Card | null;
   msg: string;
 }

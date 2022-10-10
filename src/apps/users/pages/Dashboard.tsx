@@ -110,7 +110,6 @@ const Dashboard = () => {
                     <h6>No Recent Transactions</h6>
                   </div>
                 )}
-                {/* <TxtCard transaction={transaction} /> */}
               </div>
             </div>
           </div>
