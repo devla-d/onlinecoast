@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import AOS from "aos";
 import Header from "./components/Header";
 import SideBar from "./components/SideBar";
+import ToastDialog from "@/components/ToastDialog";
 
 const UserLayout = () => {
   useEffect(() => {
@@ -18,20 +19,24 @@ const UserLayout = () => {
     return () => {};
   }, []);
   return (
-    <div className="user-wrapper">
-      {/* top bar */}
-      <Header />
+    <>
+      <div className="user-wrapper">
+        {/* top bar */}
+        <Header />
 
-      {/* top bar ends */}
-      <div className="wrapper-content">
-        {/* side bar   */}
-        <SideBar />
-        {/* side bar ends */}
-        <div className="wrapper-inner-content">
-          <Outlet />
+        {/* top bar ends */}
+        <div className="wrapper-content">
+          {/* side bar   */}
+          <SideBar />
+          {/* side bar ends */}
+          <div className="wrapper-inner-content">
+            <Outlet />
+          </div>
         </div>
       </div>
-    </div>
+
+      <ToastDialog />
+    </>
   );
 };
 

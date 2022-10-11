@@ -4,7 +4,7 @@ import { DesTransactionCard } from "../utils";
 const TxtCard = ({ transaction }: DesTransactionCard) => {
   let trxIcon: JSX.Element;
   let trxAmount: JSX.Element;
-  if (transaction.mode == "debit") {
+  if (transaction.mode == "send") {
     trxIcon = <i className="fa-solid fa-upload text-danger"></i>;
     trxAmount = <h4 style={{ color: "orangered" }}>-${transaction.amount}</h4>;
   } else {

@@ -34,7 +34,7 @@ const Transactions = () => {
 
           <div className="col-lg-8">
             {transactions && transactions.length > 0 ? (
-              transactions.map((tx) => <TxtCard transaction={tx} />)
+              transactions.map((tx) => <TxtCard transaction={tx} key={tx.id} />)
             ) : (
               <div className="text-center">
                 <h6>No Transactions</h6>

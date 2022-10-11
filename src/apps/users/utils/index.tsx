@@ -113,7 +113,12 @@ export interface CardResponse {
 
 export const TransferToSameSchema = (account_numbers: Array<string>) =>
   yup.object().shape({
-    amount: yup.number().required("Amount is required"),
+    amount: yup
+      .number()
+      .positive()
+      .integer()
+      .min(10, "Minimum is $10")
+      .required("Amount is required"),
     account_number: yup
       .string()
       .oneOf(account_numbers, "Account number is invalid")
@@ -123,6 +128,13 @@ export const TransferToSameSchema = (account_numbers: Array<string>) =>
 
     beneficiary: yup.string().notRequired(),
   });
+export const TransferToSameSchemaTwo = yup.object().shape({
+  security_code: yup
+    .string()
+    .min(4, "Security pin must be 4 characters long")
+    .max(4, "Security pin must be 4 characters long")
+    .required("Security pin is required"),
+});
 
 export interface DesTxtSameFormData {
   amount: string;
