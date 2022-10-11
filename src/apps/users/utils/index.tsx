@@ -235,3 +235,36 @@ export interface DesTxtInterFormData {
   amount: string;
   purpose: string;
 }
+
+const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
+// min 5 characters, 1 upper case letter, 1 lower case letter, 1 numeric digit.
+
+export const changePasswordSchema = yup.object().shape({
+  oldpassword: yup.string().min(5).max(12).required("Old Password Required"),
+
+  newpassword: yup
+    .string()
+    .min(5)
+    .max(12)
+    .matches(passwordRules, "Please create a stronger password")
+    .required("Password Required"),
+
+  confirmnewpassword: yup
+    .string()
+    .oneOf([yup.ref("newpassword"), null], "Passwords must match")
+    .required("Confirm password is required"),
+});
+
+export const resetPinSchema = yup.object().shape({
+  oldpin: yup
+    .string()
+    .min(4, "Security pin must be 4 characters long")
+    .max(4, "Security pin must be 4 characters long")
+    .required("Security pin is required"),
+
+  newpin: yup
+    .string()
+    .min(4, "Security pin must be 4 characters long")
+    .max(4, "Security pin must be 4 characters long")
+    .required("Security pin is required"),
+});
