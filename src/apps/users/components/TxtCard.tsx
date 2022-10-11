@@ -1,13 +1,21 @@
 import moment from "moment";
 import { Link } from "react-router-dom";
-import { DesTransactionCard } from "../utils";
+import { DesTransactionCard, STATUS } from "../utils";
 
 const TxtCard = ({ transaction }: DesTransactionCard) => {
   let trxIcon: JSX.Element;
   let trxAmount: JSX.Element;
   if (transaction.mode == "send") {
     trxIcon = <i className="fa-solid fa-upload text-danger"></i>;
-    trxAmount = <h4 style={{ color: "orangered" }}>-${transaction.amount}</h4>;
+    if (transaction.status == STATUS.SUCCESS) {
+      trxAmount = <h4 className="text-success">-${transaction.amount}</h4>;
+    } else if (transaction.status == STATUS.DECLINED) {
+      trxAmount = (
+        <h4 style={{ color: "orangered" }}>-${transaction.amount}</h4>
+      );
+    } else {
+      trxAmount = <h4 className="text-warning">-${transaction.amount}</h4>;
+    }
   } else {
     trxIcon = <i className="fas fa-download text-warning"></i>;
     trxAmount = <h4 className="text-success">+${transaction.amount}</h4>;
