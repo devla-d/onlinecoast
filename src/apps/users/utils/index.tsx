@@ -1,6 +1,12 @@
 import { DesUser } from "@/apps/auth/utils";
 import * as yup from "yup";
 
+export enum STATUS {
+  PENDING = "PENDING",
+  SUCCESS = "SUCCESS",
+  DECLINED = "DECLINED",
+}
+
 export const toggleSidebar = () => {
   var sidebar = document.getElementById("sideBar") as HTMLElement;
   var sidebarToggler = document.querySelector("a#toogleSidebar i") as Element;
@@ -78,6 +84,7 @@ export interface DesTransaction {
   createdAt: Date;
 
   updatedAt: Date;
+  status: STATUS;
 }
 
 export interface DesTransactionCard {

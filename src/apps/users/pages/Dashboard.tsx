@@ -104,7 +104,9 @@ const Dashboard = () => {
               </div>
               <div className="recentTxtBody">
                 {transaction ? (
-                  transaction.map((tx) => <TxtCard transaction={tx} />)
+                  transaction.map((tx) => (
+                    <TxtCard transaction={tx} key={tx.id} />
+                  ))
                 ) : (
                   <div className="text-center">
                     <h6>No Recent Transactions</h6>
