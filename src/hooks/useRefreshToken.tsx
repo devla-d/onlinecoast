@@ -1,5 +1,5 @@
 import { resetUser, updateAccess } from "@/apps/auth/slicer";
-import { axiosPublic, RefreshResponses } from "@/utils";
+import { axiosPublic, DesRefreshResponse } from "@/utils";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAppDispatch, useAppSelector } from "./useStore";
@@ -11,7 +11,7 @@ const useRefreshToken = () => {
   const { pathname } = useLocation();
 
   const refresh = async () => {
-    const { data } = await axiosPublic.post<RefreshResponses>(
+    const { data } = await axiosPublic.post<DesRefreshResponse>(
       "/refresh-token/",
       {
         refreshToken,

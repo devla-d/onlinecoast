@@ -9,7 +9,7 @@ import { useFormik } from "formik";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { INFormValues, INRegisterResponse, RegisterSchema } from "../utils";
+import { DesFormValues, DesRegisterResponse, RegisterSchema } from "../utils";
 
 const Register = () => {
   useUtils("Create a new account");
@@ -19,10 +19,10 @@ const Register = () => {
   const existingEmails = useAppSelector((state) => state.user.existingEmails);
   const regSchema = RegisterSchema(existingEmails);
 
-  const sendUser = async (formData: INFormValues) => {
+  const sendUser = async (formData: DesFormValues) => {
     setloading(true);
     axiosPublic
-      .post<INRegisterResponse>("/sign-up/", {
+      .post<DesRegisterResponse>("/sign-up/", {
         email: formData.email,
         password: formData.password,
       })

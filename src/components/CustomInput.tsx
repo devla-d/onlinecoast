@@ -1,6 +1,6 @@
-import { CustomInputProps } from "@/utils";
+import { DesCustomInput } from "@/utils";
 
-const CustomInput = (props: CustomInputProps) => {
+const CustomInput = (props: DesCustomInput) => {
   const {
     name,
     type,

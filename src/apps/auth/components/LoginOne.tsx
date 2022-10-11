@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { LoginContext } from "../pages/Login";
 
-import { INLOGINRESPONSE, Loginschema } from "../utils";
+import { DesLoginResponse, Loginschema } from "../utils";
 
 const LoginOne = () => {
   const { setloading, loading, setstoreDate, setCurrentStep } =
@@ -16,7 +16,7 @@ const LoginOne = () => {
   const sendUserlogin = async (val: FormikValues) => {
     setloading(true);
     axiosPublic
-      .post<INLOGINRESPONSE>("/sign-in/", val)
+      .post<DesLoginResponse>("/sign-in/", val)
       .then(({ data }) => {
         if (data.errors) {
           if (Array.isArray(data.errors)) {

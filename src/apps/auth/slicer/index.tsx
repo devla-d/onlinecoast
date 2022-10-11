@@ -2,15 +2,15 @@ import { axiosPublic } from "@/utils";
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AxiosError } from "axios";
 import {
-  INExUserData,
-  INIntialUserSlicer,
-  INLOGINRESPONSE,
-  INUSER,
+  DesExUserData,
+  DesIntialUserSlicer,
+  DesLoginResponse,
+  DesUser,
 } from "../utils";
 
 const sessionUser = JSON.parse(
   sessionStorage.getItem("user") || "{}"
-) as INUSER;
+) as DesUser;
 const checkuser = sessionStorage.getItem("user") ? sessionUser : undefined;
 const sessionaccessToken = sessionStorage.getItem("accessToken") as string;
 const checkAccessToken = sessionStorage.getItem("accessToken")
@@ -22,7 +22,7 @@ const checkRefresToken = sessionStorage.getItem("refreshToken")
   ? sessionrefreshToken.toString()
   : "";
 
-const initialState: INIntialUserSlicer = {
+const initialState: DesIntialUserSlicer = {
   existingEmails: [],
   user: checkuser,
   refreshToken: checkRefresToken,
@@ -33,7 +33,7 @@ export const getExistingdata = createAsyncThunk(
   "user/getExistingdata",
   async (wk: boolean, { rejectWithValue }) => {
     try {
-      const { data } = await axiosPublic.get<INExUserData>(
+      const { data } = await axiosPublic.get<DesExUserData>(
         "/available-user-details/"
       );
       return data;
@@ -49,7 +49,7 @@ const userSlicer = createSlice({
   name: "user",
   initialState,
   reducers: {
-    loginUser: (state, { payload }: PayloadAction<INLOGINRESPONSE>) => {
+    logDesUser: (state, { payload }: PayloadAction<DesLoginResponse>) => {
       state.accessToken = payload.accessToken;
       state.refreshToken = payload.refreshToken;
       state.user = payload.user;
@@ -57,7 +57,7 @@ const userSlicer = createSlice({
       sessionStorage.setItem("refreshToken", payload.refreshToken);
       sessionStorage.setItem("accessToken", payload.accessToken);
     },
-    updateUser: (state, { payload }: PayloadAction<INUSER>) => {
+    updateUser: (state, { payload }: PayloadAction<DesUser>) => {
       sessionStorage.removeItem("user");
       state.user = payload;
       sessionStorage.setItem("user", JSON.stringify(payload));
@@ -78,7 +78,7 @@ const userSlicer = createSlice({
   extraReducers(builder) {
     builder.addCase(
       getExistingdata.fulfilled,
-      (state, action: PayloadAction<INExUserData>) => {
+      (state, action: PayloadAction<DesExUserData>) => {
         state.existingEmails = action.payload.existingEmails;
       }
     );
@@ -88,6 +88,6 @@ const userSlicer = createSlice({
   },
 });
 
-export const { loginUser, updateUser, resetUser, updateAccess } =
+export const { logDesUser, updateUser, resetUser, updateAccess } =
   userSlicer.actions;
 export default userSlicer.reducer;

@@ -1,9 +1,11 @@
 import CustomSubmitBtn from "@/components/CustomSubmitBtn";
+import { useAppSelector } from "@/hooks/useStore";
 import useUtils from "@/hooks/useUtils";
 import BreadcrumNav from "../components/BreadcrumNav";
 
 const TransferToSame = () => {
   useUtils("Transfer to onlineseacoat bank");
+  const user = useAppSelector((state) => state.user.user!);
   return (
     <>
       <div className="container">
@@ -17,7 +19,7 @@ const TransferToSame = () => {
             <div className="amountBox">
               <h4>available balance</h4>
               <h2>
-                $<span>3000</span>
+                $<span>{user.balance}</span>
               </h2>
             </div>
           </div>

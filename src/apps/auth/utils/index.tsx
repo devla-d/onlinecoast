@@ -87,7 +87,7 @@ export const ResetPasswordSchema = yup.object().shape({
     .required("Confirm password is required"),
 });
 
-export interface formDataI {
+export interface DesFormData {
   first_name: string;
   last_name: string;
   phone_number: string;
@@ -106,19 +106,19 @@ export interface formDataI {
   profile_img?: File;
 }
 
-export interface CreateAccManager {
-  formData: formDataI;
-  setformData: React.Dispatch<React.SetStateAction<formDataI>>;
+export interface DesCreateAccContext {
+  formData: DesFormData;
+  setformData: React.Dispatch<React.SetStateAction<DesFormData>>;
   activeSteps: number;
   setActivesteps: React.Dispatch<React.SetStateAction<number>>;
   loading: boolean;
   setloading: React.Dispatch<React.SetStateAction<boolean>>;
-  handleNextStep: (newData: formDataI) => void;
-  handlePrevStep: (newData: formDataI) => void;
-  verifyData: INSignUpVerify | undefined;
+  handleNextStep: (newData: DesFormData) => void;
+  handlePrevStep: (newData: DesFormData) => void;
+  verifyData: DesSignUpVerify | undefined;
 }
 
-export interface INSignUpVerify {
+export interface DesSignUpVerify {
   error?: string;
   user?: {
     email: string;
@@ -126,18 +126,18 @@ export interface INSignUpVerify {
   };
 }
 
-export interface INFormValues {
+export interface DesFormValues {
   email: string;
   password: string;
 }
 
-export interface INRegisterResponse {
+export interface DesRegisterResponse {
   errors?: string | string[];
   error?: string;
   msg?: string;
 }
 
-export interface INUSER {
+export interface DesUser {
   id: number;
   createdAt: string;
   updatedAt: string;
@@ -163,19 +163,19 @@ export interface INUSER {
   password: string;
 }
 
-export interface INIntialUserSlicer {
+export interface DesIntialUserSlicer {
   existingEmails: Array<string>;
-  user?: INUSER;
+  user?: DesUser;
   refreshToken: string;
   accessToken: string;
 }
 
-export interface INExUserData {
+export interface DesExUserData {
   existingEmails: Array<string>;
 }
 
-export interface INLOGINRESPONSE {
-  user: INUSER;
+export interface DesLoginResponse {
+  user: DesUser;
   msg: string;
   accessToken: string;
   refreshToken: string;
@@ -185,32 +185,32 @@ export interface INLOGINRESPONSE {
 export interface INLoginContext {
   loading: boolean;
   setloading: React.Dispatch<React.SetStateAction<boolean>>;
-  storeDate: INLOGINRESPONSE | undefined;
+  storeDate: DesLoginResponse | undefined;
   setstoreDate: React.Dispatch<
-    React.SetStateAction<INLOGINRESPONSE | undefined>
+    React.SetStateAction<DesLoginResponse | undefined>
   >;
   currentStep: number;
   setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
 }
 
-export interface INForgotPassworResponse {
+export interface DesForgotPasswordResponse {
   errors?: string[] | string;
   msg?: string;
 }
 
-export interface INJWTPayload {
+export interface DesJwtPayload {
   email: string;
   id: number;
   iat: string;
   exp: string;
 }
 
-export interface INResetVerifyResponse {
-  user?: INJWTPayload;
+export interface DesResetVerifyResponse {
+  user?: DesJwtPayload;
   errors?: string;
 }
 
-export interface INResetPasswordResponse {
+export interface DesResetPasswordResponse {
   msg?: string;
   errors?: string[];
 }

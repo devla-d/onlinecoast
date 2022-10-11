@@ -1,6 +1,6 @@
-import { BreadcrumNavIn } from "../utils";
+import { DesBreadcrumNav } from "../utils";
 
-const BreadcrumNav = ({ pagenavTitle, currentPage }: BreadcrumNavIn) => {
+const BreadcrumNav = ({ pagenavTitle, currentPage }: DesBreadcrumNav) => {
   return (
     <>
       <div className="col-lg-12">

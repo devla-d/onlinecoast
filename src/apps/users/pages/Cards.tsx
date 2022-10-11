@@ -2,12 +2,12 @@ import useAxiosPrivate from "@/hooks/useAxiosPrivate";
 import useUtils from "@/hooks/useUtils";
 import { useEffect, useState } from "react";
 import BreadcrumNav from "../components/BreadcrumNav";
-import { Card, CardResponse, cc_format } from "../utils";
+import { DesCard, CardResponse, cc_format } from "../utils";
 
 const Cards = () => {
   useUtils("Card");
   const axiosPrivate = useAxiosPrivate();
-  const [card, setCard] = useState<Card>();
+  const [card, setCard] = useState<DesCard>();
 
   useEffect(() => {
     axiosPrivate

@@ -1,7 +1,7 @@
 import React from "react";
-import { HeroInterface } from "../../../utils";
+import { DesHero } from "../../../utils";
 
-const Hero: React.FC<HeroInterface> = ({ title, currentPage, image }) => {
+const Hero: React.FC<DesHero> = ({ title, currentPage, image }) => {
   return (
     <>
       <div className="heroSection setBg" data-bg={image}>

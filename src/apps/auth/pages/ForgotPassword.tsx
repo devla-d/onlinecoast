@@ -7,7 +7,7 @@ import { FormikValues, useFormik } from "formik";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { ForgotPasswordSchema, INForgotPassworResponse } from "../utils";
+import { ForgotPasswordSchema, DesForgotPasswordResponse } from "../utils";
 
 const ForgotPassword = () => {
   useUtils("Forgot password");
@@ -27,7 +27,7 @@ const ForgotPassword = () => {
   const sendEmail = async (val: FormikValues) => {
     setloading(true);
     try {
-      const { data } = await axiosPublic.post<INForgotPassworResponse>(
+      const { data } = await axiosPublic.post<DesForgotPasswordResponse>(
         "/forgot-password/",
         val
       );

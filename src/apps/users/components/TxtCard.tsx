@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { TxtCardIn } from "../utils";
+import { DesTransactionCard } from "../utils";
 
-const TxtCard = ({ transaction }: TxtCardIn) => {
+const TxtCard = ({ transaction }: DesTransactionCard) => {
   let trxIcon: JSX.Element;
   let trxAmount: JSX.Element;
   if (transaction.mode == "debit") {

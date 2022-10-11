@@ -8,9 +8,9 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import {
-  INJWTPayload,
-  INResetPasswordResponse,
-  INResetVerifyResponse,
+  DesJwtPayload,
+  DesResetPasswordResponse,
+  DesResetVerifyResponse,
   ResetPasswordSchema,
 } from "../utils";
 
@@ -18,7 +18,7 @@ const ResetPassword = () => {
   useUtils("Reset password");
   const navigate = useNavigate();
   const [loading, setloading] = useState(false);
-  const [user, setUser] = useState<INJWTPayload>();
+  const [user, setUser] = useState<DesJwtPayload>();
   const [searchParams] = useSearchParams();
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
@@ -36,7 +36,7 @@ const ResetPassword = () => {
     setloading(true);
     try {
       const userValues = user!;
-      const { data } = await axiosPublic.post<INResetPasswordResponse>(
+      const { data } = await axiosPublic.post<DesResetPasswordResponse>(
         "/reset-password/",
         { ...val, ...userValues }
       );
@@ -59,7 +59,7 @@ const ResetPassword = () => {
 
   useEffect(() => {
     axiosPublic
-      .post<INResetVerifyResponse>("/verify-reset-password/", {
+      .post<DesResetVerifyResponse>("/verify-reset-password/", {
         authToken: searchParams.get("authToken"),
       })
       .then(({ data }) => {

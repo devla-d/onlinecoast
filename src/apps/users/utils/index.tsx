@@ -40,12 +40,12 @@ export function cc_format(value: string) {
     return value;
   }
 }
-export interface BreadcrumNavIn {
+export interface DesBreadcrumNav {
   pagenavTitle: string;
   currentPage: string;
 }
 
-export interface TransactionIn {
+export interface DesTransaction {
   id: number;
   user: INUSER;
 
@@ -79,16 +79,16 @@ export interface TransactionIn {
   updatedAt: Date;
 }
 
-export interface TxtCardIn {
-  transaction: TransactionIn;
+export interface DesTransactionCard {
+  transaction: DesTransaction;
 }
 
-export interface TransactionRespones {
-  transaction: TransactionIn[];
+export interface DesTransactionRespones {
+  transaction: DesTransaction[];
   msg: string;
 }
 
-export interface Card {
+export interface DesCard {
   user: INUSER;
 
   card_number: string;
@@ -106,6 +106,6 @@ export interface Card {
 }
 
 export interface CardResponse {
-  card: Card | null;
+  card: DesCard | null;
   msg: string;
 }

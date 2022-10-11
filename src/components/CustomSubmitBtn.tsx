@@ -1,4 +1,4 @@
-import { CustomSubmitBtnProps } from "@/utils";
+import { DesCustomSubmitBtn } from "@/utils";
 
 const CustomSubmitBtn = ({
   color,
@@ -6,7 +6,7 @@ const CustomSubmitBtn = ({
   text,
   type,
   handleClick,
-}: CustomSubmitBtnProps) => {
+}: DesCustomSubmitBtn) => {
   return (
     <>
       <button

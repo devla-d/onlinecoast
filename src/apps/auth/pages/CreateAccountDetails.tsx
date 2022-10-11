@@ -5,17 +5,17 @@ import { createContext, useEffect, useRef, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import Steps from "../components/Steps";
-import { CreateAccManager, formDataI, INSignUpVerify } from "../utils";
+import { DesCreateAccContext, DesFormData, DesSignUpVerify } from "../utils";
 
-export const CreateAccContext = createContext<CreateAccManager | undefined>(
+export const CreateAccContext = createContext<DesCreateAccContext | undefined>(
   undefined
 );
 
 const CreateAccountDetails = () => {
   useUtils("Complete account setup");
   const navigate = useNavigate();
-  const [verifyData, setverifyData] = useState<INSignUpVerify>();
-  const [formData, setformData] = useState<formDataI>({
+  const [verifyData, setverifyData] = useState<DesSignUpVerify>();
+  const [formData, setformData] = useState<DesFormData>({
     first_name: "",
     last_name: "",
     phone_number: "",
@@ -36,13 +36,13 @@ const CreateAccountDetails = () => {
   const [loading, setloading] = useState(false);
   const [searchParams] = useSearchParams();
 
-  const handleNextStep = (newData: formDataI) => {
+  const handleNextStep = (newData: DesFormData) => {
     setformData((prev) => ({ ...prev, ...newData }));
 
     setActivesteps((prev) => prev + 1);
   };
 
-  const handlePrevStep = (newData: formDataI) => {
+  const handlePrevStep = (newData: DesFormData) => {
     if (activeSteps === 0) {
       console.log(activeSteps);
     } else {
@@ -58,7 +58,7 @@ const CreateAccountDetails = () => {
     }
     let source = axios.CancelToken.source();
     axiosPublic
-      .post<INSignUpVerify>(
+      .post<DesSignUpVerify>(
         "/sign-up-verify",
         { token: searchParams.get("authToken") },
         {

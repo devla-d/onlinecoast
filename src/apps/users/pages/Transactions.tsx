@@ -3,15 +3,15 @@ import useUtils from "@/hooks/useUtils";
 import { useEffect, useState } from "react";
 import BreadcrumNav from "../components/BreadcrumNav";
 import TxtCard from "../components/TxtCard";
-import { TransactionIn, TransactionRespones } from "../utils";
+import { DesTransaction, DesTransactionRespones } from "../utils";
 
 const Transactions = () => {
   useUtils("Transaction logs");
   const axiosPrivate = useAxiosPrivate();
-  const [transactions, setTxt] = useState<TransactionIn[]>();
+  const [transactions, setTxt] = useState<DesTransaction[]>();
   useEffect(() => {
     axiosPrivate
-      .get<TransactionRespones>("/transaction-logs/")
+      .get<DesTransactionRespones>("/transaction-logs/")
       .then(({ data }) => {
         setTxt(data.transaction);
       })

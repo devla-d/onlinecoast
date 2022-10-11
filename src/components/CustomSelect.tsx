@@ -1,6 +1,6 @@
-import { CustomSelectProps } from "@/utils";
+import { DesCustomSelect } from "@/utils";
 
-const CustomSelect = (props: CustomSelectProps) => {
+const CustomSelect = (props: DesCustomSelect) => {
   const {
     name,
 

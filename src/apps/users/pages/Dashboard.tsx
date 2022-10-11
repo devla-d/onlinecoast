@@ -5,16 +5,16 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import BreadcrumNav from "../components/BreadcrumNav";
 import TxtCard from "../components/TxtCard";
-import { TransactionIn, TransactionRespones } from "../utils";
+import { DesTransaction, DesTransactionRespones } from "../utils";
 
 const Dashboard = () => {
   useUtils("Account overview");
   const user = useAppSelector((state) => state.user.user)!;
   const axiosPrivate = useAxiosPrivate();
-  const [transaction, setTxt] = useState<TransactionIn[]>();
+  const [transaction, setTxt] = useState<DesTransaction[]>();
   useEffect(() => {
     axiosPrivate
-      .get<TransactionRespones>("/dashboard/")
+      .get<DesTransactionRespones>("/dashboard/")
       .then(({ data }) => {
         if (data.transaction.length > 0) {
           setTxt(data.transaction);

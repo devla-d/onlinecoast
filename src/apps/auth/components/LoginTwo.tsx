@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { LoginContext } from "../pages/Login";
-import { loginUser } from "../slicer";
+import { logDesUser } from "../slicer";
 import { SecuritySchema } from "../utils";
 
 const LoginTwo = () => {
@@ -41,7 +41,7 @@ const LoginTwo = () => {
       return false;
     }
     const FORMdata = storeDate!;
-    dispatch(loginUser(FORMdata));
+    dispatch(logDesUser(FORMdata));
     navigate(ridirectUrl, { replace: false });
   };
 

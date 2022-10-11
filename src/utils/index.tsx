@@ -6,7 +6,7 @@ export interface RouteInterface {
   path: string;
 }
 
-export interface HeroInterface {
+export interface DesHero {
   /*** Page title */
   title: string;
   /*** current Page title */
@@ -16,7 +16,7 @@ export interface HeroInterface {
   image: string;
 }
 
-export interface CustomInputProps {
+export interface DesCustomInput {
   name: string;
   type: string;
   label: string;
@@ -30,7 +30,7 @@ export interface CustomInputProps {
   handleSelectChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
-export interface CustomSelectProps {
+export interface DesCustomSelect {
   name: string;
   type: string;
   label: string;
@@ -42,7 +42,7 @@ export interface CustomSelectProps {
   handleSelectChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
-export interface CustomSubmitBtnProps {
+export interface DesCustomSubmitBtn {
   color: string;
   loading: boolean;
   text: string;
@@ -63,7 +63,7 @@ export const axiosPublic = axios.create({
   },
 });
 
-export interface RefreshResponses {
+export interface DesRefreshResponse {
   errors?: Array<string> | string;
   accesstoken?: string;
 }
