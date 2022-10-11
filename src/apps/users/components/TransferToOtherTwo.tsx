@@ -32,8 +32,8 @@ const TransferToOtherTwo = () => {
     if (user.security_pin === sec.security_code) {
       setLoading(true);
       try {
-        const { data } = await axiosPrivate.post("/transfer-other", val);
-        console.log(data);
+        const { data } = await axiosPrivate.post("/transfer-others", val);
+
         if (data.error) {
           toast.error("Transaction Failed");
         } else {

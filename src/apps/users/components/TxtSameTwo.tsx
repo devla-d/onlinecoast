@@ -32,7 +32,7 @@ const TxtSameTwo = () => {
       setLoading(true);
       try {
         const { data } = await axiosPrivate.post("/transfer-same", val);
-        console.log(data);
+
         if (data.error) {
           toast.error("Transaction Failed");
         } else {

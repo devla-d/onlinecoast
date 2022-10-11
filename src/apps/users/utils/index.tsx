@@ -180,7 +180,7 @@ export interface DesTransferToOtherContext {
 
 export const TransferToOtherOneSchema = yup.object().shape({
   first_name: yup.string().required("Firstname Is Required"),
-  last_name: yup.string().required("Firstname Is Required"),
+  last_name: yup.string().required("Lastname Is Required"),
   phone: yup.string().notRequired(),
   email: yup.string().email("Email is invalid").notRequired(),
   ben_account_number: yup.string().required("Benneficiary name Is Required"),
