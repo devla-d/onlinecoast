@@ -1,9 +1,19 @@
-import CustomSubmitBtn from "@/components/CustomSubmitBtn";
+import { useAppSelector } from "@/hooks/useStore";
 import useUtils from "@/hooks/useUtils";
+import { createContext, useState } from "react";
 import BreadcrumNav from "../components/BreadcrumNav";
+import InternationalTransferSteps from "../components/InternationalTransferSteps";
+import { DesTransferToInterContext, DesTxtInterFormData } from "../utils";
+
+export const TransferToInterContext = createContext<
+  DesTransferToInterContext | undefined
+>(undefined);
 
 const InternationalTransfer = () => {
   useUtils("International transfer");
+  const user = useAppSelector((state) => state.user.user!);
+  const [currentSteps, setcurrentSteps] = useState(0);
+  const [formData, setformData] = useState<DesTxtInterFormData>();
   return (
     <>
       <div className="container">
@@ -17,7 +27,7 @@ const InternationalTransfer = () => {
             <div className="amountBox">
               <h4>available balance</h4>
               <h2>
-                $<span>3000</span>
+                $<span>{user.balance}</span>
               </h2>
             </div>
           </div>
@@ -25,142 +35,11 @@ const InternationalTransfer = () => {
           <div className="col-lg-8">
             <div className="transferCard">
               <p>International transfer</p>
-              <form action="">
-                <div className="row">
-                  <div className="col-lg-6 mb-3">
-                    <label htmlFor={`id_name`} className="form-label">
-                      First name
-                    </label>
-                    <input
-                      type="text"
-                      name="{name}"
-                      className={"form-control "}
-                      id={`id_$`}
-                      placeholder="first name"
-                    />
-                  </div>
-                  <div className="col-lg-6 mb-3">
-                    <label htmlFor={`id_name`} className="form-label">
-                      Last name
-                    </label>
-                    <input
-                      type="text"
-                      name="{name}"
-                      className={"form-control "}
-                      id={`id_$`}
-                      placeholder="Last name"
-                    />
-                  </div>
-                  <div className="col-lg-6 mb-3">
-                    <label htmlFor={`id_name`} className="form-label">
-                      City (if any)
-                    </label>
-                    <input
-                      type="text"
-                      name="{name}"
-                      className={"form-control "}
-                      id={`id_$`}
-                      placeholder="first name"
-                    />
-                  </div>
-                  <div className="col-lg-6 mb-3">
-                    <label htmlFor={`id_name`} className="form-label">
-                      Country (if any)
-                    </label>
-                    <input
-                      type="text"
-                      name="{name}"
-                      className={"form-control "}
-                      id={`id_$`}
-                      placeholder="Last name"
-                    />
-                  </div>
-                  <div className="col-lg-6 mb-3">
-                    <label htmlFor={`id_name`} className="form-label">
-                      Beneficiary account name
-                    </label>
-                    <input
-                      type="text"
-                      name="{name}"
-                      className={"form-control "}
-                      id={`id_$`}
-                      placeholder="  name"
-                    />
-                  </div>
-                  <div className="col-lg-6 mb-3">
-                    <label htmlFor={`id_name`} className="form-label">
-                      IBAN Number
-                    </label>
-                    <input
-                      type="text"
-                      name="{name}"
-                      className={"form-control "}
-                      id={`id_$`}
-                      placeholder="IBAN Number"
-                    />
-                  </div>
-                  <div className="col-lg-6 mb-3">
-                    <label htmlFor={`id_name`} className="form-label">
-                      Bank Name
-                    </label>
-                    <input
-                      type="text"
-                      name="{name}"
-                      className={"form-control "}
-                      id={`id_$`}
-                      placeholder="Bank"
-                    />
-                  </div>
-                  <div className="col-lg-6 mb-3">
-                    <label htmlFor={`id_name`} className="form-label">
-                      Swift/BIC Code
-                    </label>
-                    <input
-                      type="text"
-                      name="{name}"
-                      className={"form-control "}
-                      id={`id_$`}
-                      placeholder="Swift/BIC Code"
-                    />
-                  </div>
-                </div>
-                <div className=" mb-3" id="amount_box">
-                  <label htmlFor={`id_name`} className="form-label">
-                    Amount
-                  </label>
-                  <input
-                    type="text"
-                    name="{name}"
-                    className={"form-control "}
-                    id={`id_amount`}
-                    placeholder="amount"
-                  />
-                  <i className="fa-solid fa-dollar dollarSign"></i>
-                </div>
-
-                <div className=" mb-3">
-                  <label htmlFor={`id_name`} className="form-label">
-                    Purpose of Transfer
-                  </label>
-                  <input
-                    type="text"
-                    name="{name}"
-                    className={"form-control form-control-lg "}
-                    id={`id_$`}
-                    placeholder="...."
-                  />
-                </div>
-                <div className=" mb-3">
-                  <div className="d-grid gap-2">
-                    <CustomSubmitBtn
-                      color="primary"
-                      text="Submit"
-                      loading={true}
-                      type="submit"
-                    />
-                  </div>
-                </div>
-              </form>
+              <TransferToInterContext.Provider
+                value={{ currentSteps, setcurrentSteps, formData, setformData }}
+              >
+                <InternationalTransferSteps />
+              </TransferToInterContext.Provider>
             </div>
           </div>
         </div>

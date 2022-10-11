@@ -32,7 +32,7 @@ const Transactions = () => {
           {/* breadcrum */}
           <div className="mb-3"></div>
 
-          <div className="col-lg-8">
+          <div className="col-lg-8 mt-4">
             {transactions && transactions.length > 0 ? (
               transactions.map((tx) => <TxtCard transaction={tx} key={tx.id} />)
             ) : (

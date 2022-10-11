@@ -178,6 +178,15 @@ export interface DesTransferToOtherContext {
   >;
 }
 
+export interface DesTransferToInterContext {
+  currentSteps: number;
+  setcurrentSteps: React.Dispatch<React.SetStateAction<number>>;
+  formData: DesTxtInterFormData | undefined;
+  setformData: React.Dispatch<
+    React.SetStateAction<DesTxtInterFormData | undefined>
+  >;
+}
+
 export const TransferToOtherOneSchema = yup.object().shape({
   first_name: yup.string().required("Firstname Is Required"),
   last_name: yup.string().required("Lastname Is Required"),
@@ -195,3 +204,34 @@ export const TransferToOtherOneSchema = yup.object().shape({
     .required("Amount is required"),
   purpose: yup.string().notRequired(),
 });
+
+export const TransferToInterOneSchema = yup.object().shape({
+  first_name: yup.string().required("Firstname Is Required"),
+  last_name: yup.string().required("Lastname Is Required"),
+  country: yup.string().notRequired(),
+  city: yup.string().notRequired(),
+  ben_account_number: yup.string().required("Benneficiary name Is Required"),
+  iban_number: yup.string().required("IBAN Number  Is Required"),
+  bank_name: yup.string().required("Bank name Is Required"),
+  swift_code: yup.string().required("Swift/BIC Code  Is Required"),
+  amount: yup
+    .number()
+    .positive()
+    .integer()
+    .min(20, "Minimum is $20")
+    .required("Amount is required"),
+  purpose: yup.string().notRequired(),
+});
+
+export interface DesTxtInterFormData {
+  first_name: string;
+  last_name: string;
+  country: string;
+  city: string;
+  ben_account_number: string;
+  iban_number: string;
+  bank_name: string;
+  swift_code: string;
+  amount: string;
+  purpose: string;
+}
