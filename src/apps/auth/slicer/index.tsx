@@ -2,6 +2,7 @@ import { axiosPublic } from "@/utils";
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AxiosError } from "axios";
 import {
+  DesAccountNumbers,
   DesExUserData,
   DesIntialUserSlicer,
   DesLoginResponse,
@@ -24,6 +25,7 @@ const checkRefresToken = sessionStorage.getItem("refreshToken")
 
 const initialState: DesIntialUserSlicer = {
   existingEmails: [],
+  accountNumbers: [],
   user: checkuser,
   refreshToken: checkRefresToken,
   accessToken: checkAccessToken,
@@ -74,6 +76,12 @@ const userSlicer = createSlice({
       sessionStorage.setItem("accessToken", payload);
       state.accessToken = payload;
     },
+    updateAccounNumbers: (
+      state,
+      { payload }: PayloadAction<DesAccountNumbers>
+    ) => {
+      state.accountNumbers = payload.accountNumbers;
+    },
   },
   extraReducers(builder) {
     builder.addCase(
@@ -88,6 +96,11 @@ const userSlicer = createSlice({
   },
 });
 
-export const { logDesUser, updateUser, resetUser, updateAccess } =
-  userSlicer.actions;
+export const {
+  logDesUser,
+  updateUser,
+  resetUser,
+  updateAccess,
+  updateAccounNumbers,
+} = userSlicer.actions;
 export default userSlicer.reducer;

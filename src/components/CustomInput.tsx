@@ -11,6 +11,7 @@ const CustomInput = (props: DesCustomInput) => {
     placeholder,
     error,
     touched,
+    class_Name,
   } = props;
   return (
     <>
@@ -20,7 +21,12 @@ const CustomInput = (props: DesCustomInput) => {
       <input
         type={type}
         name={name}
-        className={"form-control " + (error && touched ? "is-invalid" : null)}
+        className={
+          "form-control " +
+          class_Name +
+          " " +
+          (error && touched ? "is-invalid" : null)
+        }
         id={`id_${name}`}
         placeholder={placeholder}
         value={value}

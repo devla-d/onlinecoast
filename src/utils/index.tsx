@@ -22,12 +22,13 @@ export interface DesCustomInput {
   label: string;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleBlur: (e: React.FocusEvent<any, Element>) => void;
-  value: string;
+  value: string | number;
   placeholder?: string;
   error?: string | undefined;
   touched?: boolean;
   children?: JSX.Element | JSX.Element[];
   handleSelectChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  class_Name?: string;
 }
 
 export interface DesCustomSelect {

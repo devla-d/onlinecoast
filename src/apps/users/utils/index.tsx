@@ -1,4 +1,5 @@
-import { INUSER } from "@/apps/auth/utils";
+import { DesUser } from "@/apps/auth/utils";
+import * as yup from "yup";
 
 export const toggleSidebar = () => {
   var sidebar = document.getElementById("sideBar") as HTMLElement;
@@ -47,7 +48,7 @@ export interface DesBreadcrumNav {
 
 export interface DesTransaction {
   id: number;
-  user: INUSER;
+  user: DesUser;
 
   amount: number;
 
@@ -89,7 +90,7 @@ export interface DesTransactionRespones {
 }
 
 export interface DesCard {
-  user: INUSER;
+  user: DesUser;
 
   card_number: string;
 
@@ -108,4 +109,33 @@ export interface DesCard {
 export interface CardResponse {
   card: DesCard | null;
   msg: string;
+}
+
+export const TransferToSameSchema = (account_numbers: Array<string>) =>
+  yup.object().shape({
+    amount: yup.number().required("Amount is required"),
+    account_number: yup
+      .string()
+      .oneOf(account_numbers, "Account number is invalid")
+      .required("Account number is required"),
+
+    purpose: yup.string().notRequired(),
+
+    beneficiary: yup.string().notRequired(),
+  });
+
+export interface DesTxtSameFormData {
+  amount: string;
+  account_number: string;
+  purpose?: string;
+  beneficiary?: string;
+}
+
+export interface DesTransferToSameContext {
+  currentSteps: number;
+  setcurrentSteps: React.Dispatch<React.SetStateAction<number>>;
+  formData: DesTxtSameFormData | undefined;
+  setformData: React.Dispatch<
+    React.SetStateAction<DesTxtSameFormData | undefined>
+  >;
 }

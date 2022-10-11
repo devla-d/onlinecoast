@@ -168,6 +168,7 @@ export interface DesIntialUserSlicer {
   user?: DesUser;
   refreshToken: string;
   accessToken: string;
+  accountNumbers: Array<string>;
 }
 
 export interface DesExUserData {
@@ -213,4 +214,8 @@ export interface DesResetVerifyResponse {
 export interface DesResetPasswordResponse {
   msg?: string;
   errors?: string[];
+}
+
+export interface DesAccountNumbers {
+  accountNumbers: Array<string>;
 }

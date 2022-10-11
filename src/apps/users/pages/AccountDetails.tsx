@@ -16,6 +16,7 @@ export const AccountDetails = () => {
     toast.info("Logged out");
     navigate("/sign-in");
   };
+
   return (
     <>
       <div className="container">
@@ -28,11 +29,9 @@ export const AccountDetails = () => {
               <div className="col-lg-5">
                 <div className="user-profile">
                   <div className="userProfileHead">
-                    <div
-                      style={{
-                        backgroundImage: `url(${BASE_URL}${user.profile_img})`,
-                      }}
-                    ></div>
+                    <div>
+                      <img src={`${BASE_URL}${user.profile_img}`} alt="" />
+                    </div>
                   </div>
                   <div className="userProfileStat border-bottom ">
                     <div className="status">
