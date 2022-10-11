@@ -1,3 +1,4 @@
+import moment from "moment";
 import { Link } from "react-router-dom";
 import { DesTransactionCard } from "../utils";
 
@@ -22,7 +23,9 @@ const TxtCard = ({ transaction }: DesTransactionCard) => {
         </div>
         <div className="trans-name text-truncate">
           <h4>{transaction.mode}</h4>
-          <p className="in-text-lead text-truncate">{`${transaction.createdAt}`}</p>
+          <p className="in-text-lead text-truncate">{`${moment(
+            transaction.createdAt
+          ).format("MMMM Do YYYY, h:mm:ss a")}`}</p>
         </div>
         <div className="trans-amount">{trxAmount}</div>
         <div className="trans-detail">

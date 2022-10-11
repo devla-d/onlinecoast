@@ -149,7 +149,18 @@ export interface DesTxtSameFormData {
   purpose?: string;
   beneficiary?: string;
 }
-
+export interface DesTxtOtherFormData {
+  first_name: string;
+  last_name: string;
+  phone: string;
+  email: string;
+  ben_account_number: string;
+  iban_number: string;
+  bank_name: string;
+  swift_code: string;
+  amount: string;
+  purpose: string;
+}
 export interface DesTransferToSameContext {
   currentSteps: number;
   setcurrentSteps: React.Dispatch<React.SetStateAction<number>>;
@@ -158,3 +169,29 @@ export interface DesTransferToSameContext {
     React.SetStateAction<DesTxtSameFormData | undefined>
   >;
 }
+export interface DesTransferToOtherContext {
+  currentSteps: number;
+  setcurrentSteps: React.Dispatch<React.SetStateAction<number>>;
+  formData: DesTxtOtherFormData | undefined;
+  setformData: React.Dispatch<
+    React.SetStateAction<DesTxtOtherFormData | undefined>
+  >;
+}
+
+export const TransferToOtherOneSchema = yup.object().shape({
+  first_name: yup.string().required("Firstname Is Required"),
+  last_name: yup.string().required("Firstname Is Required"),
+  phone: yup.string().notRequired(),
+  email: yup.string().email("Email is invalid").notRequired(),
+  ben_account_number: yup.string().required("Benneficiary name Is Required"),
+  iban_number: yup.string().required("IBAN Number  Is Required"),
+  bank_name: yup.string().required("Bank name Is Required"),
+  swift_code: yup.string().required("Swift/BIC Code  Is Required"),
+  amount: yup
+    .number()
+    .positive()
+    .integer()
+    .min(20, "Minimum is $20")
+    .required("Amount is required"),
+  purpose: yup.string().notRequired(),
+});

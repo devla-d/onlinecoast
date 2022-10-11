@@ -6,16 +6,17 @@ import { useFormik } from "formik";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { TxtSameContext } from "../pages/TransferToSame";
-import { DesTxtSameFormData, TransferToSameSchemaTwo } from "../utils";
+import { TransferToOtherContext } from "../pages/TransferToOther";
+import { DesTxtOtherFormData, TransferToSameSchemaTwo } from "../utils";
 
-const TxtSameTwo = () => {
-  const user = useAppSelector((state) => state.user.user!);
-  const { formData } = useContext(TxtSameContext)!;
-  let form_data = formData!;
+const TransferToOtherTwo = () => {
   const [loading, setLoading] = useState(false);
+  const user = useAppSelector((state) => state.user.user!);
+  const { formData } = useContext(TransferToOtherContext)!;
+  let form_data = formData!;
   const axiosPrivate = useAxiosPrivate();
   const navigate = useNavigate();
+
   const { errors, handleBlur, handleChange, handleSubmit, values, touched } =
     useFormik({
       initialValues: {
@@ -27,11 +28,11 @@ const TxtSameTwo = () => {
       },
     });
 
-  const sendRequest = async (val: DesTxtSameFormData, sec: typeof values) => {
+  const sendRequest = async (val: DesTxtOtherFormData, sec: typeof values) => {
     if (user.security_pin === sec.security_code) {
       setLoading(true);
       try {
-        const { data } = await axiosPrivate.post("/transfer-same", val);
+        const { data } = await axiosPrivate.post("/transfer-other", val);
         console.log(data);
         if (data.error) {
           toast.error("Transaction Failed");
@@ -46,6 +47,7 @@ const TxtSameTwo = () => {
       return false;
     }
   };
+
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -77,4 +79,4 @@ const TxtSameTwo = () => {
   );
 };
 
-export default TxtSameTwo;
+export default TransferToOtherTwo;
