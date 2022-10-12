@@ -1,5 +1,6 @@
 import { changePasswordSchema } from "@/apps/users/utils";
 import CustomInput from "@/components/CustomInput";
+import CustomSubmitBtn from "@/components/CustomSubmitBtn";
 import useAxiosPrivate from "@/hooks/useAxiosPrivate";
 import useUtils from "@/hooks/useUtils";
 import { AxiosError } from "axios";
@@ -95,14 +96,13 @@ const ChangePassword = () => {
                 </div>
               </div>
               <div className="card-footer mb-">
-                <div className="d-flex space-bt">
-                  <button className="btn btn-success">
-                    <i className="fas fa-donate"></i> approve
-                  </button>
-
-                  <a href="#" className="btn btn-danger">
-                    <i className="fas fa-ban"></i> Decline
-                  </a>
+                <div className="d-grid gap-2">
+                  <CustomSubmitBtn
+                    color="primary"
+                    text="Submit"
+                    loading={loading}
+                    type="submit"
+                  />
                 </div>
               </div>
             </form>
