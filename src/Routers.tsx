@@ -8,6 +8,7 @@ import HomeRoutes from "./apps/home/routes";
 import Protected from "./apps/users/components/Protected";
 import UserRoutes from "./apps/users/routes";
 import UserLayout from "./apps/users/UserLayout";
+import PageNotFound from "./components/PageNotFound";
 
 const Routers = () => {
   return (
@@ -39,6 +40,7 @@ const Routers = () => {
             />
           ))}
         </Route>
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </>
   );

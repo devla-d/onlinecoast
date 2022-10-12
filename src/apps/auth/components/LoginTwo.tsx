@@ -2,7 +2,7 @@ import CustomInput from "@/components/CustomInput";
 import CustomSubmitBtn from "@/components/CustomSubmitBtn";
 import { useAppDispatch } from "@/hooks/useStore";
 import { useFormik } from "formik";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { LoginContext } from "../pages/Login";
@@ -44,6 +44,11 @@ const LoginTwo = () => {
     dispatch(logDesUser(FORMdata));
     navigate(ridirectUrl, { replace: false });
   };
+  useEffect(() => {
+    setloading(false);
+
+    return () => {};
+  }, []);
 
   return (
     <>

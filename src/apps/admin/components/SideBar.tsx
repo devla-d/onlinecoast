@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import $ from "jquery";
 
 const SideBar = () => {
   useEffect(() => {
@@ -8,7 +9,11 @@ const SideBar = () => {
     if (window.innerWidth < 767) {
       links.forEach((link) => {
         link.addEventListener("click", function (e) {
-          console.log(link);
+          $("body").toggleClass("sidebar-toggled");
+          $(".sidebar").toggleClass("toggled");
+          if ($(".sidebar").hasClass("toggled")) {
+            $(".sidebar ").removeClass("toggled");
+          }
         });
       });
     }
@@ -50,38 +55,14 @@ const SideBar = () => {
         </li>
 
         <hr className="sidebar-divider" />
-
-        <li className="nav-item">
-          <a className="nav-link" href="/superadmin/withdrawals/">
-            <i className="fas fa-fw fa-download"></i>
-            <span> Withdraw</span>
-          </a>
-        </li>
-        <hr className="sidebar-divider" />
         <li className="nav-item">
           <a className="nav-link" href="/superadmin/deposits/">
             <i className="fas fa-fw fa-credit-card"></i>
-            <span>Deposit</span>
+            <span>Transactions</span>
           </a>
         </li>
         <hr className="sidebar-divider" />
 
-        <li className="nav-item">
-          <a className="nav-link" href="/superadmin/investments/">
-            <i className="fas fa-fw fa-signal"></i>
-            <span>Invetments</span>
-          </a>
-        </li>
-        <hr className="sidebar-divider" />
-
-        <li className="nav-item">
-          <a className="nav-link" href="/superadmin/packages/">
-            <i className="fas fa-fw fa-gift"></i>
-            <span>Packages</span>
-          </a>
-        </li>
-
-        <hr className="sidebar-divider" />
         <div className="version" id="version-rxzadmin"></div>
       </ul>
     </>

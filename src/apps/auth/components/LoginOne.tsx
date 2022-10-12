@@ -35,7 +35,6 @@ const LoginOne = () => {
       .catch((e: AxiosError) => {
         console.log(e);
       });
-    setloading(false);
   };
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
