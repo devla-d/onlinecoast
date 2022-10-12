@@ -1,0 +1,60 @@
+html#adminDoc {
+  @media (max-width: 768px) {
+    .topbar {
+      .navbar-search {
+        width: 100%;
+      }
+    }
+    .sidebar {
+      width: 0 !important;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      -webkit-transition: all 0.3s ease;
+    }
+    .sidebar.toggled {
+      width: 100vw !important;
+      transition: all 0.3s ease-in-out;
+      -webkit-transition: all 0.3s ease-in-out;
+      .sidebar-brand {
+        .sidebar-brand-text {
+          display: inline;
+        }
+      }
+      .nav-item {
+        .nav-link {
+          display: block;
+          width: 100%;
+          text-align: left;
+          padding: 1rem;
+          width: 14rem;
+          span {
+            font-size: 0.85rem;
+            display: inline;
+          }
+          i {
+            font-size: 0.85rem;
+            margin-top: 0.4rem;
+            margin-right: 0.5rem;
+          }
+        }
+      }
+    }
+    .editor-header {
+      h3 {
+        font-size: 20px;
+      }
+    }
+    #hiddensm {
+      display: none;
+    }
+    #hiddenxl {
+      display: block !important;
+    }
+    .user__avatar {
+      margin-top: 13px;
+    }
+    .card-body.md {
+      padding: 10px !important;
+    }
+  }
+}

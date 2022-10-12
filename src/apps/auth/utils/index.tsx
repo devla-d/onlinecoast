@@ -136,6 +136,10 @@ export interface DesRegisterResponse {
   error?: string;
   msg?: string;
 }
+export enum Roles {
+  ADMIN = "admin",
+  USER = "user",
+}
 
 export interface DesUser {
   id: number;
@@ -158,7 +162,7 @@ export interface DesUser {
   security_pin: string;
   account_type: string;
   profile_img: string;
-  roles: string;
+  roles: Roles;
   is_active: string;
   password: string;
 }
