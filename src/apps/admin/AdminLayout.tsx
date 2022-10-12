@@ -9,6 +9,7 @@ import "./assets/fontawesome/css/all.css";
 import Footer from "./components/Footer";
 import SideBar from "./components/SideBar";
 import Topbar from "./components/Topbar";
+import ToastDialog from "@/components/ToastDialog";
 
 let coun_t = 0;
 const AdminLayout = () => {
@@ -62,6 +63,7 @@ const AdminLayout = () => {
           </div>
         </div>
       </div>
+      <ToastDialog />
     </>
   );
 };
