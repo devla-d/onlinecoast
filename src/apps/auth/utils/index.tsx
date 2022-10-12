@@ -143,7 +143,7 @@ export enum Roles {
 
 export interface DesUser {
   id: number;
-  createdAt: string;
+  createdAt: Date;
   updatedAt: string;
   email: string;
   account_number: string;
