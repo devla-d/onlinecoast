@@ -56,10 +56,10 @@ const SideBar = () => {
 
         <hr className="sidebar-divider" />
         <li className="nav-item">
-          <a className="nav-link" href="/superadmin/deposits/">
+          <NavLink className="nav-link" to="/admin/transactions">
             <i className="fas fa-fw fa-credit-card"></i>
             <span>Transactions</span>
-          </a>
+          </NavLink>
         </li>
         <hr className="sidebar-divider" />
 

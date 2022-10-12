@@ -35,7 +35,6 @@ const AdminLayout = () => {
 
     return () => {
       mountedScripts.forEach((scr) => {
-        console.log(scr);
         document.body.removeChild(scr);
       });
     };

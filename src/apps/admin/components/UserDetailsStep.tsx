@@ -1,8 +1,7 @@
 import UserDetailsOne from "./UserDetailsOne";
-import UserDetailTwo from "./UserDetailTwo";
 
 const UserDetailsStep = () => {
-  let context = [<UserDetailsOne />, <UserDetailTwo />];
+  let context = [<UserDetailsOne />];
 
   return context[0];
 };

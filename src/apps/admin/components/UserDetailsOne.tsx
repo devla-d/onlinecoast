@@ -1,3 +1,6 @@
+import EditUser from "./EditUser";
+import TopupModal from "./TopupModal";
+
 const UserDetailsOne = () => {
   return (
     <>
@@ -74,7 +77,14 @@ const UserDetailsOne = () => {
                   <i className="fas fa-donate"></i> Top Up
                 </button>
 
-                <a href="#" className="btn btn-primary">
+                <a
+                  type="button"
+                  data-toggle="modal"
+                  data-target="#editModal"
+                  role={"button"}
+                  href="#"
+                  className="btn btn-primary"
+                >
                   <i className="fas fa-pen"></i> Edit
                 </a>
               </div>
@@ -82,6 +92,8 @@ const UserDetailsOne = () => {
           </div>
         </div>
       </div>
+      <TopupModal />
+      <EditUser />
     </>
   );
 };
