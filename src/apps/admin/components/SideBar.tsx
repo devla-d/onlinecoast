@@ -63,6 +63,14 @@ const SideBar = () => {
         </li>
         <hr className="sidebar-divider" />
 
+        <li className="nav-item">
+          <NavLink className="nav-link" to="/admin/change-password">
+            <i className="fas fa-fw fa-lock"></i>
+            <span>Change Password</span>
+          </NavLink>
+        </li>
+        <hr className="sidebar-divider" />
+
         <div className="version" id="version-rxzadmin"></div>
       </ul>
     </>
