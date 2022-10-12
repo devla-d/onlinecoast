@@ -35,6 +35,7 @@ const AdminLayout = () => {
     var mountedScripts = document.querySelectorAll("[data-mounted='true']");
 
     return () => {
+      html.removeAttribute("id");
       mountedScripts.forEach((scr) => {
         document.body.removeChild(scr);
       });

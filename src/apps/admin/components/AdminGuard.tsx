@@ -1,17 +1,16 @@
 import { Roles } from "@/apps/auth/utils";
 import { useAppSelector } from "@/hooks/useStore";
-import { Navigate, Outlet, useLocation } from "react-router-dom";
+import { useLocation, Outlet, Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-const Protected = () => {
+const AdminGuard = () => {
   const user = useAppSelector((state) => state.user.user);
-
   const { pathname } = useLocation();
   if (user) {
-    if (user.roles == Roles.USER) {
+    if (user.roles == Roles.ADMIN) {
       return <Outlet />;
     } else {
-      toast.error("This is an user page your  logged as admin");
+      toast.error("You are not uathourize to enter this page");
       return <Navigate to="/sign-in" replace={true} />;
     }
   } else {
@@ -21,4 +20,4 @@ const Protected = () => {
   }
 };
 
-export default Protected;
+export default AdminGuard;

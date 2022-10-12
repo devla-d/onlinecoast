@@ -62,6 +62,13 @@ const SideBar = () => {
           </NavLink>
         </li>
         <hr className="sidebar-divider" />
+        <li className="nav-item">
+          <NavLink className="nav-link" to="/admin/profile">
+            <i className="fas fa-fw fa-user"></i>
+            <span>Profile</span>
+          </NavLink>
+        </li>
+        <hr className="sidebar-divider" />
 
         <li className="nav-item">
           <NavLink className="nav-link" to="/admin/change-password">

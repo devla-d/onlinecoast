@@ -3,6 +3,7 @@ import { getRandomNumber } from "@/utils/helper";
 import ChangePassword from "../pages/ChangePassword";
 
 import IndexPage from "../pages/IndexPage";
+import Profile from "../pages/Profile";
 import Transactions from "../pages/Transactions";
 import TrxDetails from "../pages/TrxDetails";
 import UserDetail from "../pages/UserDetail";
@@ -38,6 +39,11 @@ const AdminRoutes: RouteInterface[] = [
     id: getRandomNumber(),
     element: <ChangePassword />,
     path: "/change-password",
+  },
+  {
+    id: getRandomNumber(),
+    element: <Profile />,
+    path: "/profile",
   },
 ];
 

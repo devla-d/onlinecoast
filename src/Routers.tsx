@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import AdminLayout from "./apps/admin/AdminLayout";
+import AdminGuard from "./apps/admin/components/AdminGuard";
 import AdminRoutes from "./apps/admin/routes";
 import AuthLayout from "./apps/auth/AuthLayout";
 import AuthRoutes from "./apps/auth/routes";
@@ -31,14 +32,16 @@ const Routers = () => {
             ))}
           </Route>
         </Route>
-        <Route element={<AdminLayout />}>
-          {AdminRoutes.map((com) => (
-            <Route
-              element={com.element}
-              path={`/admin${com.path}`}
-              key={com.id}
-            />
-          ))}
+        <Route element={<AdminGuard />}>
+          <Route element={<AdminLayout />}>
+            {AdminRoutes.map((com) => (
+              <Route
+                element={com.element}
+                path={`/admin${com.path}`}
+                key={com.id}
+              />
+            ))}
+          </Route>
         </Route>
         <Route path="*" element={<PageNotFound />} />
       </Routes>
