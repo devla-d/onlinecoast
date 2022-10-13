@@ -1,17 +1,30 @@
+import { updateUser } from "@/apps/auth/slicer";
 import CustomInput from "@/components/CustomInput";
 import CustomSubmitBtn from "@/components/CustomSubmitBtn";
 import useAxiosPrivate from "@/hooks/useAxiosPrivate";
 import { useAppSelector } from "@/hooks/useStore";
 import { useFormik } from "formik";
 import { useContext, useState } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { boolean } from "yup";
 import { TxtSameContext } from "../pages/TransferToSame";
-import { DesTxtSameFormData, TransferToSameSchemaTwo } from "../utils";
+import {
+  DesTransaction,
+  DesTxtSameFormData,
+  TransferToSameSchemaTwo,
+} from "../utils";
+
+interface DescTxtSameTwoResponse {
+  senderTxt: DesTransaction;
+  error: boolean;
+}
 
 const TxtSameTwo = () => {
   const user = useAppSelector((state) => state.user.user!);
   const { formData } = useContext(TxtSameContext)!;
+  const dispatch = useDispatch();
   let form_data = formData!;
   const [loading, setLoading] = useState(false);
   const axiosPrivate = useAxiosPrivate();
@@ -31,11 +44,15 @@ const TxtSameTwo = () => {
     if (user.security_pin === sec.security_code) {
       setLoading(true);
       try {
-        const { data } = await axiosPrivate.post("/transfer-same", val);
+        const { data } = await axiosPrivate.post<DescTxtSameTwoResponse>(
+          "/transfer-same",
+          val
+        );
 
         if (data.error) {
           toast.error("Transaction Failed");
         } else {
+          dispatch(updateUser(data.senderTxt.user));
           toast.info("Transaction created");
         }
         navigate("/transactions-log", { replace: true });

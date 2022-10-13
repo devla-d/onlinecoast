@@ -69,7 +69,9 @@ const userSlicer = createSlice({
       sessionStorage.removeItem("refreshToken");
       sessionStorage.removeItem("accessToken");
 
-      state = initialState;
+      state.user = undefined;
+      state.refreshToken = "";
+      state.accessToken = "";
     },
     updateAccess: (state, { payload }: PayloadAction<string>) => {
       sessionStorage.removeItem("accessToken");
