@@ -5,6 +5,7 @@ import useAxiosPrivate from "@/hooks/useAxiosPrivate";
 import { useFormik } from "formik";
 import { useState } from "react";
 import ReactDOM from "react-dom";
+import { toast } from "react-toastify";
 
 interface DecEditUser {
   user: DesUser;
@@ -17,6 +18,7 @@ interface DesUserResponse {
 }
 
 const EditUser = ({ user, setuser }: DecEditUser) => {
+  var closeBtn = document.getElementById("closeBtn2") as HTMLButtonElement;
   const dialog = document.getElementById("dialog-wrapper") as HTMLDivElement;
   const axiosPrivate = useAxiosPrivate();
   const [loading, setloading] = useState(false);
@@ -25,8 +27,9 @@ const EditUser = ({ user, setuser }: DecEditUser) => {
     axiosPrivate
       .post<DesUserResponse>("/admin/edit-user/", val)
       .then(({ data }) => {
-        console.log(data);
         setuser(data.user);
+        toast.info(data.msg);
+        closeBtn.click();
       })
       .catch(console.log);
     setloading(false);
@@ -34,7 +37,20 @@ const EditUser = ({ user, setuser }: DecEditUser) => {
   const { errors, handleBlur, handleChange, handleSubmit, values, touched } =
     useFormik({
       initialValues: {
-        ...user,
+        email: user.email,
+        first_name: user.first_name,
+        last_name: user.last_name,
+        phone_number: user.phone_number,
+        date_of_birth: user.date_of_birth,
+        gender: user.gender,
+        next_of_kin: user.next_of_kin,
+        street_name: user.street_name,
+        city: user.city,
+        state: user.state,
+        country: user.country,
+        zipcode: user.zipcode,
+        security_pin: user.security_pin,
+        id: user.id,
       },
       onSubmit(values) {
         submitData(values);
@@ -83,15 +99,15 @@ const EditUser = ({ user, setuser }: DecEditUser) => {
                   </div>
                   <div className="col-md-6 mb-3">
                     <CustomInput
-                      placeholder="first name"
-                      name="first_name"
+                      placeholder="last name"
+                      name="last_name"
                       handleBlur={handleBlur}
                       handleChange={handleChange}
-                      label="First Name"
-                      error={errors.first_name}
-                      touched={touched.first_name}
+                      label="Last Name"
+                      error={errors.last_name}
+                      touched={touched.last_name}
                       type={"text"}
-                      value={values.first_name}
+                      value={values.last_name}
                     />
                   </div>
                   <div className="col-md-6 mb-3">
@@ -235,6 +251,7 @@ const EditUser = ({ user, setuser }: DecEditUser) => {
                   type="button"
                   className="btn btn-outline-primary"
                   data-dismiss="modal"
+                  id="closeBtn2"
                 >
                   Cancel
                 </button>
