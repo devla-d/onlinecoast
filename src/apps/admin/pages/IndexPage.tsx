@@ -1,4 +1,5 @@
 import useAxiosPrivate from "@/hooks/useAxiosPrivate";
+import useUtils from "@/hooks/useUtils";
 import { useEffect, useState } from "react";
 import BreadCrum from "../components/BreadCrum";
 
@@ -12,6 +13,7 @@ interface DesDashResponse {
 const IndexPage = () => {
   const [dashbata, setdashbata] = useState<DesDashResponse>();
   const axiosPrivate = useAxiosPrivate();
+  useUtils("Admin Dashboard");
   useEffect(() => {
     axiosPrivate
       .get<DesDashResponse>("/admin/dashbaord/")

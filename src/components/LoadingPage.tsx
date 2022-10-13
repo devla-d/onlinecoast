@@ -1,18 +1,26 @@
 import useUtils from "@/hooks/useUtils";
+import ReactDOM from "react-dom";
 
 const LoadingPage = () => {
   useUtils("Please wait");
-  return (
+  const dialog = document.getElementById("dialog-wrapper") as HTMLDivElement;
+
+  return ReactDOM.createPortal(
     <>
       <div
         className=""
         data-v-be7bbc8c=""
         style={{
-          height: "100vh",
+          height: "100%",
+          width: "100%",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           textAlign: "center",
+          position: "fixed",
+          top: "0",
+          zIndex: 9999,
+          backgroundColor: "rgba(0,0,0,0.6)",
         }}
       >
         <div className="logincard" data-v-be7bbc8c="">
@@ -45,7 +53,8 @@ const LoadingPage = () => {
           </div>
         </div>
       </div>
-    </>
+    </>,
+    dialog
   );
 };
 

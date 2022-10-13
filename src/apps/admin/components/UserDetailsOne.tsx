@@ -1,5 +1,6 @@
 import { DesUser } from "@/apps/auth/utils";
 import useAxiosPrivate from "@/hooks/useAxiosPrivate";
+import useUtils from "@/hooks/useUtils";
 import { BASE_URL } from "@/utils";
 import { AxiosError } from "axios";
 import { useEffect, useState } from "react";
@@ -9,19 +10,25 @@ import TopupModal from "./TopupModal";
 
 interface DesUserResponse {
   user: DesUser;
+  totalRecieved: number;
+  totalSent: number;
 }
 
 const UserDetailsOne = () => {
   const axiosPrivate = useAxiosPrivate();
+  useUtils("User details");
   const [user, setuser] = useState<DesUser>();
+  const [totalRecieved, settotalRecieved] = useState(0);
+  const [totalSent, settotalSent] = useState(0);
   const navigate = useNavigate();
   const { id } = useParams();
   useEffect(() => {
     axiosPrivate
       .get<DesUserResponse>(`/admin/all-users/${id}`)
       .then(({ data }) => {
-        console.log(data);
         setuser(data.user);
+        settotalRecieved(data.totalRecieved);
+        settotalSent(data.totalSent);
       })
       .catch((e) => {
         let er = e as AxiosError;
@@ -53,7 +60,7 @@ const UserDetailsOne = () => {
                         <img
                           className="mr-3 user__avatar mr-0 mr-sm-3 "
                           src={`${BASE_URL}${user.profile_img}`}
-                          alt=""
+                          alt="image"
                         />
                         <div className="media-body text-truncate">
                           <h4 className="mb-2" id="user_name">
@@ -89,13 +96,13 @@ const UserDetailsOne = () => {
                         <li>
                           <p>Amount Sent</p>
                           <p>
-                            $<span id="user_amount_invested"></span>
+                            $<span id="user_amount_invested">{totalSent}</span>
                           </p>
                         </li>
                         <li>
                           <p>Amount Received</p>
                           <p>
-                            $<span id="user_depo_bal">0</span>
+                            $<span id="user_depo_bal">{totalRecieved}</span>
                           </p>
                         </li>
                       </ul>
@@ -140,8 +147,12 @@ const UserDetailsOne = () => {
           )}
         </div>
       </div>
-      <TopupModal />
-      <EditUser />
+      {user ? (
+        <>
+          <TopupModal user={user} setuser={setuser} />
+          <EditUser user={user} setuser={setuser} />
+        </>
+      ) : null}
     </>
   );
 };
