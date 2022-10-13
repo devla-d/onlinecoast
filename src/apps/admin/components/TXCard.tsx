@@ -22,7 +22,10 @@ const TXCard = ({ transaction }: DesTXCard) => {
   return (
     <>
       <div className="col-lg-8 mb-2">
-        <Link to="/admin/transactions/1" className="card h-100">
+        <Link
+          to={`/admin/transactions/${transaction.id}`}
+          className="card h-100"
+        >
           <div className="card-body">
             <div className="row align-items-center">
               <div className="col mr-2">

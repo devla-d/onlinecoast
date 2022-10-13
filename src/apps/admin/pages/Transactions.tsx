@@ -15,7 +15,6 @@ const Transactions = () => {
     axiosPrivate
       .get<DesTxtTResponse>("/admin/all-transactions")
       .then(({ data }) => {
-        console.log(data);
         settrasactions(data.transactions);
       })
       .catch(console.log);
