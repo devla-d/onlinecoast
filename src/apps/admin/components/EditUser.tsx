@@ -37,7 +37,6 @@ const EditUser = () => {
                         type="number"
                         name="amount"
                         className="form-control"
-                        value=""
                         required={true}
                       />
                     </div>
@@ -49,7 +48,6 @@ const EditUser = () => {
                         type="number"
                         name="amount"
                         className="form-control"
-                        value=""
                         required={true}
                       />
                     </div>
@@ -61,7 +59,6 @@ const EditUser = () => {
                         type="number"
                         name="amount"
                         className="form-control"
-                        value=""
                         required={true}
                       />
                     </div>
@@ -73,7 +70,6 @@ const EditUser = () => {
                         type="number"
                         name="amount"
                         className="form-control"
-                        value=""
                         required={true}
                       />
                     </div>

@@ -7,7 +7,7 @@ import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { LoginContext } from "../pages/Login";
 import { logDesUser } from "../slicer";
-import { SecuritySchema } from "../utils";
+import { Roles, SecuritySchema } from "../utils";
 
 const LoginTwo = () => {
   const dispatch = useAppDispatch();
@@ -42,7 +42,11 @@ const LoginTwo = () => {
     }
     const FORMdata = storeDate!;
     dispatch(logDesUser(FORMdata));
-    navigate(ridirectUrl, { replace: false });
+    if (FORMdata.user.roles === Roles.ADMIN) {
+      navigate("/admin/", { replace: false });
+    } else {
+      navigate(ridirectUrl, { replace: false });
+    }
   };
   useEffect(() => {
     setloading(false);

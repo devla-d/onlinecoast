@@ -16,7 +16,6 @@ const Users = () => {
     axiosPrivate
       .get<DesUserResponse>("/admin/all-users")
       .then(({ data }) => {
-        console.log(data);
         setusers(data.user);
       })
       .catch((e) => {

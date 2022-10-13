@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import BreadcrumNav from "../components/BreadcrumNav";
 
-export const AccountDetails = () => {
+const AccountDetails = () => {
   useUtils("Account details");
   const user = useAppSelector((state) => state.user.user)!;
   const dispatch = useAppDispatch();
@@ -289,3 +289,5 @@ export const AccountDetails = () => {
     </>
   );
 };
+
+export default AccountDetails;

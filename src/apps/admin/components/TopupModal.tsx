@@ -40,7 +40,6 @@ const TopupModal = () => {
                     type="number"
                     name="amount"
                     className="form-control"
-                    value=""
                     required={true}
                   />
                 </div>
