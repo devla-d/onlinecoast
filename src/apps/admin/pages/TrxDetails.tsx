@@ -183,7 +183,8 @@ const TrxDetails = () => {
 
                 <div className="card-footer mb-">
                   <div className="d-flex space-bt">
-                    {trasaction.status === STATUS.PENDING ? (
+                    {trasaction.status === STATUS.PENDING &&
+                    trasaction.mode === "send" ? (
                       <>
                         <button
                           disabled={loading}
