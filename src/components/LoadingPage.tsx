@@ -30,7 +30,7 @@ const LoadingPage = () => {
                 className="error-title uk-text-danger"
                 data-v-be7bbc8c=""
                 style={{
-                  color: "#f0506e",
+                  color: "#fff",
                   fontSize: "60px",
                   textTransform: "capitalize",
                 }}
@@ -43,10 +43,18 @@ const LoadingPage = () => {
               >
                 <i
                   className="fa-solid fa-spinner fa-spin"
-                  style={{ fontSize: "20px" }}
+                  style={{ fontSize: "60px", color: "rgb(240, 80, 110)" }}
                 ></i>
               </h3>
-              <p className="uk-text-muted mt-4 mb-4" data-v-be7bbc8c="">
+              <p
+                className="uk-text-muted mt-4 mb-4"
+                data-v-be7bbc8c=""
+                style={{
+                  color: "#fff",
+                  fontSize: "20px",
+                  textTransform: "capitalize",
+                }}
+              >
                 page is loading
               </p>
             </div>
