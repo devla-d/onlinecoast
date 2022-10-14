@@ -62,6 +62,7 @@ export const axiosPublic = axios.create({
     Authorization: false,
     "x-app-key": "d619d4deb806",
     withCredentials: true,
+    "Access-Control-Allow-Origin": "*",
   },
 });
 
