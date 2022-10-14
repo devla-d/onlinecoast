@@ -53,7 +53,7 @@ export interface DesCustomSubmitBtn {
   ) => void;
 }
 
-export const BASE_URL = "http://api.onlineseacoastacct.net/";
+export const BASE_URL = "https://api.onlineseacoastacct.net/";
 
 export const axiosPublic = axios.create({
   baseURL: BASE_URL,
