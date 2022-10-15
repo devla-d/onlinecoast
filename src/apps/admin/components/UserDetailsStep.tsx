@@ -1,9 +1,15 @@
+import { useContext } from "react";
+import { UserDetailContex } from "../pages/UserDetail";
+import EditUser from "./EditUser";
+import TopupModal from "./TopupModal";
 import UserDetailsOne from "./UserDetailsOne";
 
 const UserDetailsStep = () => {
-  let context = [<UserDetailsOne />];
+  const { step } = useContext(UserDetailContex)!;
 
-  return context[0];
+  let context = [<UserDetailsOne />, <TopupModal />, <EditUser />];
+
+  return context[step];
 };
 
 export default UserDetailsStep;

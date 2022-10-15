@@ -1,48 +1,10 @@
-import { DesUser } from "@/apps/auth/utils";
-import useAxiosPrivate from "@/hooks/useAxiosPrivate";
-import useUtils from "@/hooks/useUtils";
 import { BASE_URL } from "@/utils";
-import { AxiosError } from "axios";
-import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import EditUser from "./EditUser";
-import TopupModal from "./TopupModal";
-
-interface DesUserResponse {
-  user: DesUser;
-  totalRecieved: number;
-  totalSent: number;
-}
+import { useContext } from "react";
+import { UserDetailContex } from "../pages/UserDetail";
 
 const UserDetailsOne = () => {
-  const axiosPrivate = useAxiosPrivate();
-  useUtils("User details");
-  const [user, setuser] = useState<DesUser>();
-  const [totalRecieved, settotalRecieved] = useState(0);
-  const [totalSent, settotalSent] = useState(0);
-  const navigate = useNavigate();
-  const { id } = useParams();
-  useEffect(() => {
-    axiosPrivate
-      .get<DesUserResponse>(`/admin/all-users/${id}`)
-      .then(({ data }) => {
-        setuser(data.user);
-        settotalRecieved(data.totalRecieved);
-        settotalSent(data.totalSent);
-      })
-      .catch((e) => {
-        let er = e as AxiosError;
-        console.log(er);
-        if (er.response?.status == 404) {
-          navigate("/not-found");
-        }
-      });
-
-    return () => {
-      setuser(undefined);
-    };
-  }, [id]);
-
+  const { user, totalRecieved, totalSent, setstep } =
+    useContext(UserDetailContex)!;
   return (
     <>
       <div className="row justify-content-center">
@@ -113,23 +75,23 @@ const UserDetailsOne = () => {
                   <div className="d-flex space-bt">
                     <button
                       type="button"
-                      data-toggle="modal"
-                      data-target="#topupModal"
+                      onClick={() => {
+                        setstep(1);
+                      }}
                       className="btn btn-success"
                     >
                       <i className="fas fa-donate"></i> Top Up
                     </button>
 
-                    <a
+                    <button
                       type="button"
-                      data-toggle="modal"
-                      data-target="#editModal"
-                      role={"button"}
-                      href="#"
+                      onClick={() => {
+                        setstep(2);
+                      }}
                       className="btn btn-primary"
                     >
                       <i className="fas fa-pen"></i> Edit
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -147,9 +109,6 @@ const UserDetailsOne = () => {
           )}
         </div>
       </div>
-
-      <TopupModal user={user} id={id} setuser={setuser} />
-      <EditUser user={user} setuser={setuser} />
     </>
   );
 };
