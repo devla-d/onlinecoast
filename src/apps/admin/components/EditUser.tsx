@@ -8,7 +8,7 @@ import ReactDOM from "react-dom";
 import { toast } from "react-toastify";
 
 interface DecEditUser {
-  user: DesUser;
+  user?: DesUser;
   setuser: React.Dispatch<React.SetStateAction<DesUser | undefined>>;
 }
 
@@ -18,6 +18,7 @@ interface DesUserResponse {
 }
 
 const EditUser = ({ user, setuser }: DecEditUser) => {
+  if (!user) return <h1>No User</h1>;
   var closeBtn = document.getElementById("closeBtn2") as HTMLButtonElement;
   const dialog = document.getElementById("dialog-wrapper") as HTMLDivElement;
   const axiosPrivate = useAxiosPrivate();

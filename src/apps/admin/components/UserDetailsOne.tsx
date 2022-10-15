@@ -147,12 +147,9 @@ const UserDetailsOne = () => {
           )}
         </div>
       </div>
-      {user ? (
-        <>
-          <TopupModal user={user} setuser={setuser} />
-          <EditUser user={user} setuser={setuser} />
-        </>
-      ) : null}
+
+      <TopupModal user={user} id={id} setuser={setuser} />
+      <EditUser user={user} setuser={setuser} />
     </>
   );
 };

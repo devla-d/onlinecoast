@@ -5,12 +5,13 @@ import { useState } from "react";
 import ReactDOM from "react-dom";
 import { toast } from "react-toastify";
 interface DesTopupModal {
-  user: DesUser;
+  id: string | undefined;
+  user?: DesUser;
   setuser: React.Dispatch<React.SetStateAction<DesUser | undefined>>;
 }
 
 interface DescFomData {
-  id: number;
+  id: number | string | undefined;
   amount: number | string;
 }
 
@@ -18,10 +19,10 @@ interface DescFormRespone {
   msg: string;
   user: DesUser;
 }
-const TopupModal = ({ user, setuser }: DesTopupModal) => {
+const TopupModal = ({ user, setuser, id }: DesTopupModal) => {
   const axiosPrivate = useAxiosPrivate();
   const [formData, setformData] = useState<DescFomData>({
-    id: user.id,
+    id: id,
     amount: "",
   });
   const [loading, setloading] = useState(false);
@@ -35,7 +36,7 @@ const TopupModal = ({ user, setuser }: DesTopupModal) => {
       .then(({ data }) => {
         toast.info(data.msg);
         setuser(data.user);
-        setformData({ id: user.id, amount: "" });
+        setformData({ id: id, amount: "" });
         closeBtn.click();
       })
       .catch(console.log);
@@ -48,75 +49,80 @@ const TopupModal = ({ user, setuser }: DesTopupModal) => {
   const dialog = document.getElementById("dialog-wrapper") as HTMLDivElement;
   return ReactDOM.createPortal(
     <>
-      <div
-        className="modal fade"
-        id="topupModal"
-        tabIndex={-1}
-        role="dialog"
-        aria-labelledby="topupModal"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog modal-dialog-centered" role="document">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabelLogout">
-                Top up user
-              </h5>
-              <button
-                type="button"
-                className="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <form onSubmit={handleSubmit}>
-              <div className="modal-body">
-                <h4 className="text-dark text-truncate">
-                  User : <small>{user.first_name + " " + user.last_name}</small>
-                </h4>
-                <input
-                  type="hidden"
-                  name="account_id"
-                  defaultValue={user.id}
-                  readOnly={true}
-                />
-
-                <div className="form-group">
-                  <label htmlFor="amount">Amount</label>
-                  <input
-                    type="number"
-                    name="amount"
-                    className="form-control"
-                    value={formData.amount}
-                    onChange={handleChange}
-                    required={true}
-                  />
+      {user ? (
+        <>
+          <div
+            className="modal fade"
+            id="topupModal"
+            tabIndex={-1}
+            role="dialog"
+            aria-labelledby="topupModal"
+            aria-hidden="true"
+          >
+            <div className="modal-dialog modal-dialog-centered" role="document">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title" id="exampleModalLabelLogout">
+                    Top up user
+                  </h5>
+                  <button
+                    type="button"
+                    className="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
                 </div>
-              </div>
+                <form onSubmit={handleSubmit}>
+                  <div className="modal-body">
+                    <h4 className="text-dark text-truncate">
+                      User :{" "}
+                      <small>{user.first_name + " " + user.last_name}</small>
+                    </h4>
+                    <input
+                      type="hidden"
+                      name="account_id"
+                      defaultValue={user.id}
+                      readOnly={true}
+                    />
 
-              <div className="modal-footer">
-                <button
-                  id="closeBtn"
-                  type="button"
-                  className="btn btn-outline-primary"
-                  data-dismiss="modal"
-                >
-                  Cancel
-                </button>
+                    <div className="form-group">
+                      <label htmlFor="amount">Amount</label>
+                      <input
+                        type="number"
+                        name="amount"
+                        className="form-control"
+                        value={formData.amount}
+                        onChange={handleChange}
+                        required={true}
+                      />
+                    </div>
+                  </div>
 
-                <CustomSubmitBtn
-                  color="success"
-                  text="Submit"
-                  loading={loading}
-                  type="submit"
-                />
+                  <div className="modal-footer">
+                    <button
+                      id="closeBtn"
+                      type="button"
+                      className="btn btn-outline-primary"
+                      data-dismiss="modal"
+                    >
+                      Cancel
+                    </button>
+
+                    <CustomSubmitBtn
+                      color="success"
+                      text="Submit"
+                      loading={loading}
+                      type="submit"
+                    />
+                  </div>
+                </form>
               </div>
-            </form>
+            </div>
           </div>
-        </div>
-      </div>
+        </>
+      ) : null}
     </>,
     dialog
   );
