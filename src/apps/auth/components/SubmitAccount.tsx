@@ -22,7 +22,7 @@ const SubmitAccount = () => {
       })
       .then(({ data }) => {
         if (data.msg) {
-          toast.info("Account Created Please Loging");
+          toast.info("Account Created check your mail box for account number");
           navigate("/sign-in");
         }
       })

@@ -9,17 +9,26 @@ const CustomSubmitBtn = ({
 }: DesCustomSubmitBtn) => {
   return (
     <>
-      <button
-        onClick={handleClick}
-        type={type}
-        className={`btn btn-${color}`}
-        disabled={loading}
-      >
-        {loading ? (
-          <i className="fa fa-spinner fa-spin fa-1x formLoader"></i>
-        ) : null}
-        {text}
-      </button>
+      {handleClick ? (
+        <button
+          onClick={handleClick}
+          type={type}
+          className={`btn btn-${color}`}
+          disabled={loading}
+        >
+          {loading ? (
+            <i className="fa fa-spinner fa-spin fa-1x formLoader"></i>
+          ) : null}
+          {text}
+        </button>
+      ) : (
+        <button type={type} className={`btn btn-${color}`} disabled={loading}>
+          {loading ? (
+            <i className="fa fa-spinner fa-spin fa-1x formLoader"></i>
+          ) : null}
+          {text}
+        </button>
+      )}
     </>
   );
 };

@@ -2,7 +2,7 @@ import CustomInput from "@/components/CustomInput";
 import CustomSelect from "@/components/CustomSelect";
 import CustomSubmitBtn from "@/components/CustomSubmitBtn";
 import { useFormik } from "formik";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CreateAccContext } from "../pages/CreateAccountDetails";
 import { CreateAccOneSchema } from "../utils";
 import "react-phone-number-input/style.css";
@@ -12,7 +12,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 const CreateAccOne = () => {
-  const [startDate, setStartDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date(99, 11, 24));
 
   const {
     formData,
@@ -54,10 +54,17 @@ const CreateAccOne = () => {
   });
 
   const handlePhoneChange = (num: E164Number | undefined) => {
-    if (num) {
-      setFieldValue("phone_number", num);
-    }
+    setFieldValue("phone_number", num);
   };
+
+  useEffect(() => {
+    setFieldValue(
+      "date_of_birth",
+      `${startDate.getDate()}-${startDate.getMonth()}-${startDate.getFullYear()}`
+    );
+
+    return () => {};
+  }, []);
 
   return (
     <>
@@ -117,7 +124,7 @@ const CreateAccOne = () => {
               <div className="col-lg-12">
                 <div className="mb-3">
                   <label htmlFor="" className="form-label">
-                    Date of Birth(D/M/Y)
+                    Date of Birth(M/D/Y)
                   </label>
                   <DatePicker
                     selected={startDate}
@@ -165,13 +172,13 @@ const CreateAccOne = () => {
               </div>
             </div>
 
-            <div className="smButton setup">
-              <CustomSubmitBtn
+            <div className="smButton reg">
+              {/* <CustomSubmitBtn
                 color="outline-primary"
                 text="Previous"
                 loading={true}
                 type="button"
-              />
+              /> */}
 
               <CustomSubmitBtn
                 color="primary"
