@@ -71,8 +71,11 @@ const Contact = () => {
                     <i className="contacts-support__icon sp--icon"></i>
                     <div className="contacts-support__title">Support</div>
                     <div className="contacts-support__value">
-                      <a href="#" target="_blank">
-                        Support@{" "}
+                      <a
+                        href="mailto:support@onlineseacoastacct.net"
+                        target="_blank"
+                      >
+                        support@onlineseacoastacct.net
                       </a>
                     </div>
                   </div>

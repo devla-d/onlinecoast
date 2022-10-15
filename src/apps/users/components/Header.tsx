@@ -1,10 +1,19 @@
-import { useAppSelector } from "@/hooks/useStore";
+import { resetUser } from "@/apps/auth/slicer";
+import { useAppDispatch, useAppSelector } from "@/hooks/useStore";
 import { BASE_URL } from "@/utils";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { toggleSidebar } from "../utils";
 
 const Header = () => {
   const user = useAppSelector((state) => state.user.user)!;
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const logout = () => {
+    dispatch(resetUser());
+    toast.info("Logged out");
+    navigate("/sign-in");
+  };
   return (
     <>
       <header id="userHeader">
@@ -15,7 +24,7 @@ const Header = () => {
           <div className="menu">
             <ul>
               <li data-aos="fade-left" data-aos-delay="100">
-                <a href="mailto:samuelaniekan680@mail.com">
+                <a href="mailto:support@onlineseacoastacct.net">
                   <i className="fa-solid fa-envelope" data-ballon></i>
                 </a>
               </li>
@@ -65,8 +74,10 @@ const Header = () => {
                           className="avatar-lg rounded-circle mr-3"
                         />
                         <div className="media-body text-truncate">
-                          <h4>Samuel Aniekan</h4>
-                          <p className="text-muted">92829283038040</p>
+                          <h4>
+                            {user.first_name} {user.last_name}
+                          </h4>
+                          <p className="text-muted">{user.account_number}</p>
                         </div>
                       </div>
                     </li>
@@ -77,7 +88,11 @@ const Header = () => {
                       </Link>
                     </li>
                     <li>
-                      <a className="dropdown-item" href="#">
+                      <a
+                        onClick={() => logout()}
+                        className="dropdown-item"
+                        href="#"
+                      >
                         <i className="fas fa-sign-out-alt"></i>
                         Logout
                       </a>
