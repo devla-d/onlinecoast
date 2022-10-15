@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import useUtils from "../../../hooks/useUtils";
 
 const Home = () => {
@@ -18,9 +19,9 @@ const Home = () => {
                   Banking made easy, more secure &#38; more personal
                 </h5>
                 <div>
-                  <a href="#" className="btn btn-primary">
+                  <Link to="/about" className="btn btn-primary">
                     learn more
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -33,9 +34,9 @@ const Home = () => {
                 </h5>
 
                 <div className="text-center">
-                  <a href="#" className="btn btn-primary">
+                  <Link to="/sign-up" className="btn btn-primary">
                     get started
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -124,10 +125,7 @@ const Home = () => {
                   <h3>Safe and Secure</h3>
                 </div>
                 <div className="featureText">
-                  <p>
-                    Explore the power of simpler and smarter banking. Bank
-                    online with over 250 services
-                  </p>
+                  <p>Keep Your Children Safe from Financial Fraud</p>
                 </div>
               </div>
             </div>
@@ -186,10 +184,7 @@ const Home = () => {
                 </div>
                 <div className="serviceTxtbox">
                   <h2>Investments</h2>
-                  <p>
-                    Etam cursus lectus nec tortor sagittis, at ultrices diam
-                    tempus. Nullam scelerisque lectus a viverra adipiscin.
-                  </p>
+                  <p>Mindful Planning of Monetary Spending and Saving.</p>
                 </div>
               </div>
             </div>
@@ -201,8 +196,8 @@ const Home = () => {
                 <div className="serviceTxtbox">
                   <h2>Superior Advice</h2>
                   <p>
-                    Etam cursus lectus nec tortor sagittis, at ultrices diam
-                    tempus. Nullam scelerisque lectus a viverra adipiscin.
+                    Find all the support and information they need to make all
+                    decisions about saving for your future.
                   </p>
                 </div>
               </div>
@@ -214,10 +209,7 @@ const Home = () => {
                 </div>
                 <div className="serviceTxtbox">
                   <h2>Household Savings</h2>
-                  <p>
-                    Etam cursus lectus nec tortor sagittis, at ultrices diam
-                    tempus. Nullam scelerisque lectus a viverra adipiscin.
-                  </p>
+                  <p>We’re a group of professional money planners.</p>
                 </div>
               </div>
             </div>
@@ -228,10 +220,7 @@ const Home = () => {
                 </div>
                 <div className="serviceTxtbox">
                   <h2>Private Banking</h2>
-                  <p>
-                    Etam cursus lectus nec tortor sagittis, at ultrices diam
-                    tempus. Nullam scelerisque lectus a viverra adipiscin.
-                  </p>
+                  <p>Banking more securely and privately</p>
                 </div>
               </div>
             </div>
@@ -242,10 +231,7 @@ const Home = () => {
                 </div>
                 <div className="serviceTxtbox">
                   <h2>Insurance</h2>
-                  <p>
-                    Etam cursus lectus nec tortor sagittis, at ultrices diam
-                    tempus. Nullam scelerisque lectus a viverra adipiscin.
-                  </p>
+                  <p>ROAD TO SUCCESS</p>
                 </div>
               </div>
             </div>
@@ -256,10 +242,7 @@ const Home = () => {
                 </div>
                 <div className="serviceTxtbox">
                   <h2>Legal Advice</h2>
-                  <p>
-                    Etam cursus lectus nec tortor sagittis, at ultrices diam
-                    tempus. Nullam scelerisque lectus a viverra adipiscin.
-                  </p>
+                  <p>We Solve Your Financial Problem.</p>
                 </div>
               </div>
             </div>
@@ -293,7 +276,7 @@ const Home = () => {
           <div className="secivBox">
             <i className="fa-solid fa-globe"></i>
             <h4>Users</h4>
-            <p>54</p>
+            <p>54k+</p>
           </div>
         </div>
       </section>
@@ -344,9 +327,9 @@ const Home = () => {
             <p>Mobile banking application with new &amp; exciting features.</p>
           </div>
           <div data-aos="fade-left">
-            <a href="#" className="btn btn-primary">
+            <Link to="/sign-up" className="btn btn-primary">
               Get started
-            </a>
+            </Link>
           </div>
         </div>
       </section>

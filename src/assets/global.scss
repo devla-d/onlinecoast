@@ -47,6 +47,9 @@ body {
     display: none !important;
   }
 }
+div#root {
+  overflow-x: hidden;
+}
 .breadcrumb li {
   color: $primary;
   text-transform: capitalize;
