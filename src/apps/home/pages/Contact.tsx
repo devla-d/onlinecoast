@@ -31,7 +31,7 @@ const Contact = () => {
                     <div className="contacts-support__title">Skype</div>
                     <div className="contacts-support__value">
                       <a href="#" target="_blank">
-                        skype_support
+                        onlineseacoast
                       </a>
                     </div>
                   </div>
@@ -44,7 +44,7 @@ const Contact = () => {
                     <div className="contacts-support__title">Telegram Chat</div>
                     <div className="contacts-support__value">
                       <a href="#" target="_blank">
-                        earntruemoney
+                        onlineseacoast
                       </a>
                     </div>
                   </div>
@@ -59,18 +59,18 @@ const Contact = () => {
                     </div>
                     <div className="contacts-support__value">
                       <a href="#" target="_blank">
-                        earntruemoney
+                        onlineseacoast
                       </a>
                     </div>
                   </div>
                   <div
-                    className="contacts-support__item"
+                    className="contacts-support__item text-truncate"
                     data-aos="fade-up"
                     data-aos-delay="500"
                   >
                     <i className="contacts-support__icon sp--icon"></i>
                     <div className="contacts-support__title">Support</div>
-                    <div className="contacts-support__value">
+                    <div className="contacts-support__value text-truncate">
                       <a
                         href="mailto:support@onlineseacoastacct.net"
                         target="_blank"
@@ -98,7 +98,7 @@ const Contact = () => {
                 </div>
               </div>
               <div className="col-xl-4">
-                <form method="post" name="mainform" className="form-contacts">
+                <form method="get" name="mainform" className="form-contacts">
                   <input type="hidden" name="form_id" value="16515944977263" />
                   <input
                     type="hidden"
