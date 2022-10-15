@@ -1,4 +1,5 @@
 import React from "react";
+import { toggleSidebarnav } from "../utils";
 
 const Topbar = () => {
   return (
@@ -7,6 +8,9 @@ const Topbar = () => {
         <button
           id="sidebarToggleTop"
           className="btn btn-link rounded-circle mr-3"
+          onClick={() => {
+            toggleSidebarnav();
+          }}
         >
           <i className="fa fa-bars"></i>
         </button>
