@@ -85,7 +85,7 @@ const TransferToOtherOne = () => {
             <CustomInput
               handleBlur={handleBlur}
               handleChange={handleChange}
-              label="Beneficiary account name"
+              label="Beneficiary account number"
               name="ben_account_number"
               type="text"
               value={values.ben_account_number}
